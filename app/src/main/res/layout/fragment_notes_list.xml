@@ -9,48 +9,30 @@
     android:layout_margin="16dp">
 
     <Button
-        android:id="@+id/btnAllEvents"
+        android:id="@+id/btnAllNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Eventos"
+        android:text="Anotaciones"
         />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvEvents"
+        android:id="@+id/rcvNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAllEvents"
+        app:layout_constraintTop_toBottomOf="@id/btnAllNotes"
         />
 
     <Button
-        android:id="@+id/btnEventsComp"
+        android:id="@+id/btnAddNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rcvEvents"
-        android:text="Eventos completados"
-        />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvEventsComp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnEventsComp"
-        />
-
-    <Button
-        android:id="@+id/btnAddEvent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rcvEventsComp"
+        app:layout_constraintTop_toBottomOf="@id/rcvNotes"
         android:layout_marginTop="20dp"
         android:text="Añadir"
         />
