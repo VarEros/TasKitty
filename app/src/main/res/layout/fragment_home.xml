@@ -6,54 +6,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:layout_margin="16dp">
+    android:padding="15dp"
+    android:background="@color/background_main">
 
-    <Button
-        android:id="@+id/btnAllEvents"
+    <FrameLayout
+        android:id="@+id/lfEvents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Eventos"
-        />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnAllEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/event_home_button"
+            android:text="@string/notes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/k2d_bold"
+            android:text="@string/notes"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22dp" />
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:padding="5dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_elements" />
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvEvents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAllEvents"
+        app:layout_constraintTop_toBottomOf="@id/lfEvents"
         />
 
-    <Button
-        android:id="@+id/btnAllNotes"
+
+    <FrameLayout
+        android:id="@+id/lfNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rcvEvents"
         android:layout_marginTop="20dp"
-        android:text="Anotaciones"
-        />
+        app:flow_verticalAlign="center"
+        app:flow_horizontalAlign="center">
+
+        <ImageButton
+            android:id="@+id/btnAllNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/event_home_button"
+            android:text="@string/event"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/k2d_bold"
+            android:text="@string/event"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22dp" />
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:padding="5dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/ic_elements" />
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAllNotes"
+        app:layout_constraintTop_toBottomOf="@id/lfNotes"
+        android:layout_marginTop="5dp"
         />
 
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rcvNotes"
-        android:layout_marginTop="20dp"
-        android:text="Añadir"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

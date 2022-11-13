@@ -3,14 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/activity_main.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_degraded.xml" value="0.251" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_sidebar.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/circular_element.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_element_home.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_home.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_home_bottom.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_home_button.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_internal_element.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/header_page_title.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_events.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_taskitty_icon.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/notes_element_modified.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/rectangular_element.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/taskitty_icon.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/font/fonts.xml" value="0.39166666666666666" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.22418478260869565" />
-        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_new_event.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_notes_list.xml" value="0.33" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/toolbar_title_layout.xml" value="0.33" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/menu/main_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2495" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2495" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/activity_main.xml" value="0.3484375" />
-        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.3625" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_new_event.xml" value="0.3625" />
-        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_notes_list.xml" value="0.3625" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/menu/main_menu.xml" value="0.3625" />
       </map>
     </option>

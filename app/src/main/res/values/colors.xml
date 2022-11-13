@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="background_main">#edffd8</color>
+    <color name="main_color">#b69c7c</color>
+    <color name="mid_white">#faf4eb</color>
+    <color name="middle_white">#CFC9C0</color>
+    <color name="light_green">#c3ff99</color>
+    <color name="down_green">#63844c</color>
+    <color name="border_green">#405531</color>
+    <color name="dark_green">#314226</color>
+
+    <color name="border_yellow">#a49949</color>
+    <color name="back_yellow">#fff9ca</color>
+    <color name="content_yellow">#ead59f</color>
+    <color name="dark_yellow">#c1965e</color>
+
+    <color name="side_yellow">#ead59f</color>
+    <color name="top_brown">#4d3c26</color>
+    
+    <color name="yellow_tone_1">#ead59f</color>
+    <color name="yellow_tone_2">#eadcb7</color>
+
+    <color name="font_yellow_black">#666451</color>
+
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

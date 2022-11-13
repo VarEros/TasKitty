@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="@color/border_green"
+                android:endColor="@color/dark_green"/>
+            <corners
+                android:bottomRightRadius="5dp" android:bottomLeftRadius="5dp"
+                android:topLeftRadius="5dp" android:topRightRadius="5dp"/>
+            <stroke
+                android:width="5dp"
+                android:color="@color/border_green"
+                />
+        </shape>
+    </item>
+
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="@color/border_green"
+                android:endColor="@color/down_green"/>
+            <corners
+                android:bottomRightRadius="5dp" android:bottomLeftRadius="5dp"
+                android:topLeftRadius="5dp" android:topRightRadius="5dp"/>
+            <stroke
+                android:width="5dp"
+                android:color="@color/down_green"
+                />
+        </shape>
+    </item>
+
+    <item android:state_hovered="true">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="@color/border_green"
+                android:endColor="@color/light_green"/>
+            <corners
+                android:bottomRightRadius="5dp" android:bottomLeftRadius="5dp"
+                android:topLeftRadius="5dp" android:topRightRadius="5dp"/>
+            <stroke
+                android:width="5dp"
+                android:color="@color/down_green"
+                />
+        </shape>
+    </item>
+
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:startColor="@color/border_green"
+                android:endColor="@color/down_green"/>
+            <corners
+                android:bottomRightRadius="5dp" android:bottomLeftRadius="5dp"
+                android:topLeftRadius="5dp" android:topRightRadius="5dp"/>
+            <stroke
+                android:width="5dp"
+                android:color="@color/border_green"
+                />
+        </shape>
+    </item>
+
+</selector>

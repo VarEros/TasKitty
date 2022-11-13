@@ -1,5 +1,44 @@
 <resources>
     <string name="app_name">TasKitty</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+    <!--General app text-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="did_you_know">Sabías qué...</string>
+    <string name="more_info">Saber más</string>
+    <string name="app_customize">Personalizacion</string>
+    <string name="app_colors">Colores</string>
+    <string name="app_save">Guardar</string>
+    <string name="app_discard">Descartar</string>
+    <string name="calendar">Calendario</string>
+    <string name="events">Eventos</string>
+    <string name="themes">Temas(Prox.)</string>
+    <string name="aboutus">Acerca de</string>
+
+    <!--Texts for events-->
+    <string name="event">Eventos</string>
+    <string name="event_create">Crear un nuevo evento</string>
+    <string name="event_title">Título del evento</string>
+    <string name="event_desc">Descripción del evento</string>
+    <string name="event_progr">Programación del evento</string>
+    <string name="event_start">Inicio del evento</string>
+    <string name="event_end">Final del evento</string>
+    <string name="completed_events">Eventos completados</string>
+    <string name="coming_events">Próximos eventos</string>
+
+    <!--Texts for notes-->
+    <string name="notes">Anotaciones</string>
+    <string name="notes_create">Crear una nueva anotación</string>
+    <string name="notes_title">Título de la anotación</string>
+    <string name="notes_desc">Descripción de la anotación</string>
+    <string name="notes_modified">Modificado: </string>
+
+    <!--Texts for charity-->
+    <string name="charity">Caridad</string>
+    <string name="charity_org">Organizaciones benéficas</string>
+    <string name="charity_donate">¿Por qué donar?</string>
+
+    <!--placeholders-->
+    <string name="charity_desc">Descripción para la caridad</string>
+
 </resources>
