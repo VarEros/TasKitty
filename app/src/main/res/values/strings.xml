@@ -25,6 +25,8 @@
     <string name="event_end">Final del evento</string>
     <string name="completed_events">Eventos completados</string>
     <string name="coming_events">Próximos eventos</string>
+    <string name="programfor_events">Programado para: </string>
+
 
     <!--Texts for notes-->
     <string name="notes">Anotaciones</string>

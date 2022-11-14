@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/k2d_bold"
+            android:fontFamily="@font/kadwa_bold"
             android:text="Anotaciones"
             android:textSize="22dp"
             android:textColor="@color/white"
