@@ -6,31 +6,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:layout_margin="16dp">
+    android:padding="16dp"
+    android:background="@color/background_main">
 
     <FrameLayout
         android:id="@+id/layoutFrameButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
-    <ImageButton
-        android:id="@+id/btnAllNotes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/header_page_title"
-        android:text="button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnAllNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/header_page_title"
+            android:text="button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/kadwa_bold"
             android:text="Anotaciones"
-            android:textSize="22dp"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textAlignment="center" />
+            android:textSize="22dp" />
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -41,18 +43,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutFrameButton"
         />
-
-    <Button
-        android:id="@+id/btnAddNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rcvNotes"
-        android:layout_marginTop="20dp"
-        android:text="Añadir"
-        />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
