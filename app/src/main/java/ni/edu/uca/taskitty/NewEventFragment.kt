@@ -17,6 +17,8 @@ class NewEventFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_new_event, container, false)
+
+        binding = FragmentNewEventBinding.inflate(inflater, container, false)
+        return binding.root;
     }
 }

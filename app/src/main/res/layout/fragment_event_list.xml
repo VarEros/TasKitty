@@ -65,11 +65,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/kadwa_bold"
             android:text="@string/completed_events"
             android:textAlignment="center"
+            android:fontFamily="@font/kadwa_bold"
             android:textColor="@color/white"
-            android:textSize="22dp" />
+            android:textSize="22dp"
+            />
     </FrameLayout>
 
     <FrameLayout
@@ -78,6 +79,17 @@
         app:layout_constraintTop_toBottomOf="@id/lfEventsComp"
         android:background="@drawable/event_home_button"
         android:padding="10dp">
+
+        <TextView
+            android:id="@+id/notElements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="No hay elementos por mostrar"
+            android:fontFamily="@font/kadwa_bold"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvEventsComp"
