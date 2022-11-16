@@ -3,13 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.183" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_sidebar.xml" value="0.2775" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/circular_element.xml" value="0.2885" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_element_bottom.xml" value="0.14" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_element_home.xml" value="0.1395" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_element_top.xml" value="0.1395" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_home_bottom.xml" value="0.1395" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_home_button.xml" value="0.1395" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_internal_element.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/event_mid_element.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/header_page_title.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_elements.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_events.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_launcher_background.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_star.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/ic_taskitty_icon.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/note_internal_bottom_element.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/notes_element_modified.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/rectangular_element.xml" value="0.183" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/activity_main.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/charity_element.xml" value="0.5" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_element.xml" value="0.39823008849557523" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_item.xml" value="0.3625" />
-        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.5" />
-        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.22418478260869565" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.25" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_new_event.xml" value="0.3625" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_notes_list.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/note_item.xml" value="0.3625" />

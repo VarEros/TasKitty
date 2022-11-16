@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ni.edu.uca.taskitty.adapter.EventRecycler
 import ni.edu.uca.taskitty.databinding.FragmentEventListBinding
 import ni.edu.uca.taskitty.model.Event
+import java.lang.Math.round
 import java.util.*
 
 class EventListFragment : Fragment() {
@@ -19,7 +20,8 @@ class EventListFragment : Fragment() {
     private var eventList : MutableList<Event> = mutableListOf()
     private var eventListNormal : MutableList<Event> = mutableListOf()
     private var eventListCompleted : MutableList<Event> = mutableListOf()
-    private lateinit var recycler :  RecyclerView
+    private lateinit var recyclerNormal :  RecyclerView
+    private lateinit var recyclerCompleted :  RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,29 +40,54 @@ class EventListFragment : Fragment() {
         binding.btnAddEvent.setOnClickListener {
             findNavController().navigate(R.id.newEventFragment)
         }
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Evento prueba","No se que poner xd",false,null,"#00000000"))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Evento prueba 2","No se que poner xdxdasdasd",false,null,"#00000000"))
-        establecerEventAdapter()
 
+        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,1))
+        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,1))
+        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),true,"Ponce también","No se que poner xd",false,1))
+
+
+        filtrateElements()
+        checkCompletedElements()
+        establecerEventAdapter()
     }
 
     private fun establecerEventAdapter(){
-        recycler = binding.rcvEvents
-        recycler.layoutManager = LinearLayoutManager(binding.root.context);
-        recycler.adapter = EventRecycler(binding.root.context, eventList)
+        recyclerNormal = binding.rcvEvents
+        recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
+        recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,1)
+        recyclerCompleted = binding.rcvEventsComp
+        recyclerCompleted.layoutManager = LinearLayoutManager(binding.root.context)
+        recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3)
     }
 
     private fun checkCompletedElements(){
-        if(eventList.size < 1){
+        if(eventListCompleted.size < 1){
+            binding.rcvEventsComp.visibility = View.INVISIBLE;
             return
         }
+        binding.rcvEventsComp.visibility = View.VISIBLE;
         binding.notElements.visibility = View.INVISIBLE;
     }
 
     private fun filtrateElements(){
-
-
-
+        for(event in eventList){
+            if(event.finished){
+                eventListCompleted.add(event)
+            } else{
+                eventListNormal.add(event)
+            }
+        }
+        eventList = mutableListOf();
     }
+
+    /*
+    private fun screenElementsAdapter(){
+        context?.let {
+            val displayMetrics = it.resources.displayMetrics
+            val dpHeight = displayMetrics.heightPixels / displayMetrics.density
+            val dpWidth = displayMetrics.widthPixels / displayMetrics.density
+            binding.rcvEvents.height = round(dpHeight * 0.7).toInt();
+        }
+*/
 
 }

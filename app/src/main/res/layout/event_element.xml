@@ -6,76 +6,78 @@
     android:layout_height="wrap_content"
     android:layout_marginVertical="2dp">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/event_element_home">
+        android:layout_height="match_parent">
 
-        <TableLayout
+        <ImageButton
+            android:id="@+id/btnEnterEvent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/event_element_home" />
 
-            <TableRow
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                >
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/appCompatImageView"
-                    android:layout_width="27dp"
-                    android:layout_height="27dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="6dp"
-                    android:src="@drawable/circular_element"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <TextView
-                    android:id="@+id/tvEventTitle"
+                android:layout_height="wrap_content"
+                android:rotation="360">
+                <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/kadwa_bold"
-                    android:text="@string/event_title"
-                    android:textColor="@color/black" />
-            </TableRow>
-        </TableLayout>
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/appCompatImageView"
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:layout_marginLeft="6dp"
+                        android:padding="5dp"
+                        android:src="@drawable/circular_element"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/tvEventTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:text="@string/event_title"
+                        android:textColor="@color/black" />
+                </TableRow>
+            </TableLayout>
 
-        <TextView
-            android:id="@+id/tvNoteDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/notes_desc"
-            android:textSize="12dp"
-            android:paddingVertical="5dp"
-            android:padding="5dp"
-            android:layout_margin="5dp"
-            android:fontFamily="@font/kadwa_regular"
-            android:background="@drawable/event_mid_element"
-            android:textColor="@color/black"
-            />
+            <TextView
+                android:id="@+id/tvNoteDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/event_mid_element"
+                android:fontFamily="@font/kadwa_regular"
+                android:padding="5dp"
+                android:paddingVertical="5dp"
+                android:text="@string/notes_desc"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
 
-        <TextView
-            android:id="@+id/tvNoteTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/programfor_events"
-            android:textSize="12dp"
-            android:paddingVertical="5dp"
-            android:textAlignment="center"
-            android:padding="5dp"
-            android:layout_marginBottom="7dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:fontFamily="@font/kadwa_bold"
-            android:background="@drawable/event_home_bottom"
-            android:textColor="@color/white"
-            />
+            <TextView
+                android:id="@+id/tvNoteTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/event_home_bottom"
+                android:fontFamily="@font/kadwa_bold"
+                android:padding="5dp"
+                android:paddingVertical="5dp"
+                android:text="@string/programfor_events"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </FrameLayout>
 
-
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

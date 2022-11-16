@@ -6,13 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.adapter.EventRecycler
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
+import ni.edu.uca.taskitty.model.Event
+import java.util.*
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private var eventList : MutableList<Event> = mutableListOf()
+    private lateinit var recyclerNormal : RecyclerView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        eventList.add(Event(1, Calendar.getInstance(),
+            Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,1))
     }
 
     override fun onCreateView(
@@ -33,5 +43,15 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(R.id.notesListFragment)
             }
         }
+
+        establecerEventAdapter()
+
+    }
+
+    private fun establecerEventAdapter(){
+        recyclerNormal = binding.rcvEventFix
+        recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
+        recyclerNormal.adapter = EventRecycler(binding.root.context, eventList,2)
+
     }
 }

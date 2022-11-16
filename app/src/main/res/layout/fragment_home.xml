@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:padding="15dp"
+    android:paddingHorizontal="10dp"
     android:background="@color/background_main">
 
     <FrameLayout
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/kadwa_bold"
-            android:text="@string/notes"
+            android:text="@string/event"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="22dp" />
@@ -42,21 +42,56 @@
             android:src="@drawable/ic_elements" />
     </FrameLayout>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/glMid"
+        app:layout_constraintTop_toTopOf="@id/lfEvents"
+        app:layout_constraintGuide_percent=".4"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/glStart"
+        app:layout_constraintTop_toTopOf="@id/lfEvents"
+        app:layout_constraintGuide_percent="0"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/glEnd"
+        app:layout_constraintTop_toTopOf="@id/lfEvents"
+        app:layout_constraintGuide_percent="1"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvEventFix"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@id/lfNotes"
+        app:layout_constraintRight_toRightOf="@id/glMid"
+        app:layout_constraintStart_toStartOf="@id/glStart"
+        app:layout_constraintTop_toBottomOf="@id/lfEvents" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvEvents"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lfNotes"
+        app:layout_constraintRight_toRightOf="@id/glEnd"
+        app:layout_constraintStart_toEndOf="@+id/rcvEventFix"
         app:layout_constraintTop_toBottomOf="@id/lfEvents"
-        />
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <FrameLayout
         android:id="@+id/lfNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/rcvEvents"
+        app:layout_constraintTop_toBottomOf="@id/rcvEventFix"
         android:layout_marginTop="20dp"
         app:flow_verticalAlign="center"
         app:flow_horizontalAlign="center">
@@ -75,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/kadwa_bold"
-            android:text="@string/event"
+            android:text="@string/notes"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="22dp" />

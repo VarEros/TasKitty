@@ -2,6 +2,7 @@ package ni.edu.uca.taskitty.adapter
 
 import android.content.Context
 import android.icu.text.AlphabeticIndex
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import ni.edu.uca.taskitty.databinding.EventItemBinding
 import ni.edu.uca.taskitty.model.Event
 import java.util.*
 
-class EventRecycler(var context : Context, var eventsList: MutableList<Event>):
+class EventRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int):
     RecyclerView.Adapter<EventRecycler.eventHolder>() {
 
     inner class eventHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -24,6 +25,19 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>):
             eventTitle = itemView.findViewById(R.id.tvEventTitle)
             eventDesc = itemView.findViewById(R.id.tvNoteDesc)
             eventDate = itemView.findViewById(R.id.tvNoteTime)
+
+            when(mode){
+                1->{}
+                2 ->{
+                    eventTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP,12f)
+                    eventDesc.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
+                    eventDate.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
+                };
+                3->{
+                    eventDate.visibility = View.GONE
+                }
+            }
+
         }
     }
 
@@ -36,7 +50,9 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>):
         var event = eventsList[position]
         holder.eventTitle.text = event.title
         holder.eventDesc.text = event.description
-        holder.eventDate.text = event.dateEnd.time.toString()
+        holder.eventDate.text = "DataTimeDataFatCatFat"
+
+        // adjusts
 
     }
 

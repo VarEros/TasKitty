@@ -6,103 +6,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:padding="16dp"
+    android:paddingHorizontal="5dp"
     android:background="@color/background_main">
 
-    <FrameLayout
-        android:id="@+id/flEvents"
+    <TextView
+        android:id="@+id/eventTitleSep"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/btnAllNotes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/header_page_title"
-            android:text="button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/kadwa_bold"
-            android:text="@string/event"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="22dp" />
-    </FrameLayout>
-
+        android:fontFamily="@font/kadwa_bold"
+        android:text="@string/event"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="22dp"
+        android:background="@drawable/header_page_title"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvEvents"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="175dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/flEvents"
-        android:layout_marginVertical="5dp"
+        app:layout_constraintTop_toBottomOf="@id/eventTitleSep"            android:layout_marginVertical="5dp"
         />
 
-    <FrameLayout
-        android:id="@+id/lfEventsComp"
+
+    <TextView
+        android:id="@+id/eventCompSep"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kadwa_bold"
+        android:text="@string/completed_events"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:textSize="22dp"
+        android:background="@drawable/event_element_top"
         app:layout_constraintTop_toBottomOf="@id/rcvEvents"
-        android:layout_marginTop="5dp">
+        />
 
-        <ImageButton
-            android:id="@+id/btnEventsComp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/event_home_button"
-            android:text="button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/completed_events"
-            android:textAlignment="center"
-            android:fontFamily="@font/kadwa_bold"
-            android:textColor="@color/white"
-            android:textSize="22dp"
-            />
-    </FrameLayout>
-
-    <FrameLayout
+    <TextView
+        android:id="@+id/notElements"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/lfEventsComp"
-        android:background="@drawable/event_home_button"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/notElements"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="No hay elementos por mostrar"
-            android:fontFamily="@font/kadwa_bold"
-            android:textColor="@color/white"
-            android:textSize="12dp"
-            />
+        android:fontFamily="@font/kadwa_bold"
+        android:text="@string/non_elements"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        android:padding="5dp"
+        android:background="@drawable/event_element_bottom"
+        app:layout_constraintTop_toBottomOf="@id/eventCompSep"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvEventsComp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="175dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginVertical="5dp"
-        app:layout_constraintTop_toBottomOf="@id/lfEventsComp"
+        app:layout_constraintTop_toBottomOf="@id/eventCompSep"
+        android:background="@drawable/event_element_bottom"
+        android:padding="10dp"
         />
-
-
-
-    </FrameLayout>
 
     <Button
         android:id="@+id/btnAddEvent"
@@ -110,6 +74,7 @@
         android:layout_height="wrap_content"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

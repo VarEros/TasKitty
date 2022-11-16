@@ -4,10 +4,11 @@ import java.util.*
 
 class Note(
     private var idNote: Int,
+    var dateModified: Date?,
+
 
     title: String,
     description: String,
     fixed: Boolean,
-    dateModified: Date,
-    color: String
-): Task (title, description, fixed, dateModified, color)
+    color: Int
+): Task (title, description, fixed, color)

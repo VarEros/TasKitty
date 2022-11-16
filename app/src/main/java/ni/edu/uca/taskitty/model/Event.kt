@@ -11,6 +11,5 @@ class Event(
     title: String,
     description: String,
     fixed: Boolean,
-    dateModified: Date?,
-    color: String
-): Task (title, description, fixed, dateModified, color)
+    color: Int
+): Task (title, description, fixed, color)

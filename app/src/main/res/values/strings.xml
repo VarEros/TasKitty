@@ -26,6 +26,7 @@
     <string name="completed_events">Eventos completados</string>
     <string name="coming_events">Próximos eventos</string>
     <string name="programfor_events">Programado para: </string>
+    <string name="non_elements">No hay elementos por mostrar</string>
 
 
     <!--Texts for notes-->
