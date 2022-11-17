@@ -102,8 +102,8 @@
                 android:background="@drawable/event_edit_content"
                 android:fontFamily="@font/kadwa_bold"
                 android:hint="Descripción de ejemplo"
+                android:gravity="top"
                 android:padding="10dp"
-                android:textAlignment="textStart"
                 android:textColor="@color/font_yellow_black"
                 android:textSize="12dp" />
 
@@ -227,9 +227,23 @@
                 android:textSize="18dp"
                 />
 
+            <TextView
+                android:id="@+id/tvEventColor"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:fontFamily="@font/kadwa_bold"
+                android:text="@string/app_colors"
+                android:textAlignment="center"
+                android:textColor="@color/font_yellow_black"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/event_edit_content">
 
                 <RadioGroup
                     android:id="@+id/rgGroup"
