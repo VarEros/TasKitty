@@ -9,15 +9,25 @@
     android:paddingHorizontal="10dp"
     android:background="@color/back_yellow">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
     <TextView
         android:id="@+id/topTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/top_new_event"
+        android:fontFamily="@font/kadwa_bold"
         android:paddingVertical="7dp"
         android:text="@string/event_create"
         android:textAlignment="center"
-        android:fontFamily="@font/kadwa_bold"
         android:textColor="@color/white"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,19 +40,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/topTitle"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:padding="5dp"
-        android:background="@drawable/event_edit_content"
+        android:background="@drawable/event_home_bottom"
         >
 
         <ImageView
-            android:id="@+id/eventColor"
+            android:id="@+id/ivEventColor"
             android:layout_width="24dp"
             android:layout_height="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/circular_element"
+            />
+
+        <TextView
+            android:id="@+id/tvEventDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/kadwa_bold"
+            android:text="@string/event_details"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            app:layout_constraintRight_toLeftOf="@id/ivEventFix"
+            app:layout_constraintLeft_toRightOf="@id/ivEventColor"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ivEventFix"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_star"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -52,6 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/constTitle"
         android:background="@drawable/event_title_element">
 
@@ -68,32 +103,151 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/linearTopEvent"
-        android:layout_marginTop="10dp">
+        tools:layout_editor_absoluteX="10dp">
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/kadwa_bold"
-            android:textColor="@color/font_yellow_black"
-            android:text="@string/event_desc" />
+            android:text="@string/event_desc"
+            android:textColor="@color/font_yellow_black" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etTitleda"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
             android:background="@drawable/event_edit_content"
+            android:fontFamily="@font/kadwa_bold"
             android:hint="Descripción de ejemplo"
             android:padding="10dp"
             android:textAlignment="textStart"
-            android:fontFamily="@font/kadwa_bold"
             android:textColor="@color/font_yellow_black"
-            android:textSize="12dp"/>
+            android:textSize="12dp" />
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvProgramEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:background="@drawable/event_home_bottom"
+        android:paddingVertical="2dp"
+        android:text="@string/event_progr"
+        android:textAlignment="center"
+        android:fontFamily="@font/kadwa_bold"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintStartDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvProgramEvent"
+        android:layout_marginTop="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tvEventStart"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/kadwa_bold"
+            android:text="@string/event_start"
+            android:textSize="12dp"
+            android:textColor="@color/font_yellow_black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/btnEstabStart"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:background="@drawable/event_home_button"
+            android:fontFamily="@font/kadwa_bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Establecer"
+            android:textAllCaps="false"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvStartPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/constraintStartDate"
+        android:background="@drawable/event_edit_content"
+        android:fontFamily="@font/kadwa_regular"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:text="Lunes 24 de octubre de 2022 / 9:00pm"
+        />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvStartPlace"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tvEventEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/kadwa_bold"
+            android:text="@string/event_end"
+            android:textSize="12dp"
+            android:textColor="@color/font_yellow_black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/btnEstabEnd"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:background="@drawable/event_home_button"
+            android:fontFamily="@font/kadwa_bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Establecer"
+            android:textAllCaps="false"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tvEndPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/constraintEndDate"
+        android:background="@drawable/event_edit_content"
+        android:fontFamily="@font/kadwa_regular"
+        android:textSize="16dp"
+        android:padding="5dp"
+        android:text="Lunes 24 de octubre de 2022 / 9:00pm"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

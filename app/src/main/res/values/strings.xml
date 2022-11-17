@@ -17,6 +17,7 @@
 
     <!--Texts for events-->
     <string name="event">Eventos</string>
+    <string name="event_details">Detalles del evento</string>
     <string name="event_create">Crear un nuevo evento</string>
     <string name="event_title">Título del evento</string>
     <string name="event_desc">Descripción del evento</string>
