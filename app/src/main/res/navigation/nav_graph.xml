@@ -43,7 +43,7 @@
         tools:layout="@layout/fragment_new_event" />
     <fragment
         android:id="@+id/newNoteFragment"
-        android:name="ni.edu.uca.taskitty.newNoteFragment"
+        android:name="ni.edu.uca.taskitty.NewNoteFragment"
         android:label="fragment_new_note"
         tools:layout="@layout/fragment_new_note" />
 </navigation>
