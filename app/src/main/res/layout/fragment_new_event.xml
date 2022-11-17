@@ -151,7 +151,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -195,7 +196,8 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -209,6 +211,147 @@
                 android:padding="5dp"
                 android:text="Lunes 24 de octubre de 2022 / 9:00pm"
                 android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tvPersEvent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/event_home_bottom"
+                android:paddingVertical="2dp"
+                android:text="@string/app_customize"
+                android:fontFamily="@font/kadwa_bold"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:id="@+id/rgGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="8dp"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/radioRed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:background="@drawable/circular_element_red"
+                        android:text=""
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:background="@drawable/circular_element_green"
+                        android:text=""
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioBlue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:background="@drawable/circular_element_blue"
+                        android:text=""
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioYellow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:background="@drawable/circular_element_yellow"
+                        android:text=""
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioPurple"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:background="@drawable/circular_element_purple"
+                        android:text=""
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/radioCian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:background="@drawable/circular_element_cian"
+                        android:text=""
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/btnDiscard"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_discard"
+                    android:paddingHorizontal="20dp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_discard"
+                    android:fontFamily="@font/kadwa_bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:layout_marginHorizontal="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <Button
+                    android:id="@+id/btnAccept"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_accept"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_accept"
+                    android:fontFamily="@font/kadwa_bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btnDiscard"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 

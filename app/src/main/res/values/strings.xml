@@ -10,6 +10,7 @@
     <string name="app_colors">Colores</string>
     <string name="app_save">Guardar</string>
     <string name="app_discard">Descartar</string>
+    <string name="app_accept">Aceptar</string>
     <string name="calendar">Calendario</string>
     <string name="events">Eventos</string>
     <string name="themes">Temas(Prox.)</string>

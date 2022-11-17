@@ -21,14 +21,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TableLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rotation="360">
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="5dp">
+                android:rotation="360"
+                android:layout_marginTop="10dp">
 
                     <CheckBox
                         android:id="@+id/eventComp"
@@ -37,7 +34,10 @@
                         android:layout_marginLeft="6dp"
                         android:checked="false"
                         android:scaleX="0.8"
-                        android:scaleY="0.8" />
+                        android:scaleY="0.8"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                     <ImageView
                         android:id="@+id/eventColor"
@@ -45,20 +45,22 @@
                         android:layout_height="20dp"
                         android:padding="3dp"
                         android:src="@drawable/circular_element"
+                        app:layout_constraintStart_toEndOf="@id/eventComp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"/>
 
                     <TextView
                         android:id="@+id/tvEventTitle"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/kadwa_bold"
                         android:text="@string/event_title"
                         android:textColor="@color/black"
-                        android:textSize="10dp" />
-                </TableRow>
-            </TableLayout>
+                        android:textSize="10dp"
+                        app:layout_constraintStart_toEndOf="@id/eventColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/tvNoteDesc"

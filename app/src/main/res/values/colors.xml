@@ -8,6 +8,10 @@
     <color name="down_green">#63844c</color>
     <color name="border_green">#405531</color>
     <color name="dark_green">#314226</color>
+    <color name="color_discart">#643e3e</color>
+    <color name="color_discart_focus">#301e1e</color>
+    <color name="color_accept">#4d643e</color>
+    <color name="color_accept_focus">#25301e</color>
 
     <color name="border_yellow">#a49949</color>
     <color name="back_yellow">#fff9ca</color>

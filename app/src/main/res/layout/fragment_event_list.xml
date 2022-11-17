@@ -9,64 +9,67 @@
     android:paddingHorizontal="5dp"
     android:background="@color/background_main">
 
-    <TextView
-        android:id="@+id/eventTitleSep"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/kadwa_bold"
-        android:text="@string/event"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="22dp"
-        android:background="@drawable/header_page_title"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="5dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvEvents"
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/eventTitleSep"            android:layout_marginVertical="5dp"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/eventTitleSep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/header_page_title"
+                android:fontFamily="@font/kadwa_bold"
+                android:text="@string/event"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="22dp" />
 
-    <TextView
-        android:id="@+id/eventCompSep"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/kadwa_bold"
-        android:text="@string/completed_events"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:layout_marginTop="5dp"
-        android:textSize="22dp"
-        android:background="@drawable/event_element_top"
-        app:layout_constraintTop_toBottomOf="@id/rcvEvents"
-        />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp" />
 
-    <TextView
-        android:id="@+id/notElements"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/kadwa_bold"
-        android:text="@string/non_elements"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="12dp"
-        android:padding="5dp"
-        android:background="@drawable/event_element_bottom"
-        app:layout_constraintTop_toBottomOf="@id/eventCompSep"
-        />
+            <TextView
+                android:id="@+id/eventCompSep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/event_element_top"
+                android:fontFamily="@font/kadwa_bold"
+                android:text="@string/completed_events"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="22dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvEventsComp"
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/eventCompSep"
-        android:background="@drawable/event_element_bottom"
-        android:padding="10dp"
-        />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvEventsComp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/event_element_bottom"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/notElements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/event_element_bottom"
+                android:fontFamily="@font/kadwa_bold"
+                android:padding="5dp"
+                android:text="@string/non_elements"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
 
     <Button
         android:id="@+id/btnAddEvent"

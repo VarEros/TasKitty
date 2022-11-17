@@ -70,6 +70,16 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
         if(event.finished)
             holder.eventComp.isEnabled = false
 
+        when(event.color){
+            1-> holder.eventColor.setImageResource(R.drawable.circular_element_red)
+            1-> holder.eventColor.setImageResource(R.drawable.circular_element_red)
+            2-> holder.eventColor.setImageResource(R.drawable.circular_element_green)
+            3-> holder.eventColor.setImageResource(R.drawable.circular_element_blue)
+            4-> holder.eventColor.setImageResource(R.drawable.circular_element_yellow)
+            5-> holder.eventColor.setImageResource(R.drawable.circular_element_purple)
+            6-> holder.eventColor.setImageResource(R.drawable.circular_element_cian)
+        }
+
         // adjusts
     }
 
@@ -77,3 +87,13 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
         return eventsList.size
     }
 }
+
+
+/*
+    rojo -> 1
+    verde -> 2
+    azul -> 3
+    amarillo -> 4
+    morado -> 5
+    cian -> 6
+* */
