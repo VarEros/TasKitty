@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/event_element_home">
+        >
 
         <TableLayout
             android:layout_width="match_parent"
@@ -40,17 +40,24 @@
 
         </TableLayout>
 
-        <TextView
-            android:id="@+id/tvNoteDesc"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/notes_desc"
-            android:textSize="12dp"
-            android:paddingVertical="10dp"
-            android:paddingLeft="10dp"
-            android:fontFamily="@font/kadwa_regular"
-            android:textColor="@color/black"
-            />
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/note_element_mid"
+                android:fontFamily="@font/kadwa_regular"
+                android:paddingHorizontal="10dp"
+                android:text="@string/notes_desc"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+        </FrameLayout>
+
         <TextView
             android:id="@+id/tvNoteTime"
             android:layout_width="match_parent"

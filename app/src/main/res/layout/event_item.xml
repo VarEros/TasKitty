@@ -9,10 +9,12 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
+
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="50dp"
             android:background="@drawable/event_element_home" />
     </FrameLayout>
 
@@ -24,8 +26,8 @@
         android:fontFamily="@font/kadwa_regular"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="15dp"
-        android:paddingLeft="15dp"
+        android:textSize="10dp"
+        android:paddingLeft="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
         app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
         app:layout_constraintTop_toTopOf="@+id/frameLayout" />
@@ -35,11 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kadwa_bold"
-        android:paddingLeft="15dp"
+        android:paddingLeft="10dp"
         android:text="X sem"
         android:textAlignment="center"
         android:textColor="@color/font_yellow_black"
-        android:textSize="15dp"
+        android:textSize="10dp"
         android:layout_marginRight="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"

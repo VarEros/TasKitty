@@ -12,7 +12,9 @@
     <color name="border_yellow">#a49949</color>
     <color name="back_yellow">#fff9ca</color>
     <color name="content_yellow">#ead59f</color>
+    <color name="title_event">#f3e5b1</color>
     <color name="dark_yellow">#c1965e</color>
+    <color name="transparent">#00FFFFFF</color>
 
     <color name="side_yellow">#ead59f</color>
     <color name="top_brown">#4d3c26</color>

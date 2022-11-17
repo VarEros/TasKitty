@@ -4,8 +4,7 @@ import java.util.*
 
 class Note(
     private var idNote: Int,
-    var dateModified: Date?,
-
+    var dateModified: Calendar,
 
     title: String,
     description: String,
