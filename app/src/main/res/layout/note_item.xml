@@ -73,8 +73,6 @@
             android:textColor="@color/white"
             android:background="@drawable/note_internal_bottom_element"
             />
-
-
-
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

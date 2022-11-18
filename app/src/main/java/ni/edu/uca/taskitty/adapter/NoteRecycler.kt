@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.ShortcutXmlParser
 import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.NoteViewDialog
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.databinding.NoteItemBinding
 import ni.edu.uca.taskitty.model.Event
@@ -69,8 +70,6 @@ class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var m
         if(!note.fixed)
             holder.noteFix.visibility = View.GONE
 
-
-
         when(note.color){
             1->holder.noteColor.setBackgroundResource(R.drawable.note_internal_red)
             2->holder.noteColor.setBackgroundResource(R.drawable.note_internal_green)
@@ -79,7 +78,6 @@ class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var m
             5->holder.noteColor.setBackgroundResource(R.drawable.note_internal_purple)
             6->holder.noteColor.setBackgroundResource(R.drawable.note_internal_cian)
         }
-
     }
 
     override fun getItemCount(): Int {
