@@ -44,6 +44,7 @@
     <string name="charity">Caridad</string>
     <string name="charity_org">Organizaciones benéficas</string>
     <string name="charity_donate">¿Por qué donar?</string>
+    <string name="know_more">Saber más</string>
 
     <!--placeholders-->
     <string name="charity_desc">Descripción para la caridad</string>

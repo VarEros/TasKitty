@@ -6,14 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:paddingHorizontal="10dp"
     android:background="@color/background_main">
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="10dp">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +48,8 @@
                 android:id="@+id/rcvNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:paddingHorizontal="10dp"/>
 
         </LinearLayout>
     </ScrollView>

@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.183" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/art_open_external.xml" value="0.1685" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_accept.xml" value="0.1655" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_discard.xml" value="0.1655" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_know_more.xml" value="0.1685" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_sidebar.xml" value="0.2775" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/charity_main_element.xml" value="0.1965" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/circular_element.xml" value="0.18" />
@@ -46,12 +48,13 @@
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/charity_element.xml" value="0.5" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_element.xml" value="0.33" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_item.xml" value="0.67" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_charity_list.xml" value="0.25" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.33" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_new_event.xml" value="0.25" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_new_note.xml" value="0.22" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_notes_list.xml" value="0.23052536231884058" />
-        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/note_item.xml" value="0.9" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/note_item.xml" value="0.2815126050420168" />
         <entry key="..\:/Users/DavidQuint/Desktop/TasKitty/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2605" />
         <entry key="..\:/Users/DavidQuint/Desktop/TasKitty/app/src/main/res/drawable/button_sidebar.xml" value="0.297" />
         <entry key="..\:/Users/DavidQuint/Desktop/TasKitty/app/src/main/res/drawable/charity_main_element.xml" value="0.2605" />
