@@ -1,10 +1,12 @@
 package ni.edu.uca.taskitty.model
 
-import java.util.Date
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 
+@Entity(tableName = "tblTask")
 open class Task (
-    var title: String,
-    var description : String,
-    var fixed: Boolean,
-    var color : Int
+    @ColumnInfo(name = "title") var title: String,
+    @ColumnInfo(name = "description") var description : String,
+    @ColumnInfo(name = "fixed") var fixed: Boolean,
+    @ColumnInfo(name = "color") var color : Int
     )

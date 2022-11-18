@@ -1,10 +1,15 @@
 package ni.edu.uca.taskitty.model
 
-import java.util.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.Calendar
 
+@Entity(tableName = "tblNote")
 class Note(
-    private var idNote: Int,
-    var dateModified: Calendar,
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "idNote") val idNote: Int = 0,
+    @ColumnInfo(name = "dateModified") var dateModified: Calendar,
 
     title: String,
     description: String,

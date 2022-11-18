@@ -1,12 +1,17 @@
 package ni.edu.uca.taskitty.model
 
-import java.util.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.Calendar
 
+@Entity(tableName = "tblEvent")
 class Event(
-    var idEvent: Int,
-    var dateStart: Calendar,
-    var dateEnd: Calendar,
-    var finished: Boolean,
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "idEvent") val idEvent: Int = 0,
+    @ColumnInfo(name = "dateStart") var dateStart: Calendar,
+    @ColumnInfo(name = "dateEnd") var dateEnd: Calendar,
+    @ColumnInfo(name = "finished") var finished: Boolean,
 
     title: String,
     description: String,
