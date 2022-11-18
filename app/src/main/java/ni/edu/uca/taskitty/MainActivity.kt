@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import ni.edu.uca.taskitty.databinding.ActivityMainBinding
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+
+        var dialog = NoteViewDialog()
+        dialog.show(supportFragmentManager,"custom")
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

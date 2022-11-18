@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/frameLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btnEnterEvent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/event_element_home" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:rotation="360">
+
+                <CheckBox
+                    android:id="@+id/eventComp"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="6dp"
+                    android:checked="false"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/eventColor"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:padding="3dp"
+                    android:src="@drawable/circular_element"
+                    app:layout_constraintStart_toEndOf="@+id/eventComp" />
+
+                <TextView
+                    android:id="@+id/tvEventTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kadwa_bold"
+                    android:text="@string/event_title"
+                    android:textColor="@color/black"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/eventColor"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvNoteDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/event_mid_element"
+                android:fontFamily="@font/kadwa_regular"
+                android:padding="5dp"
+                android:paddingVertical="5dp"
+                android:text="@string/notes_desc"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tvNoteTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/event_home_bottom"
+                android:padding="5dp"
+                android:paddingVertical="5dp"
+                android:text="@string/programfor_events"
+                android:textAlignment="center"
+                android:fontFamily="@font/kadwa_bold"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/frameLay"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:fontFamily="@font/kadwa_bold"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_accept"
+            android:layout_marginHorizontal="1dp"
+            />
+        <Button
+            android:id="@+id/btnDelet"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:fontFamily="@font/kadwa_bold"
+            android:textSize="12dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_discard"
+            android:layout_marginHorizontal="1dp"
+            />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

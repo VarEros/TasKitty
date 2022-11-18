@@ -27,6 +27,8 @@
     <color name="yellow_tone_2">#eadcb7</color>
 
     <color name="font_yellow_black">#666451</color>
+    <color name="blue_back">#49629D</color>
+    <color name="blue_back_dark">#31426a</color>
 
     <color name="red_schema">#953b3b</color>
     <color name="green_schema">#3b953f</color>
@@ -34,6 +36,7 @@
     <color name="yellow_schema">#95773b</color>
     <color name="purple_schema">#7e3b95</color>
     <color name="cian_schema">#3b9595</color>
+
 
 
     <color name="purple_200">#FFBB86FC</color>
