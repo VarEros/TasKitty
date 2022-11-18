@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:paddingHorizontal="10dp"
     android:background="@color/background_main">
 
     <FrameLayout
@@ -42,50 +41,55 @@
             android:src="@drawable/ic_elements" />
     </FrameLayout>
 
-    <LinearLayout
-        android:id="@+id/layRecyclers"
-        android:layout_width="wrap_content"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constRecycles"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lfEvents">
+        >
 
-        <LinearLayout
-            android:id="@+id/linearOtherEvents"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="165dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvEventFix"
-                android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:layout_marginTop="5dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearEvents"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="55dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvEvents"
-                android:layout_width="match_parent"
-                android:layout_height="175dp"
-                android:layout_marginTop="5dp" />
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvEventFix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_bias="0.484"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-    </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvEvents"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/rcvEventFix"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/lfNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/layRecyclers"
+        android:layout_marginTop="10dp"
+        app:flow_horizontalAlign="center"
         app:flow_verticalAlign="center"
-        app:flow_horizontalAlign="center">
+        app:layout_constraintTop_toBottomOf="@id/constRecycles">
 
         <ImageButton
             android:id="@+id/btnAllNotes"
@@ -109,8 +113,8 @@
         <ImageView
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:padding="5dp"
             android:layout_marginLeft="5dp"
+            android:padding="5dp"
             android:src="@drawable/ic_elements" />
     </FrameLayout>
 
@@ -122,6 +126,8 @@
         app:layout_constraintTop_toBottomOf="@id/lfNotes"
         android:layout_marginTop="5dp"
         />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,10 +31,19 @@
         android:id="@+id/notesListFragment"
         android:name="ni.edu.uca.taskitty.NotesListFragment"
         android:label="fragment_notes_list"
-        tools:layout="@layout/fragment_notes_list" />
+        tools:layout="@layout/fragment_notes_list" >
+        <action
+            android:id="@+id/action_notesListFragment_to_newNoteFragment"
+            app:destination="@id/newNoteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newEventFragment"
         android:name="ni.edu.uca.taskitty.NewEventFragment"
         android:label="fragment_new_event"
         tools:layout="@layout/fragment_new_event" />
+    <fragment
+        android:id="@+id/newNoteFragment"
+        android:name="ni.edu.uca.taskitty.NewNoteFragment"
+        android:label="fragment_new_note"
+        tools:layout="@layout/fragment_new_note" />
 </navigation>

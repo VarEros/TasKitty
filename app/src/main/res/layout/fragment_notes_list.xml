@@ -6,43 +6,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:padding="16dp"
+    android:paddingHorizontal="10dp"
     android:background="@color/background_main">
 
-    <FrameLayout
-        android:id="@+id/layoutFrameButton"
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="10dp">
 
-        <ImageButton
-            android:id="@+id/btnAllNotes"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/header_page_title"
-            android:text="button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/kadwa_bold"
-            android:text="Anotaciones"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="22dp" />
-    </FrameLayout>
+            <FrameLayout
+                android:id="@+id/layoutFrameButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvNotes"
-        android:layout_width="match_parent"
+                <ImageButton
+                    android:id="@+id/btnAllNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/header_page_title"
+                    android:text="button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/kadwa_bold"
+                    android:text="Anotaciones"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="22dp" />
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnAddNote"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutFrameButton"
-        />
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        android:text="New"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="2dp">
+    android:layout_margin="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,14 +12,12 @@
         android:orientation="vertical"
         >
 
-        <TableLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constNoteColor"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/note_internal_red">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/event_internal_element">
                 <TextView
                     android:id="@+id/tvNoteTitle"
                     android:layout_width="match_parent"
@@ -27,18 +25,23 @@
                     android:fontFamily="@font/kadwa_bold"
                     android:paddingLeft="10dp"
                     android:text="@string/notes_title"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/star"
+                <ImageView
+                    android:id="@+id/starFixNote"
                     android:layout_width="26dp"
                     android:layout_height="26dp"
-                    android:padding="5dp"
-                    android:src="@drawable/ic_star" />
+                    android:paddingRight="10dp"
+                    android:src="@drawable/ic_star"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
 
-            </TableRow>
-
-        </TableLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
             android:layout_width="match_parent"

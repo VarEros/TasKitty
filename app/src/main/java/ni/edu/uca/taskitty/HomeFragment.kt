@@ -47,11 +47,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val widthDp = resources.displayMetrics.run { widthPixels / density}
-
-        binding.linearEvents.layoutParams.width = (widthDp * 0.9).toInt()
-        binding.linearOtherEvents.layoutParams.width = (widthDp * 0.9).toInt()
-
         with(binding) {
             btnAllEvents.setOnClickListener {
                 findNavController().navigate(R.id.eventListFragment)
