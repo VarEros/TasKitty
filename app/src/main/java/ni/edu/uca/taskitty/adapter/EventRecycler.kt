@@ -25,7 +25,7 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
         var eventDesc : TextView
         var eventDate : TextView
         var eventColor : ImageView
-        lateinit var eventComp : CheckBox
+        var eventComp : CheckBox
 
         init {
             eventTitle = itemView.findViewById(R.id.tvEventTitle)
@@ -71,7 +71,6 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
             holder.eventComp.isEnabled = false
 
         when(event.color){
-            1-> holder.eventColor.setImageResource(R.drawable.circular_element_red)
             1-> holder.eventColor.setImageResource(R.drawable.circular_element_red)
             2-> holder.eventColor.setImageResource(R.drawable.circular_element_green)
             3-> holder.eventColor.setImageResource(R.drawable.circular_element_blue)

@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.adapter.EventRecycler
+import ni.edu.uca.taskitty.data.AppDB
+import ni.edu.uca.taskitty.data.DaoEvent
 import ni.edu.uca.taskitty.databinding.FragmentEventListBinding
 import ni.edu.uca.taskitty.model.Event
 import java.lang.Math.round
@@ -17,14 +21,23 @@ import java.util.*
 class EventListFragment : Fragment() {
 
     private lateinit var binding: FragmentEventListBinding
+    private  lateinit var daoEvent: DaoEvent
+
     private var eventList : MutableList<Event> = mutableListOf()
     private var eventListNormal : MutableList<Event> = mutableListOf()
     private var eventListCompleted : MutableList<Event> = mutableListOf()
+
     private lateinit var recyclerNormal :  RecyclerView
     private lateinit var recyclerCompleted :  RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val db = AppDB.getInstance(requireContext().applicationContext)
+        daoEvent = db.daoEvent()
+        GlobalScope.launch {
+            eventList = daoEvent.getAll().toMutableList()
+        }
     }
 
     override fun onCreateView(
@@ -41,7 +54,6 @@ class EventListFragment : Fragment() {
             findNavController().navigate(R.id.newEventFragment)
         }
 
-        eventList.add(Event(1, Calendar.getInstance().toString(),Calendar.getInstance().toString(),false,"Ponce también","No se que poner xd",false,1))
         filtrateElements()
         checkCompletedElements()
         establecerEventAdapter()
@@ -51,6 +63,7 @@ class EventListFragment : Fragment() {
         recyclerNormal = binding.rcvEvents
         recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
         recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,1)
+
         recyclerCompleted = binding.rcvEventsComp
         recyclerCompleted.layoutManager = LinearLayoutManager(binding.root.context)
         recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3)
@@ -73,7 +86,7 @@ class EventListFragment : Fragment() {
                 eventListNormal.add(event)
             }
         }
-        eventList = mutableListOf();
+        eventList = mutableListOf()
     }
 
     /*

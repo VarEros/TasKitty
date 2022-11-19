@@ -57,8 +57,8 @@ class HomeFragment : Fragment() {
             }
         }
 
-        var dialog = NoteViewDialog()
-        dialog.show(parentFragmentManager,"custom")
+        //var dialog = NoteViewDialog()
+        //dialog.show(parentFragmentManager,"custom")
 
         establecerEventAdapter()
     }

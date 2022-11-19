@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.data.AppDB
@@ -28,7 +29,7 @@ class NewEventFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val db = AppDB.getInstance(binding.root.context)
+        val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
     }
 
@@ -75,6 +76,7 @@ class NewEventFragment : Fragment() {
         }
         GlobalScope.launch {
             daoEvent.insert(newEvent)
+            //Toast.makeText(context, "El evento se ha registrado con exito.", Toast.LENGTH_SHORT).show()
         }
     }
 }
