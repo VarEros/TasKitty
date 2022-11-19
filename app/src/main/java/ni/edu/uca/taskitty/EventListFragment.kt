@@ -41,17 +41,7 @@ class EventListFragment : Fragment() {
             findNavController().navigate(R.id.newEventFragment)
         }
 
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,1))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,3))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),true,"Ponce también","No se que poner xd",false,4))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,5))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),true,"Ponce también","No se que poner xd",false,3))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,2))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),true,"Ponce también","No se que poner xd",false,2))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),false,"Ponce también","No se que poner xd",false,1))
-        eventList.add(Event(1, Calendar.getInstance(),Calendar.getInstance(),true,"Ponce también","No se que poner xd",false,1))
-
-
+        eventList.add(Event(1, Calendar.getInstance().toString(),Calendar.getInstance().toString(),false,"Ponce también","No se que poner xd",false,1))
         filtrateElements()
         checkCompletedElements()
         establecerEventAdapter()

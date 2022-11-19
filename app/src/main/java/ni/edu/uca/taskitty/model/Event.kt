@@ -9,8 +9,8 @@ import java.util.Calendar
 class Event(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idEvent") val idEvent: Int = 0,
-    @ColumnInfo(name = "dateStart") var dateStart: Calendar,
-    @ColumnInfo(name = "dateEnd") var dateEnd: Calendar,
+    @ColumnInfo(name = "dateStart") var dateStart: String,
+    @ColumnInfo(name = "dateEnd") var dateEnd: String,
     @ColumnInfo(name = "finished") var finished: Boolean,
 
     title: String,
