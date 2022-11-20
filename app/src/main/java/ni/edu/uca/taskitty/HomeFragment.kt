@@ -30,11 +30,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        eventList.add(Event(1, Calendar.getInstance().toString(),
-            Calendar.getInstance().toString(),false,"ABCDEFGHIJKLMNOPQRST","No se que poner xd",false,1))
-
         noteList.add(Note(1,Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,1))
-
     }
 
     override fun onCreateView(

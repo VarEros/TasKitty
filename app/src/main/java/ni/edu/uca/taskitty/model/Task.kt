@@ -9,4 +9,4 @@ open class Task (
     @ColumnInfo(name = "description") var description : String,
     @ColumnInfo(name = "fixed") var fixed: Boolean,
     @ColumnInfo(name = "color") var color : Int
-    )
+)

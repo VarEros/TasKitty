@@ -71,7 +71,7 @@ class NewEventFragment : Fragment() {
     private fun makeEvent() {
         calStart = dateStart.getCal()
         calEnd = dateEnd.getCal()
-        val n = SimpleDateFormat("yyyy-MM-dd HH:mm")
+
         with(binding) {
             if (tfTitle.text.toString().isEmpty()) {
                 Toast.makeText(context, "El apartado de Titulo es requerido", Toast.LENGTH_SHORT).show()
@@ -83,8 +83,8 @@ class NewEventFragment : Fragment() {
             }
 
             newEvent = Event(
-                dateStart = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(calStart.time),
-                dateEnd = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(calEnd.time),
+                dateStart = calStart.timeInMillis,
+                dateEnd = calEnd.timeInMillis,
                 finished = false,
                 title = tfTitle.text.toString(),
                 description = etTitleda.text.toString(),

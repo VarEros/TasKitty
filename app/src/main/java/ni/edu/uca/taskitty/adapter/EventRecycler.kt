@@ -63,7 +63,7 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
 
         holder.eventTitle.text = event.title
         holder.eventDesc.text = event.description
-        holder.eventDate.text = "DataTimeDataFatCatFat"
+        holder.eventDate.text = DateTask.getEventDateTitle(event.dateStart)
         holder.eventComp.isChecked = event.finished
 
         if(event.finished)
@@ -79,14 +79,6 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
         }
 
         // adjusts
-    }
-
-    private fun getCalFrom(dateString: String): Calendar {
-        var calType = Calendar.getInstance()
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US)
-        val date = dateFormat.parse(dateString)
-        //calType.time(date)
-        return  calType
     }
 
     override fun getItemCount(): Int {

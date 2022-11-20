@@ -11,6 +11,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
 import java.lang.Exception
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.time.Duration.Companion.days
 import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.minutes
@@ -56,14 +57,29 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
         return cal
     }
 
-    fun getEventDateTitle(): String {
-        val timeLeft = cal.time.compareTo(Calendar.getInstance().time)
-        return if (timeLeft.minutes.toString().toInt() in 1..59)
-            "${timeLeft.minutes.toString().toInt()} minutes"
-        else if (timeLeft.hours.toString().toInt() in 1..23)
-            "${timeLeft.hours.toString().toInt()} hours"
-        else
-            "${timeLeft.days.toString().toInt()} days"
+
+    companion object {
+        fun getCalFrom(dateLong: Long): Calendar {
+            var calType = Calendar.getInstance()
+            calType.timeInMillis = dateLong
+            return  calType
+        }
+
+        fun getEventDateTitle(long: Long): String {
+            val timeLeft = long - Calendar.getInstance().timeInMillis
+            val inMinute = TimeUnit.MILLISECONDS.toMinutes(timeLeft)
+            val inHour = TimeUnit.MILLISECONDS.toHours(timeLeft)
+            val inDays = TimeUnit.MILLISECONDS.toDays(timeLeft)
+
+            return if(timeLeft <=0)
+                "Passed"
+            else if (inMinute in 1..60)
+                "$inMinute minutes"
+            else if (inHour in 1..23)
+                "$inHour hours"
+            else
+                "$inDays days"
+        }
     }
 
 }
