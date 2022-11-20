@@ -1,7 +1,7 @@
 package ni.edu.uca.taskitty.adapter
 
 import android.content.Context
-import android.icu.text.AlphabeticIndex
+import java.text.SimpleDateFormat
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -9,13 +9,12 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
-import androidx.appcompat.widget.AppCompatImageButton
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 import java.util.*
+import java.text.*
 
 class EventRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int):
     RecyclerView.Adapter<EventRecycler.eventHolder>() {
@@ -80,6 +79,14 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
         }
 
         // adjusts
+    }
+
+    private fun getCalFrom(dateString: String): Calendar {
+        var calType = Calendar.getInstance()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US)
+        val date = dateFormat.parse(dateString)
+        //calType.time(date)
+        return  calType
     }
 
     override fun getItemCount(): Int {

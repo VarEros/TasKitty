@@ -35,21 +35,22 @@ class EventListFragment : Fragment() {
 
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
-        GlobalScope.launch {
-            eventList = daoEvent.getAll().toMutableList()
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentEventListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        GlobalScope.launch {
+            eventList = daoEvent.getAll().toMutableList()
+        }
+
         binding.btnAddEvent.setOnClickListener {
             findNavController().navigate(R.id.newEventFragment)
         }
@@ -80,11 +81,10 @@ class EventListFragment : Fragment() {
 
     private fun filtrateElements(){
         for(event in eventList){
-            if(event.finished){
+            if(event.finished)
                 eventListCompleted.add(event)
-            } else{
+            else
                 eventListNormal.add(event)
-            }
         }
         eventList = mutableListOf()
     }

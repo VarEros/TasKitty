@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,13 +17,14 @@ import java.util.*
 
 class NewEventFragment : Fragment() {
     private lateinit var binding: FragmentNewEventBinding
+    private lateinit var newEvent: Event
     private lateinit var daoEvent: DaoEvent
-    private lateinit var date: DateTask
 
     private var calStart = Calendar.getInstance()
-    private var calEnd = calStart
+    private var calEnd = Calendar.getInstance()
 
-    private lateinit var newEvent: Event
+    private lateinit var dateStart: DateTask
+    private lateinit var dateEnd: DateTask
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,20 +36,21 @@ class NewEventFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentNewEventBinding.inflate(inflater, container, false)
-        return binding.root;
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setDates()
 
         binding.btnEstabStart.setOnClickListener {
-            pickDate(calStart, binding.tvStartPlace)
+            dateStart.start()
         }
 
         binding.btnEstabEnd.setOnClickListener {
-            pickDate(calEnd, binding.tvEndPlace)
+            dateEnd.start()
         }
 
         binding.btnAccept.setOnClickListener {
@@ -57,26 +58,43 @@ class NewEventFragment : Fragment() {
         }
     }
 
-    private fun pickDate(cal: Calendar, tvStartPlace: TextView) {
-        date = DateTask(cal, requireContext(), tvStartPlace)
-        date.start()
+    private fun setDates() {
+        calStart.add(Calendar.HOUR, 1)
+        calEnd.add(Calendar.HOUR, 2)
+        dateStart = DateTask(calStart, requireContext(), binding.tvStartPlace)
+        dateEnd = DateTask(calEnd, requireContext(), binding.tvEndPlace)
+        binding.tvStartPlace.text = dateStart.setTextView()
+        binding.tvEndPlace.text = dateEnd.setTextView()
     }
 
 
     private fun makeEvent() {
-
+        calStart = dateStart.getCal()
+        calEnd = dateEnd.getCal()
+        val n = SimpleDateFormat("yyyy-MM-dd HH:mm")
         with(binding) {
-            val title = tfTitle.text.toString()
-            val description = etTitleda.text.toString()
-            val dateStart = SimpleDateFormat("yyyy-MM-dd").format(calStart.time)
-            val dateEnd = SimpleDateFormat("yyyy-MM-dd").format(calEnd.time)
-            val color = rgGroup.checkedRadioButtonId
+            if (tfTitle.text.toString().isEmpty()) {
+                Toast.makeText(context, "El apartado de Titulo es requerido", Toast.LENGTH_SHORT).show()
+                return
+            }
+            if (calStart > calEnd) {
+                Toast.makeText(context, "La fecha inicial no puede ser posterior a la final", Toast.LENGTH_SHORT).show()
+                return
+            }
 
-            newEvent = Event(dateStart = dateStart, dateEnd = dateEnd, finished = false, title = title, description = description, fixed = false, color = color)
+            newEvent = Event(
+                dateStart = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(calStart.time),
+                dateEnd = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(calEnd.time),
+                finished = false,
+                title = tfTitle.text.toString(),
+                description = etTitleda.text.toString(),
+                fixed = false,
+                color = rgGroup.checkedRadioButtonId
+            )
         }
+        Toast.makeText(requireContext().applicationContext, "El evento se ha registrado con exito.", Toast.LENGTH_SHORT).show()
         GlobalScope.launch {
             daoEvent.insert(newEvent)
-            //Toast.makeText(context, "El evento se ha registrado con exito.", Toast.LENGTH_SHORT).show()
         }
     }
 }

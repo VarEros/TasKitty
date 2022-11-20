@@ -15,7 +15,7 @@ class EventViewDialog : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentEventViewBinding.inflate(inflater,container,false)
         return binding.root
     }
