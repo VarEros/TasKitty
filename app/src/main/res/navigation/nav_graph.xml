@@ -55,7 +55,7 @@
         tools:layout="@layout/fragment_new_note" />
     <fragment
         android:id="@+id/charityListFragment"
-        android:name="ni.edu.uca.taskitty.charityListFragment"
+        android:name="ni.edu.uca.taskitty.CharityListFragment"
         android:label="fragment_charity_list"
         tools:layout="@layout/fragment_charity_list" />
 </navigation>

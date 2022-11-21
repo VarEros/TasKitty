@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import ni.edu.uca.taskitty.databinding.FragmentCharityListBinding
 
-class charityListFragment : Fragment() {
+class CharityListFragment : Fragment() {
 
     private lateinit var binding : FragmentCharityListBinding
 
@@ -19,7 +19,7 @@ class charityListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCharityListBinding.inflate(inflater,container,false)
         return binding.root
     }

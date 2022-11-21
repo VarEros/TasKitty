@@ -37,7 +37,6 @@ class EventListFragment : Fragment() {
 
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
-
         GlobalScope.launch {
             eventList = daoEvent.getAll().toMutableList()
         }
@@ -96,7 +95,7 @@ class EventListFragment : Fragment() {
     }
 
     private fun onClickEvent(event : Event){
-        var dialog = EventViewDialog(event)
+        val dialog = EventViewDialog(event)
         dialog.show(parentFragmentManager,"custom")
     }
 
