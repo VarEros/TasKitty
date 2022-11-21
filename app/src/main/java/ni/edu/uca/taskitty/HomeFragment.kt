@@ -53,16 +53,13 @@ class HomeFragment : Fragment() {
             }
         }
 
-        //var dialog = NoteViewDialog()
-        //dialog.show(parentFragmentManager,"custom")
-
         establecerEventAdapter()
     }
 
     private fun establecerEventAdapter(){
         recyclerNormal = binding.rcvEventFix
         recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNormal.adapter = EventRecycler(binding.root.context, eventList,2)
+        recyclerNormal.adapter = EventRecycler(binding.root.context, eventList,2,{event -> onClickEvent(event)})
 
         recyclerEvents = binding.rcvEvents
         recyclerEvents.layoutManager = LinearLayoutManager(binding.root.context)
@@ -71,6 +68,10 @@ class HomeFragment : Fragment() {
         recyclerNotes = binding.rcvNotes
         recyclerNotes.layoutManager = LinearLayoutManager(binding.root.context)
         recyclerNotes.adapter = NoteRecycler(binding.root.context,noteList,1)
+
+    }
+
+    private fun onClickEvent(event: Event) {
 
     }
 }

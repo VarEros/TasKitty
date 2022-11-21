@@ -61,7 +61,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/tvNoteDesc"
+                android:id="@+id/tvEventDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -74,7 +74,7 @@
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/tvNoteTime"
+                android:id="@+id/tvEventTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

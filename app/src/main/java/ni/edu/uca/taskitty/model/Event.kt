@@ -3,7 +3,9 @@ package ni.edu.uca.taskitty.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.versionedparcelable.VersionedParcelize
 import java.util.Calendar
+
 
 @Entity(tableName = "tblEvent")
 class Event(

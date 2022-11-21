@@ -5,6 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Calendar
 
+
+
 @Entity(tableName = "tblNote")
 class Note(
     @PrimaryKey(autoGenerate = true)
@@ -16,3 +18,4 @@ class Note(
     fixed: Boolean,
     color: Int
 ): Task (title, description, fixed, color)
+

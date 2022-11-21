@@ -43,7 +43,11 @@
         android:id="@+id/newEventFragment"
         android:name="ni.edu.uca.taskitty.NewEventFragment"
         android:label="fragment_new_event"
-        tools:layout="@layout/fragment_new_event" />
+        tools:layout="@layout/fragment_new_event" >
+        <argument
+            android:name="idEvent"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/newNoteFragment"
         android:name="ni.edu.uca.taskitty.NewNoteFragment"
