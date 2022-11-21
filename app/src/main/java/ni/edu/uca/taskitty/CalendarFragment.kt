@@ -19,13 +19,11 @@ import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
 class CalendarFragment : Fragment() {
 
     private lateinit var binding: FragmentCalendarBinding
-    lateinit var dateTV: TextView
-    lateinit var calendarView: CalendarView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentCalendarBinding.inflate(layoutInflater)
-        setUpCalendar()
     }
 
     override fun onCreateView(
@@ -34,6 +32,12 @@ class CalendarFragment : Fragment() {
     ): View {
         binding = FragmentCalendarBinding.inflate(inflater, container, false)
         return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpCalendar()
     }
 
     private fun setUpCalendar() {
@@ -41,7 +45,7 @@ class CalendarFragment : Fragment() {
                 OnDateChangeListener { view, year, month, dayOfMonth ->
                     val Date = (dayOfMonth.toString() + "-"
                             + (month + 1) + "-" + year)
-                    dateTV.setText(Date)
+                    binding.idTVDate.setText(Date)
                     })
 
     }
