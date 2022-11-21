@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appDB: AppDB
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_TasKitty)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

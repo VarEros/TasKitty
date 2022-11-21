@@ -7,8 +7,16 @@
         <bitmap
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:width="100dp"
-            android:height="100dp"
             android:src="@drawable/taskitty_icon_hdpi"/>
     </item>
+
+    <item>
+        <bitmap
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:width="1000dp"
+            android:height="100dp"
+            android:src="@drawable/teamf_icon"/>
+    </item>
+
 </layer-list>
