@@ -50,9 +50,11 @@ class HomeFragment : Fragment() {
 
         with(binding) {
             btnAllEvents.setOnClickListener {
+
                 findNavController().navigate(R.id.eventListFragment)
             }
             btnAllNotes.setOnClickListener {
+
                 findNavController().navigate(R.id.notesListFragment)
             }
         }
