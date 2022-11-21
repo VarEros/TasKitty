@@ -1,6 +1,9 @@
 package ni.edu.uca.taskitty
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.CalendarView
 import android.widget.CalendarView.OnDateChangeListener
 import android.widget.TextView
@@ -10,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.databinding.FragmentCalendarBinding
+import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
 
 
 class CalendarFragment : Fragment() {
@@ -21,11 +25,15 @@ class CalendarFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentCalendarBinding.inflate(layoutInflater)
-        val view = binding.root
         setUpCalendar()
+    }
 
-
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentCalendarBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun setUpCalendar() {
