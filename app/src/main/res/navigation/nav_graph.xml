@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_homeFragment_to_charityListFragment"
             app:destination="@id/charityListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
     </fragment>
     <fragment
         android:id="@+id/eventListFragment"
@@ -54,4 +57,9 @@
         android:name="ni.edu.uca.taskitty.charityListFragment"
         android:label="fragment_charity_list"
         tools:layout="@layout/fragment_charity_list" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="ni.edu.uca.taskitty.calendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
 </navigation>
