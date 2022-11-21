@@ -1,5 +1,4 @@
 package ni.edu.uca.taskitty
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +49,9 @@ class HomeFragment : Fragment() {
             }
             btnAllNotes.setOnClickListener {
                 findNavController().navigate(R.id.notesListFragment)
+            }
+            btnCalendar.setOnClickListener{
+                findNavController().navigate(R.id.calendarFragment)
             }
         }
 

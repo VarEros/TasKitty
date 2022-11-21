@@ -63,7 +63,7 @@
         tools:layout="@layout/fragment_charity_list" />
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="ni.edu.uca.taskitty.calendarFragment"
+        android:name="ni.edu.uca.taskitty.CalendarFragment"
         android:label="fragment_calendar"
         tools:layout="@layout/fragment_calendar" />
 </navigation>
