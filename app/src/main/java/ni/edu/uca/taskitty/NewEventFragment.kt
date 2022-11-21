@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Switch
 import android.widget.Toast
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.processNextEventInCurrentThread
 import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
 import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
@@ -15,7 +18,7 @@ import ni.edu.uca.taskitty.model.Event
 import java.text.SimpleDateFormat
 import java.util.*
 
-class NewEventFragment : Fragment() {
+class NewEventFragment() : Fragment() {
     private lateinit var binding: FragmentNewEventBinding
     private lateinit var newEvent: Event
     private lateinit var daoEvent: DaoEvent
@@ -25,6 +28,11 @@ class NewEventFragment : Fragment() {
 
     private lateinit var dateStart: DateTask
     private lateinit var dateEnd: DateTask
+
+    private var idEvent = -1;
+
+    private var editMode = false;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,10 +59,42 @@ class NewEventFragment : Fragment() {
 
         binding.btnEstabEnd.setOnClickListener {
             dateEnd.start()
+
         }
 
         binding.btnAccept.setOnClickListener {
             makeEvent()
+            activity?.onBackPressed()
+        }
+
+        binding.btnDiscard.setOnClickListener {
+            activity?.onBackPressed()
+        }
+
+        idEvent = requireArguments().getInt("idEvent")
+        Toast.makeText(binding.root.context, "$idEvent", Toast.LENGTH_LONG).show()
+    }
+
+    fun switchToEditMode(eventFrom : Event){
+        if(eventFrom == null){
+            binding.radioRed.isChecked = true;
+            return
+        }
+
+        editMode = true;
+        binding.topTitle.text = getString(R.string.event_edit_mode)
+        binding.tfTitle.setText(eventFrom.title)
+        binding.etTitleda.setText(eventFrom.description)
+        binding.tvEventStart.text = eventFrom.dateStart.toString()
+        binding.tvEventEnd.text = eventFrom.dateEnd.toString()
+
+        when(eventFrom?.color){
+            1-> binding.radioRed.isChecked = true;
+            2-> binding.radioGreen.isChecked = true;
+            3-> binding.radioBlue.isChecked = true;
+            4-> binding.radioYellow.isChecked = true;
+            5-> binding.radioPurple.isChecked = true;
+            6-> binding.radioCian.isChecked = true;
         }
     }
 
@@ -66,6 +106,7 @@ class NewEventFragment : Fragment() {
         binding.tvStartPlace.text = dateStart.setTextView()
         binding.tvEndPlace.text = dateEnd.setTextView()
     }
+
 
 
     private fun makeEvent() {

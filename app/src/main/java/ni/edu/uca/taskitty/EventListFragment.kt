@@ -1,10 +1,14 @@
 package ni.edu.uca.taskitty
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.LifecycleObserver
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,8 +19,6 @@ import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
 import ni.edu.uca.taskitty.databinding.FragmentEventListBinding
 import ni.edu.uca.taskitty.model.Event
-import java.lang.Math.round
-import java.util.*
 
 class EventListFragment : Fragment() {
 
@@ -49,12 +51,15 @@ class EventListFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnAddEvent.setOnClickListener {
             findNavController().navigate(R.id.newEventFragment)
         }
+
+        var finalHost = NavHostFragment.create(R.id.newEventFragment)
 
         filtrateElements()
         checkCompletedElements()
@@ -64,11 +69,11 @@ class EventListFragment : Fragment() {
     private fun establecerEventAdapter(){
         recyclerNormal = binding.rcvEvents
         recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,1)
+        recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,1, {event -> onClickEvent(event)})
 
         recyclerCompleted = binding.rcvEventsComp
         recyclerCompleted.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3)
+        recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3,{event -> onClickEvent(event)})
     }
 
     private fun checkCompletedElements(){
@@ -90,14 +95,9 @@ class EventListFragment : Fragment() {
         eventList = mutableListOf()
     }
 
-    /*
-    private fun screenElementsAdapter(){
-        context?.let {
-            val displayMetrics = it.resources.displayMetrics
-            val dpHeight = displayMetrics.heightPixels / displayMetrics.density
-            val dpWidth = displayMetrics.widthPixels / displayMetrics.density
-            binding.rcvEvents.height = round(dpHeight * 0.7).toInt();
-        }
-*/
+    private fun onClickEvent(event : Event){
+        var dialog = EventViewDialog(event)
+        dialog.show(parentFragmentManager,"custom")
+    }
 
 }
