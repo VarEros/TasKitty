@@ -16,3 +16,4 @@ class Note(
     fixed: Boolean,
     color: Int
 ): Task (title, description, fixed, color)
+

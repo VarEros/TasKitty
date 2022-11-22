@@ -60,7 +60,11 @@
         android:id="@+id/newEventFragment"
         android:name="ni.edu.uca.taskitty.NewEventFragment"
         android:label="fragment_new_event"
-        tools:layout="@layout/fragment_new_event" />
+        tools:layout="@layout/fragment_new_event" >
+        <argument
+            android:name="idEvent"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/newNoteFragment"
         android:name="ni.edu.uca.taskitty.NewNoteFragment"
@@ -68,7 +72,7 @@
         tools:layout="@layout/fragment_new_note" />
     <fragment
         android:id="@+id/charityListFragment"
-        android:name="ni.edu.uca.taskitty.charityListFragment"
+        android:name="ni.edu.uca.taskitty.CharityListFragment"
         android:label="fragment_charity_list"
         tools:layout="@layout/fragment_charity_list" />
     <fragment

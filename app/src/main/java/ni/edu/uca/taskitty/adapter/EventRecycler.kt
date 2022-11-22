@@ -1,31 +1,31 @@
 package ni.edu.uca.taskitty.adapter
 
 import android.content.Context
-import android.icu.text.AlphabeticIndex
+import java.text.SimpleDateFormat
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView
-import androidx.appcompat.widget.AppCompatImageButton
-import androidx.appcompat.widget.AppCompatImageView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 import java.util.*
+import java.text.*
 
-class EventRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int):
+class EventRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
     RecyclerView.Adapter<EventRecycler.eventHolder>() {
 
+
     inner class eventHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        lateinit var event : Event
         var eventTitle : TextView
         var eventDesc : TextView
         var eventDate : TextView
         var eventColor : ImageView
         var eventComp : CheckBox
+        var btnEnter : ImageButton
 
         init {
             eventTitle = itemView.findViewById(R.id.tvEventTitle)
@@ -33,9 +33,13 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
             eventDate = itemView.findViewById(R.id.tvNoteTime)
             eventColor = itemView.findViewById(R.id.eventColor)
             eventComp = itemView.findViewById(R.id.eventComp)
+            btnEnter = itemView.findViewById(R.id.btnEnterEvent)
+
 
             when(mode){
-                1->{}
+                1->{
+                    eventComp.isEnabled = false
+                }
                 2 ->{
                     eventTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP,12f)
                     eventDesc.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
@@ -64,11 +68,15 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
 
         holder.eventTitle.text = event.title
         holder.eventDesc.text = event.description
-        holder.eventDate.text = "DataTimeDataFatCatFat"
+        holder.eventDate.text = DateTask.getEventDateTitle(event.dateStart)
         holder.eventComp.isChecked = event.finished
 
         if(event.finished)
             holder.eventComp.isEnabled = false
+
+        holder.btnEnter.setOnClickListener {
+            onClickEvent(event)
+        }
 
         when(event.color){
             1-> holder.eventColor.setImageResource(R.drawable.circular_element_red)

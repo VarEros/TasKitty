@@ -30,11 +30,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        eventList.add(Event(1, Calendar.getInstance().toString(),
-            Calendar.getInstance().toString(),false,"ABCDEFGHIJKLMNOPQRST","No se que poner xd",false,1))
-
         noteList.add(Note(1,Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,1))
-
     }
 
     override fun onCreateView(
@@ -59,16 +55,13 @@ class HomeFragment : Fragment() {
             }
         }
 
-        //var dialog = NoteViewDialog()
-        //dialog.show(parentFragmentManager,"custom")
-
         establecerEventAdapter()
     }
 
     private fun establecerEventAdapter(){
         recyclerNormal = binding.rcvEventFix
         recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNormal.adapter = EventRecycler(binding.root.context, eventList,2)
+        recyclerNormal.adapter = EventRecycler(binding.root.context, eventList,2,{event -> onClickEvent(event)})
 
         recyclerEvents = binding.rcvEvents
         recyclerEvents.layoutManager = LinearLayoutManager(binding.root.context)
@@ -77,6 +70,10 @@ class HomeFragment : Fragment() {
         recyclerNotes = binding.rcvNotes
         recyclerNotes.layoutManager = LinearLayoutManager(binding.root.context)
         recyclerNotes.adapter = NoteRecycler(binding.root.context,noteList,1)
+
+    }
+
+    private fun onClickEvent(event: Event) {
 
     }
 }
