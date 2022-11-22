@@ -94,4 +94,9 @@ class EventListFragment : Fragment() {
         eventList = mutableListOf()
     }
 
+    private fun onClickEvent(event : Event){
+        val dialog = EventViewDialog(event)
+        dialog.show(parentFragmentManager,"custom")
+    }
+
 }
