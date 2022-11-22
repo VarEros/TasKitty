@@ -34,7 +34,6 @@ class NewEventFragment() : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
     }
@@ -58,12 +57,15 @@ class NewEventFragment() : Fragment() {
     private fun setupOnBackPressed(){
         requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true){
             override fun handleOnBackPressed(){
-                if(!isEnabled){
-                    return
+                if(safeSave){
+                    isEnabled = false
+                    activity?.onBackPressed()
                 }
-                if(!safeSave)
+
+                if(isEnabled){
                     showAlert("Salir de crear evento","¿Deseas salir de eventos sin guardar cambios?")
-                editMode = false
+                    isEnabled = false
+                }
             }
         })
     }

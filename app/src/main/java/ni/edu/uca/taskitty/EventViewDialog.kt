@@ -1,6 +1,5 @@
 package ni.edu.uca.taskitty
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -13,26 +12,24 @@ import androidx.navigation.fragment.findNavController
 import ni.edu.uca.taskitty.databinding.FragmentEventViewBinding
 import ni.edu.uca.taskitty.model.Event
 import java.lang.Exception
-import android.app.Fragment
-import androidx.navigation.NavDirections
+import android.system.Os.remove
+import androidx.core.os.bundleOf
+import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.setFragmentResult
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
-import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
-import java.text.SimpleDateFormat
 
 
 class EventViewDialog (private var event: Event): DialogFragment() {
 
     private lateinit var binding : FragmentEventViewBinding
-    val storedVerificationId:String = "verificationId"
-    private lateinit var newEvent: Event
     private lateinit var daoEvent: DaoEvent
+    private var isDel = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
     }
@@ -72,6 +69,8 @@ class EventViewDialog (private var event: Event): DialogFragment() {
         binding.btnDelet.setOnClickListener {
             GlobalScope.launch { daoEvent.delete(event.idEvent) }
             Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
+            Thread.sleep(100)
+            setFragmentResult("del", bundleOf("false" to result()))
             dismiss()
         }
     }
@@ -95,6 +94,10 @@ class EventViewDialog (private var event: Event): DialogFragment() {
                 6-> eventColor.setImageResource(R.drawable.circular_element_cian)
             }
         }
+    }
+
+    fun result() : Boolean{
+        return isDel
     }
 
 }
