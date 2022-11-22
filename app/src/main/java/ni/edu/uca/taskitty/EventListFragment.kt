@@ -37,6 +37,7 @@ class EventListFragment : Fragment() {
 
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
+
         GlobalScope.launch {
             eventList = daoEvent.getAll().toMutableList()
         }
@@ -45,20 +46,19 @@ class EventListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         binding = FragmentEventListBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
-    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnAddEvent.setOnClickListener {
             findNavController().navigate(R.id.newEventFragment)
         }
-
-        var finalHost = NavHostFragment.create(R.id.newEventFragment)
 
         checkCompletedElements()
         filtrateElements()
@@ -76,7 +76,7 @@ class EventListFragment : Fragment() {
     }
 
     private fun checkCompletedElements(){
-        if(eventListCompleted.size < 1){
+        if(eventList.size < 1){
             binding.rcvEventsComp.visibility = View.GONE;
             return
         }

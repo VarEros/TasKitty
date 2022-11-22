@@ -11,34 +11,53 @@
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/charity_element.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_element.xml" value="0.3640960809102402" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_item.xml" value="0.14766970618034447" />
-        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_calendar.xml" value="0.25" />
-        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.25" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_view.xml" value="0.5" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_new_event.xml" value="0.22" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_note_view.xml" value="0.14766970618034447" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/about_us_main_element.xml" value="0.3635" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/art_open_external.xml" value="0.1755" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/button_about.xml" value="0.3635" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/charity_main_element.xml" value="0.1895" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/circular_element.xml" value="0.1895" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/desc_element.xml" value="0.2065" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/event_element_bottom.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/event_element_home.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/event_element_top.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/event_home_bottom.xml" value="0.3635" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/event_home_button.xml" value="0.2075" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/event_internal_element.xml" value="0.2075" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/event_mid_element.xml" value="0.2075" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/header_page_title.xml" value="0.2075" />
-        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/ic_calendar.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/ic_elements.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/ic_events.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/ic_star.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/ic_taskitty_icon.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/rectangular_element.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/splash_screen.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/top_new_event.xml" value="0.3635" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/activity_main.xml" value="0.3426371511068335" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/app_bar_main.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/charity_element.xml" value="0.2" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/event_element.xml" value="0.3625" />
-        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/event_item.xml" value="0.33" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/event_item.xml" value="0.67" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_about_us.xml" value="0.3625" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_calendar.xml" value="0.3625" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_charity_list.xml" value="0.2" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.3625" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_event_view.xml" value="0.33" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_new_event.xml" value="0.34048257372654156" />
-        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_new_note.xml" value="0.25" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_new_note.xml" value="0.33" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/fragment_notes_list.xml" value="0.3625" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/home_events.xml" value="0.2" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/home_notes.xml" value="0.2" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/nav_header.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/note_item.xml" value="0.33" />
+        <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/layout/splash_screen.xml" value="0.3625" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/menu/main_menu.xml" value="0.3625" />
       </map>
     </option>
