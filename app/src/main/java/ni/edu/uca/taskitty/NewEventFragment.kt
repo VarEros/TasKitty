@@ -1,11 +1,13 @@
 package ni.edu.uca.taskitty
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.data.AppDB
@@ -18,6 +20,7 @@ class NewEventFragment() : Fragment() {
     private lateinit var binding: FragmentNewEventBinding
     private lateinit var newEvent: Event
     private lateinit var daoEvent: DaoEvent
+    private var safeSave = false
 
     private var calStart = Calendar.getInstance()
     private var calEnd = Calendar.getInstance()
@@ -36,10 +39,40 @@ class NewEventFragment() : Fragment() {
         daoEvent = db.daoEvent()
     }
 
+
+    private fun showAlert(titleText : String, bodyText : String){
+        val eBuilder = AlertDialog.Builder(binding.root.context)
+        eBuilder.setTitle(titleText)
+        eBuilder.setIcon(R.drawable.ic_warning)
+        eBuilder.setMessage(bodyText)
+        eBuilder.setPositiveButton("Si"){
+                Dialog,which->
+                    requireActivity().onBackPressed()
+        }
+        eBuilder.setNegativeButton("No"){
+                Dialog,which->
+        }
+        eBuilder.create().show()
+    }
+
+    private fun setupOnBackPressed(){
+        requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed(){
+                if(!isEnabled){
+                    return
+                }
+                if(!safeSave)
+                    showAlert("Salir de crear evento","¿Deseas salir de eventos sin guardar cambios?")
+                editMode = false
+            }
+        })
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setupOnBackPressed()
         binding = FragmentNewEventBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -68,6 +101,7 @@ class NewEventFragment() : Fragment() {
         }
 
         binding.btnDiscard.setOnClickListener {
+            Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
         }
         Toast.makeText(context, idEvent.toString(), Toast.LENGTH_SHORT).show()
@@ -147,6 +181,7 @@ class NewEventFragment() : Fragment() {
                 newEvent.setId(idEvent)
                 daoEvent.update(newEvent)
         }
+        safeSave = true
         activity?.onBackPressed()
     }
 
