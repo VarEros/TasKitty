@@ -25,6 +25,10 @@
             app:exitAnim="@anim/exit_left_right" />
         <action
             android:id="@+id/action_homeFragment_to_charityListFragment"
+            app:destination="@id/charityListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
             app:destination="@id/charityListFragment"
             app:enterAnim="@anim/anim_left_right"
             app:exitAnim="@anim/exit_right_left" />
@@ -76,6 +80,10 @@
         android:label="fragment_charity_list"
         tools:layout="@layout/fragment_charity_list" />
     <fragment
+        android:id="@+id/calendarFragment"
+        android:name="ni.edu.uca.taskitty.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
         android:id="@+id/aboutUsFragment"
         android:name="ni.edu.uca.taskitty.AboutUsFragment"
         android:label="fragment_about_us"
