@@ -104,7 +104,6 @@ class NewEventFragment() : Fragment() {
             Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
         }
-        Toast.makeText(context, idEvent.toString(), Toast.LENGTH_SHORT).show()
     }
 
     fun switchToEditMode(){
