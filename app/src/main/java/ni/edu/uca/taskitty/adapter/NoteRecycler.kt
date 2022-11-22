@@ -15,16 +15,20 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.ShortcutXmlParser
 import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.NoteViewDialog
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.databinding.NoteItemBinding
 import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
+import java.util.Date
 
 class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var mode : Int):
     RecyclerView.Adapter<NoteRecycler.NoteHolder>() {
 
-        inner class NoteHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+
+    inner class NoteHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
             lateinit var noteTitle : TextView
             lateinit var noteDesc : Button
             lateinit var noteDate : TextView
@@ -50,17 +54,19 @@ class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var m
 
         }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
         var itemView =  LayoutInflater.from(context).inflate(R.layout.note_item, parent, false)
         return NoteHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
+
         var note = noteList[position]
+        val dateModified = DateTask(DateTask.getCalFrom(note.dateModified), context,holder.noteDate)
         holder.noteTitle.text = note.title
         holder.noteDesc.text = note.description
-        holder.noteDate.text = note.dateModified.toString()
-
+        dateModified.setTvNote()
 
         if(note.title == "" || note.title.isBlank()){
             holder.noteTitle.text = "Anotación sin título"

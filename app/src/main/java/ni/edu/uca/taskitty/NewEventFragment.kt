@@ -184,9 +184,10 @@ class NewEventFragment() : Fragment() {
         GlobalScope.launch {
             if (!editMode)
                 daoEvent.insert(newEvent)
-            else
+            else {
                 newEvent.setId(idEvent)
                 daoEvent.update(newEvent)
+            }
         }
         safeSave = true
         activity?.onBackPressed()

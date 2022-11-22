@@ -47,6 +47,13 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
                 cal.getDisplayName(Calendar.AM_PM, Calendar.LONG, Locale.US)
     }
 
+    fun setTvNote(){
+        tv.text ="Modificado: ${cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)} " +
+                "${cal.get(Calendar.DAY_OF_MONTH)} de " +
+                "${cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)}, " +
+                "${cal.get(Calendar.YEAR)} "
+    }
+
     private fun getMinute():String {
         if (cal.get(Calendar.MINUTE)<10)
             return "0${cal.get(Calendar.MINUTE)}"
@@ -56,6 +63,7 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
     fun getCal(): Calendar {
         return cal
     }
+
 
 
     companion object {

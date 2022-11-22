@@ -9,10 +9,10 @@ interface DaoNote {
     suspend fun getAll(): List<Note>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(event: Note)
+    suspend fun insert(note: Note)
 
     @Update
-    suspend fun update(event: Note)
+    suspend fun update(note: Note)
 
     @Query("DELETE FROM tblNote WHERE idNote =:id")
     suspend fun delete(id:Int)
