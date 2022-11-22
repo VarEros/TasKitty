@@ -8,8 +8,14 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.adapter.NoteRecycler
+import ni.edu.uca.taskitty.data.AppDB
+import ni.edu.uca.taskitty.data.DaoEvent
+import ni.edu.uca.taskitty.data.DaoNote
 import ni.edu.uca.taskitty.databinding.FragmentNotesListBinding
+import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
 import java.util.*
 
@@ -18,16 +24,11 @@ class NotesListFragment : Fragment() {
     private lateinit var binding : FragmentNotesListBinding
     private var noteList: MutableList<Note> = mutableListOf()
     private lateinit var recyclerNote : RecyclerView
-
+    private  lateinit var daoNote: DaoNote
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        noteList.add(Note(1, Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,1))
-        noteList.add(Note(1, Calendar.getInstance(),"","Me gustan los gatos",false,2))
-        noteList.add(Note(1, Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,3))
-        noteList.add(Note(1, Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,4))
-        noteList.add(Note(1, Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,5))
-        noteList.add(Note(1, Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,6))
+        refreshDataBase()
     }
 
     override fun onCreateView(
@@ -35,6 +36,7 @@ class NotesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNotesListBinding.inflate(inflater, container, false)
+        refreshDataBase()
         return binding.root
     }
 
@@ -52,6 +54,14 @@ class NotesListFragment : Fragment() {
         recyclerNote = binding.rcvNotes
         recyclerNote.layoutManager = LinearLayoutManager(binding.root.context)
         recyclerNote.adapter = NoteRecycler(binding.root.context,noteList,0)
+    }
+
+    fun refreshDataBase(){
+        val db = AppDB.getInstance(requireContext().applicationContext)
+        daoNote = db.daoNote()
+        GlobalScope.launch {
+            noteList = daoNote.getAll().toMutableList()
+        }
     }
 
 }

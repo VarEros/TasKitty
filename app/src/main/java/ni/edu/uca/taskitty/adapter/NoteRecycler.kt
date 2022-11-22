@@ -59,7 +59,7 @@ class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var m
         var note = noteList[position]
         holder.noteTitle.text = note.title
         holder.noteDesc.text = note.description
-        holder.noteDate.text = note.dateModified.time.toString()
+        holder.noteDate.text = note.dateModified.toString()
 
 
         if(note.title == "" || note.title.isBlank()){

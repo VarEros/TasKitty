@@ -35,7 +35,6 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        noteList.add(Note(1,Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,1))
     }
 
     override fun onCreateView(
