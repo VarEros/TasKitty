@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/white"/>
+
+    <item>
+        <bitmap
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:src="@drawable/taskitty_icon_hdpi"/>
+    </item>
+
+    <item>
+        <bitmap
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:width="1000dp"
+            android:height="100dp"
+            android:src="@drawable/teamf_icon"/>
+    </item>
+
+</layer-list>

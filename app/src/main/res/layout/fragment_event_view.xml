@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -45,7 +44,8 @@
                     android:layout_height="20dp"
                     android:padding="3dp"
                     android:src="@drawable/circular_element"
-                    app:layout_constraintStart_toEndOf="@+id/eventComp" />
+                    app:layout_constraintStart_toEndOf="@+id/eventComp"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <TextView
                     android:id="@+id/tvEventTitle"
@@ -74,7 +74,23 @@
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/tvEventTime"
+                android:id="@+id/tvEventTimeStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/event_home_bottom"
+                android:padding="5dp"
+                android:paddingVertical="5dp"
+                android:text="@string/programfor_events"
+                android:textAlignment="center"
+                android:fontFamily="@font/kadwa_bold"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tvEventTimeEnd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

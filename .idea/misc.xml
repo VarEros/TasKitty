@@ -7,15 +7,21 @@
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_accept.xml" value="0.2955" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_alter.xml" value="0.2955" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/button_discard.xml" value="0.2955" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/element_border_rad.xml" value="0.3635" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/note_element_mid.xml" value="0.3635" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/drawable/splash_screen.xml" value="0.2255" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/charity_element.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_element.xml" value="0.3640960809102402" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/event_item.xml" value="0.14766970618034447" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_about_us.xml" value="0.75" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_list.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_event_view.xml" value="0.5" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_home.xml" value="0.22418478260869565" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_new_event.xml" value="0.22" />
         <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/fragment_note_view.xml" value="0.14766970618034447" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/layout/splash_screen.xml" value="0.18" />
+        <entry key="..\:/Users/David/Desktop/Proyecto finales/TasKitty/app/src/main/res/menu/main_menu.xml" value="0.3625" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/art_open_external.xml" value="0.1755" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/charity_main_element.xml" value="0.1895" />
         <entry key="..\:/Users/Erick Gonzalez/Documents/Proyectos/Android Studio/TasKitty/app/src/main/res/drawable/circular_element.xml" value="0.1895" />

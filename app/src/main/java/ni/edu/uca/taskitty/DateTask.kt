@@ -20,8 +20,6 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
     private var savedDay = 0
     private var savedMonth = 0
     private var savedYear = 0
-    private var savedHour = 0
-    private var savedMinute = 0
 
     fun start() {
             DatePickerDialog(mcontext, this, cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show()
@@ -36,15 +34,17 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
     }
 
     override fun onTimeSet(p0: TimePicker?, hour: Int, minute: Int) {
-        savedHour = hour
-        savedMinute = minute
-
-        cal.set(savedYear,savedMonth,savedDay,savedHour,savedMinute)
-        tv.text = setTextView()
+        cal.set(savedYear,savedMonth,savedDay,hour,minute)
+        setTextView()
     }
 
-    fun setTextView(): String{
-        return "${cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)} ${cal.get(Calendar.DAY_OF_MONTH)} of ${cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)}, ${cal.get(Calendar.YEAR)} / ${cal.get(Calendar.HOUR)}:${getMinute()}${cal.getDisplayName(Calendar.AM_PM, Calendar.LONG, Locale.US)}"
+    fun setTextView(){
+        tv.text = "${cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)} " +
+                "${cal.get(Calendar.DAY_OF_MONTH)} of " +
+                "${cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)}, " +
+                "${cal.get(Calendar.YEAR)} / " +
+                "${cal.get(Calendar.HOUR)}:${getMinute()}" +
+                cal.getDisplayName(Calendar.AM_PM, Calendar.LONG, Locale.US)
     }
 
     private fun getMinute():String {
@@ -64,6 +64,8 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
             calType.timeInMillis = dateLong
             return  calType
         }
+
+
 
         fun getEventDateTitle(long: Long): String {
             val timeLeft = long - Calendar.getInstance().timeInMillis

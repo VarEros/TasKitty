@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsFragment"
+    android:background="@color/back_yellow"
+    android:padding="2dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/title_event"
+                android:paddingVertical="10dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/contLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/topTitle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/title_event"
+                        android:text="TasKitty"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:textColor="@color/font_yellow_black"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                        app:layout_constraintStart_toStartOf="@+id/imageView2"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="45dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/taskitty_black_icon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textCopy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_copyright"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/kadwa_regular"
+                    android:textColor="@color/font_yellow_black"
+                    android:textSize="12dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/contLogo"
+
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/element_border_rad"
+                app:layout_constraintTop_toTopOf="@id/topTitle"
+                android:layout_margin="5dp"
+                >
+
+                <ImageView
+                    android:id="@+id/tvDavid"
+                    android:layout_width="76dp"
+                    android:layout_height="95dp"
+                    android:layout_margin="20dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/david"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvDavid"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvDavidName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:text="David Mauricio Quintanilla Ruiz"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_regular"
+                        android:text="Estudiante de segundo año de la carrera ISI"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/element_border_rad"
+                app:layout_constraintTop_toTopOf="@id/topTitle"
+                android:layout_margin="5dp"
+                >
+
+
+                <ImageView
+                    android:id="@+id/tvPonce"
+                    android:layout_width="74dp"
+                    android:layout_height="98dp"
+                    android:layout_margin="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ponce"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvPonce"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvPonceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:text="David Sebastián Parrales Ponce"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_regular"
+                        android:text="Estudiante de segundo año de la carrera ISI"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/element_border_rad"
+                app:layout_constraintTop_toTopOf="@id/topTitle"
+                android:layout_margin="5dp">
+
+
+                <ImageView
+                    android:id="@+id/tvErick"
+                    android:layout_width="78dp"
+                    android:layout_height="106dp"
+                    android:layout_margin="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/erick"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvErick"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvErickName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:text="Erick Oswaldo Gonzalez Gallegos"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_regular"
+                        android:text="Estudiante de segundo año de la carrera ISI"
+                        android:textSize="12dp"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintLeft_toRightOf="@id/tvErick"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvErickName" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/element_border_rad"
+                app:layout_constraintTop_toTopOf="@id/topTitle"
+                android:layout_margin="5dp">
+
+
+                <ImageView
+                    android:id="@+id/tvRiuske"
+                    android:layout_width="87dp"
+                    android:layout_height="108dp"
+                    android:layout_margin="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/riuske"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvRiuske"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvRiuskeName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:text="Riuske Mateo Nishime Robleto"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kadwa_regular"
+                        android:text="Estudiante de segundo año de la carrera ISI"
+                        android:textSize="12dp" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
