@@ -83,8 +83,10 @@ class NewEventFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         idEvent = requireArguments().getInt("idEvent")
 
-        if (idEvent==0)
+        if (idEvent==0) {
             setDates()
+            binding.btnDelet.visibility = View.GONE
+        }
         else {
             switchToEditMode()
         }
@@ -105,6 +107,10 @@ class NewEventFragment() : Fragment() {
         binding.btnDiscard.setOnClickListener {
             Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
+        }
+
+        binding.btnDelet.setOnClickListener {
+            deleteEvent()
         }
     }
 
@@ -182,6 +188,15 @@ class NewEventFragment() : Fragment() {
                 newEvent.setId(idEvent)
                 daoEvent.update(newEvent)
         }
+        safeSave = true
+        activity?.onBackPressed()
+    }
+
+    private fun deleteEvent(){
+        val db = AppDB.getInstance(requireContext().applicationContext)
+        daoEvent = db.daoEvent()
+        GlobalScope.launch { daoEvent.delete(idEvent) }
+        Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
         safeSave = true
         activity?.onBackPressed()
     }

@@ -46,6 +46,7 @@ class EventListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEventListBinding.inflate(inflater, container, false)
+        refreshDataBase()
         establecerEventAdapter()
         return binding.root
     }
@@ -57,14 +58,11 @@ class EventListFragment : Fragment() {
         }
         binding.btnUpdate.setOnClickListener {
             refreshDataBase()
-            updateRecycler()
+            establecerEventAdapter()
         }
-
         refreshDataBase()
-        updateRecycler()
+        establecerEventAdapter()
     }
-
-
 
     private fun establecerEventAdapter(){
         recyclerNormal = binding.rcvEvents
@@ -74,12 +72,12 @@ class EventListFragment : Fragment() {
         recyclerCompleted = binding.rcvEventsComp
         recyclerCompleted.layoutManager = LinearLayoutManager(binding.root.context)
         recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3,{event -> onClickEvent(event)})
+        Toast.makeText(context, "Actualizando...", Toast.LENGTH_SHORT).show()
     }
 
     private fun updateRecycler(){
         recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,1, {event -> onClickEvent(event)})
         recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3,{event -> onClickEvent(event)})
-        Toast.makeText(context, "Actualizando...", Toast.LENGTH_SHORT).show()
     }
 
     fun refreshDataBase(){
@@ -87,21 +85,23 @@ class EventListFragment : Fragment() {
         daoEvent = db.daoEvent()
         GlobalScope.launch {
             eventList = daoEvent.getAll().toMutableList()
-            filtrateElements()
         }
-   }
+        filtrateElements()
+    }
 
     private fun filtrateElements(){
-        eventListNormal = mutableListOf()
-        eventListCompleted = mutableListOf()
+        var eventC = mutableListOf<Event>()
+        var eventN = mutableListOf<Event>()
+
         for(event in eventList){
             if(event.finished)
-                eventListCompleted.add(event)
+                eventC.add(event)
             else
-                eventListNormal.add(event)
+                eventN.add(event)
         }
+        eventListCompleted = eventC
+        eventListNormal = eventN
         eventList = mutableListOf()
-
     }
 
     private fun onClickEvent(event : Event){

@@ -66,13 +66,6 @@ class EventViewDialog (private var event: Event): DialogFragment() {
             }
         }
 
-        binding.btnDelet.setOnClickListener {
-            GlobalScope.launch { daoEvent.delete(event.idEvent) }
-            Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
-            Thread.sleep(100)
-            setFragmentResult("del", bundleOf("false" to result()))
-            dismiss()
-        }
     }
 
     private fun setEventData(){
