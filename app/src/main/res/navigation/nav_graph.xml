@@ -29,14 +29,12 @@
         <action
             android:id="@+id/action_homeFragment_to_calendarFragment"
             app:destination="@id/calendarFragment" />
-            app:destination="@id/charityListFragment"
-            app:enterAnim="@anim/anim_left_right"
-            app:exitAnim="@anim/exit_right_left" />
         <action
             android:id="@+id/action_homeFragment_to_aboutUsFragment"
-            app:destination="@id/aboutUsFragment"
-            app:enterAnim="@anim/anim_right_left"
-            app:exitAnim="@anim/exit_left_right" />
+            app:destination="@id/aboutUsFragment" />
+        app:destination="@id/charityListFragment"
+            app:enterAnim="@anim/anim_left_right"
+            app:exitAnim="@anim/exit_right_left" />
     </fragment>
     <fragment
         android:id="@+id/eventListFragment"
@@ -76,7 +74,7 @@
         tools:layout="@layout/fragment_new_note" />
     <fragment
         android:id="@+id/charityListFragment"
-        android:name="ni.edu.uca.taskitty.CharityListFragment"
+        android:name="ni.edu.uca.taskitty.charityListFragment"
         android:label="fragment_charity_list"
         tools:layout="@layout/fragment_charity_list" />
     <fragment
@@ -84,7 +82,12 @@
         android:name="ni.edu.uca.taskitty.CalendarFragment"
         android:label="fragment_calendar"
         tools:layout="@layout/fragment_calendar" />
+    <fragment
         android:id="@+id/aboutUsFragment"
+        android:name="ni.edu.uca.taskitty.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    android:id="@+id/aboutUsFragment"
         android:name="ni.edu.uca.taskitty.AboutUsFragment"
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us" />

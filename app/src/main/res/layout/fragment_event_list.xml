@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/event_element_bottom"
-                android:fontFamily="@font/kadwa_bold"
+                android:fontFamily="@font/kadwa_regular"
                 android:padding="5dp"
                 android:text="@string/non_elements"
                 android:textAlignment="center"

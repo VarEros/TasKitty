@@ -60,8 +60,8 @@ class EventListFragment : Fragment() {
 
         var finalHost = NavHostFragment.create(R.id.newEventFragment)
 
-        filtrateElements()
         checkCompletedElements()
+        filtrateElements()
         establecerEventAdapter()
     }
 
@@ -77,7 +77,7 @@ class EventListFragment : Fragment() {
 
     private fun checkCompletedElements(){
         if(eventListCompleted.size < 1){
-            binding.rcvEventsComp.visibility = View.INVISIBLE;
+            binding.rcvEventsComp.visibility = View.GONE;
             return
         }
         binding.rcvEventsComp.visibility = View.VISIBLE;
