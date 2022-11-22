@@ -66,6 +66,7 @@
                 android:id="@+id/tvNoteDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:layout_margin="5dp"
                 android:background="@drawable/event_mid_element"
                 android:fontFamily="@font/kadwa_regular"

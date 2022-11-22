@@ -39,14 +39,18 @@ class EventListFragment : Fragment() {
         daoEvent = db.daoEvent()
         GlobalScope.launch {
             eventList = daoEvent.getAll().toMutableList()
+            filtrateElements()
         }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding = FragmentEventListBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -61,7 +65,6 @@ class EventListFragment : Fragment() {
         var finalHost = NavHostFragment.create(R.id.newEventFragment)
 
         checkCompletedElements()
-        filtrateElements()
         establecerEventAdapter()
     }
 

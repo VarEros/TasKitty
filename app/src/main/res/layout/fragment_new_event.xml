@@ -40,13 +40,23 @@
                 android:background="@drawable/event_home_bottom"
                 android:padding="5dp">
 
+                <CheckBox
+                    android:id="@+id/cbCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:buttonTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageView
                     android:id="@+id/ivEventColor"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/circular_element"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cbCompleted"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -59,8 +69,8 @@
                     android:textColor="@color/white"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/ivEventColor"
-                    app:layout_constraintRight_toLeftOf="@id/ivEventFix"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
@@ -264,7 +274,8 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_red"
                         android:text=""
-                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+                        android:buttonTint="@color/white"/>
+                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
                         android:id="@+id/radioGreen"
@@ -273,6 +284,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_green"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -282,6 +294,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_blue"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -291,6 +304,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_yellow"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -300,6 +314,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_purple"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -309,6 +324,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_cian"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                 </RadioGroup>

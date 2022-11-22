@@ -34,6 +34,7 @@
                     android:checked="false"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
+                    android:enabled="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +69,7 @@
                 android:background="@drawable/event_mid_element"
                 android:fontFamily="@font/kadwa_regular"
                 android:padding="5dp"
+                android:textAlignment="center"
                 android:paddingVertical="5dp"
                 android:text="@string/notes_desc"
                 android:textColor="@color/black"

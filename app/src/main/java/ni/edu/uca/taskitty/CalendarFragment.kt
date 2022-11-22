@@ -11,19 +11,35 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.findFragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.R
+import ni.edu.uca.taskitty.adapter.EventMinimalRecycler
+import ni.edu.uca.taskitty.adapter.EventRecycler
+import ni.edu.uca.taskitty.data.AppDB
+import ni.edu.uca.taskitty.data.DaoEvent
 import ni.edu.uca.taskitty.databinding.FragmentCalendarBinding
 import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
+import ni.edu.uca.taskitty.model.Event
 
 
 class CalendarFragment : Fragment() {
 
     private lateinit var binding: FragmentCalendarBinding
-
+    private var eventList : MutableList<Event> = mutableListOf()
+    private lateinit var daoEvent: DaoEvent
+    private lateinit var rcvComingEvent : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentCalendarBinding.inflate(layoutInflater)
+
+        val db = AppDB.getInstance(requireContext().applicationContext)
+        daoEvent = db.daoEvent()
+        GlobalScope.launch {
+            eventList = daoEvent.getAll().toMutableList()
+        }
     }
 
     override fun onCreateView(
@@ -38,6 +54,18 @@ class CalendarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpCalendar()
+        establecerAdapter()
+    }
+
+    private fun establecerAdapter(){
+        rcvComingEvent = binding.rvComingEvents
+        rcvComingEvent.layoutManager = LinearLayoutManager(binding.root.context)
+        rcvComingEvent.adapter = EventMinimalRecycler(binding.root.context,eventList,1)
+
+    }
+
+    private fun onClickEvent(event: Event) {
+
     }
 
     private fun setUpCalendar() {

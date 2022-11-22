@@ -84,6 +84,7 @@ class EventViewDialog (private var event: Event): DialogFragment() {
             tvEventDesc.text = event.description
             dateStart.setTextView()
             dateEnd.setTextView()
+            eventComp.isChecked = event.finished
 
             when(event.color){
                 1-> eventColor.setImageResource(R.drawable.circular_element_red)

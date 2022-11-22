@@ -47,11 +47,13 @@ class NewEventFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         idEvent = requireArguments().getInt("idEvent")
+
         if (idEvent==0)
             setDates()
         else {
             switchToEditMode()
         }
+
         binding.btnEstabStart.setOnClickListener {
             dateTaskStart.start()
         }
@@ -78,6 +80,7 @@ class NewEventFragment() : Fragment() {
         editMode = true;
         binding.topTitle.text = getString(R.string.event_edit_mode)
         binding.tfTitle.setText(requireArguments().getString("title"))
+        binding.cbCompleted.isChecked =  requireArguments().getBoolean("finished")
         binding.etTitleda.setText(requireArguments().getString("description"))
         dateTaskStart.setTextView()
         dateTaskEnd.setTextView()
@@ -129,7 +132,7 @@ class NewEventFragment() : Fragment() {
             newEvent = Event(
                 dateStart = calStart.timeInMillis,
                 dateEnd = calEnd.timeInMillis,
-                finished = false,
+                finished = cbCompleted.isChecked,
                 title = tfTitle.text.toString(),
                 description = etTitleda.text.toString(),
                 fixed = false,
