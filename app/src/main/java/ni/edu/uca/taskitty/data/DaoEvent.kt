@@ -9,6 +9,7 @@ import ni.edu.uca.taskitty.model.Event
 interface DaoEvent {
     @Query("SELECT * FROM tblEvent ORDER BY dateStart")
     suspend fun getAll(): List<Event>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(event: Event)
 

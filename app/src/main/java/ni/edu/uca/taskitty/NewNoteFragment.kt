@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ni.edu.uca.taskitty.data.DaoNote
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
 import ni.edu.uca.taskitty.databinding.FragmentNewNoteBinding
 
 class NewNoteFragment : Fragment() {
 
-    lateinit var binding : FragmentNewNoteBinding
-
+    private lateinit var binding : FragmentNewNoteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
