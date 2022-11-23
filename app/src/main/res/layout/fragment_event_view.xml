@@ -34,6 +34,7 @@
                     android:checked="false"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
+                    android:enabled="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +69,7 @@
                 android:background="@drawable/event_mid_element"
                 android:fontFamily="@font/kadwa_regular"
                 android:padding="5dp"
+                android:textAlignment="center"
                 android:paddingVertical="5dp"
                 android:text="@string/notes_desc"
                 android:textColor="@color/black"
@@ -119,26 +121,16 @@
 
         <Button
             android:id="@+id/btnEdit"
-            android:layout_width="80dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:text="Editar"
+            android:text="Gestionar"
             android:fontFamily="@font/kadwa_bold"
             android:textSize="12dp"
             android:textColor="@color/white"
-            android:background="@drawable/button_accept"
+            android:background="@drawable/button_alter"
             android:layout_marginHorizontal="1dp"
             />
-        <Button
-            android:id="@+id/btnDelet"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="Eliminar"
-            android:fontFamily="@font/kadwa_bold"
-            android:textSize="12dp"
-            android:textColor="@color/white"
-            android:background="@drawable/button_discard"
-            android:layout_marginHorizontal="1dp"
-            />
+
     </LinearLayout>
 
 

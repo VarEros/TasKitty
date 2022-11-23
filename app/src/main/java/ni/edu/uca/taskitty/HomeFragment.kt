@@ -1,5 +1,4 @@
 package ni.edu.uca.taskitty
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,8 @@ import ni.edu.uca.taskitty.adapter.NoteRecycler
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
 import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
-import java.util.*
+
+
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        noteList.add(Note(1,Calendar.getInstance(),"Sacar al gato xd","Me gustan los gatos",false,1))
     }
 
     override fun onCreateView(
@@ -69,7 +68,11 @@ class HomeFragment : Fragment() {
 
         recyclerNotes = binding.rcvNotes
         recyclerNotes.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNotes.adapter = NoteRecycler(binding.root.context,noteList,1)
+        recyclerNotes.adapter = NoteRecycler(binding.root.context,noteList,1, {note -> onClickNote(note)})
+
+    }
+
+    private fun onClickNote(note: Note) {
 
     }
 

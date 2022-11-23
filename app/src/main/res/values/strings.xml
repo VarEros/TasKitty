@@ -10,17 +10,18 @@
     <string name="app_colors">Colorcitos</string>
     <string name="app_save">Guardar</string>
     <string name="app_discard">Descartar</string>
+    <string name="app_delete">Eliminar</string>
     <string name="app_accept">Aceptar</string>
     <string name="calendar">Calendario</string>
     <string name="events">Eventos</string>
     <string name="themes">Temas(Prox.)</string>
     <string name="aboutus">Acerca de</string>
-    <string name="text_copyright">Copyright Ⓒ 2022 TeamFactorizacion.\nTodos los derechos reservados</string>
+    <string name="text_copyright">Ⓒ2022 TasKitty.\nTodos los derechos reservados</string>
 
     <!--Texts for events-->
     <string name="event">Eventos</string>
     <string name="event_details">Detalles del evento</string>
-    <string name="event_edit_mode">Editar un evento</string>
+    <string name="event_edit_mode">Gestionar un evento</string>
     <string name="event_create">Crear un nuevo evento</string>
     <string name="event_title">Título del evento</string>
     <string name="event_desc">Descripción del evento</string>

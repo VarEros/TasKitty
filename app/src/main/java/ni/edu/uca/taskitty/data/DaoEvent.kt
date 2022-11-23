@@ -1,6 +1,8 @@
 package ni.edu.uca.taskitty.data
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import ni.edu.uca.taskitty.model.Event
 
 @Dao

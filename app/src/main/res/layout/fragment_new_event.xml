@@ -40,13 +40,23 @@
                 android:background="@drawable/event_home_bottom"
                 android:padding="5dp">
 
+                <CheckBox
+                    android:id="@+id/cbCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:buttonTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageView
                     android:id="@+id/ivEventColor"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/circular_element"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cbCompleted"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -59,8 +69,8 @@
                     android:textColor="@color/white"
                     android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/ivEventColor"
-                    app:layout_constraintRight_toLeftOf="@id/ivEventFix"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
@@ -264,7 +274,8 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_red"
                         android:text=""
-                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+                        android:buttonTint="@color/white"/>
+                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
                         android:id="@+id/radioGreen"
@@ -273,6 +284,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_green"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -282,6 +294,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_blue"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -291,6 +304,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_yellow"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -300,6 +314,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_purple"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -309,6 +324,7 @@
                         android:layout_marginHorizontal="3dp"
                         android:background="@drawable/circular_element_cian"
                         android:text=""
+                        android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                 </RadioGroup>
@@ -320,51 +336,60 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="20dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <Button
-                    android:id="@+id/btnDiscard"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_discard"
-                    android:paddingHorizontal="20dp"
-                    android:textAllCaps="false"
-                    android:background="@drawable/button_discard"
-                    android:fontFamily="@font/kadwa_bold"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="18dp"
-                    android:layout_marginHorizontal="5dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
-
-                <Button
-                    android:id="@+id/btnAccept"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/app_accept"
-                    android:paddingHorizontal="20dp"
-                    android:layout_marginHorizontal="5dp"
-                    android:textAllCaps="false"
-                    android:background="@drawable/button_accept"
-                    android:fontFamily="@font/kadwa_bold"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="18dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/btnDiscard"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintStart_toStartOf="parent">
 
+                    <Button
+                        android:id="@+id/btnDiscard"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/button_alter"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/app_discard"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="13dp"
+                        />
+
+                    <Button
+                        android:id="@+id/btnAccept"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/button_accept"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/app_accept"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="13dp"
+
+                        />
+
+                    <Button
+                        android:id="@+id/btnDelet"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/button_discard"
+                        android:fontFamily="@font/kadwa_bold"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/app_delete"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="13dp"
+
+                        />
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

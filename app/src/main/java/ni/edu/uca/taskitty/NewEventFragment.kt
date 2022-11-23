@@ -1,11 +1,13 @@
 package ni.edu.uca.taskitty
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.data.AppDB
@@ -18,6 +20,7 @@ class NewEventFragment() : Fragment() {
     private lateinit var binding: FragmentNewEventBinding
     private lateinit var newEvent: Event
     private lateinit var daoEvent: DaoEvent
+    private var safeSave = false
 
     private var calStart = Calendar.getInstance()
     private var calEnd = Calendar.getInstance()
@@ -31,15 +34,47 @@ class NewEventFragment() : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
+    }
+
+
+    private fun showAlert(titleText : String, bodyText : String){
+        val eBuilder = AlertDialog.Builder(binding.root.context)
+        eBuilder.setTitle(titleText)
+        eBuilder.setIcon(R.drawable.ic_warning)
+        eBuilder.setMessage(bodyText)
+        eBuilder.setPositiveButton("Si"){
+                Dialog,which->
+                    requireActivity().onBackPressed()
+        }
+        eBuilder.setNegativeButton("No"){
+                Dialog,which->
+        }
+        eBuilder.create().show()
+    }
+
+    private fun setupOnBackPressed(){
+        requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed(){
+                if(safeSave){
+                    isEnabled = false
+                    activity?.onBackPressed()
+                }
+
+                if(isEnabled){
+                    showAlert("Salir de crear evento","¿Deseas salir de eventos sin guardar cambios?")
+                    isEnabled = false
+                }
+            }
+        })
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setupOnBackPressed()
         binding = FragmentNewEventBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -47,11 +82,15 @@ class NewEventFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         idEvent = requireArguments().getInt("idEvent")
-        if (idEvent==0)
+
+        if (idEvent==0) {
             setDates()
+            binding.btnDelet.visibility = View.GONE
+        }
         else {
             switchToEditMode()
         }
+
         binding.btnEstabStart.setOnClickListener {
             dateTaskStart.start()
         }
@@ -65,9 +104,13 @@ class NewEventFragment() : Fragment() {
         }
 
         binding.btnDiscard.setOnClickListener {
+            Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
         }
-        Toast.makeText(context, idEvent.toString(), Toast.LENGTH_SHORT).show()
+
+        binding.btnDelet.setOnClickListener {
+            deleteEvent()
+        }
     }
 
     fun switchToEditMode(){
@@ -77,6 +120,7 @@ class NewEventFragment() : Fragment() {
         editMode = true;
         binding.topTitle.text = getString(R.string.event_edit_mode)
         binding.tfTitle.setText(requireArguments().getString("title"))
+        binding.cbCompleted.isChecked =  requireArguments().getBoolean("finished")
         binding.etTitleda.setText(requireArguments().getString("description"))
         dateTaskStart.setTextView()
         dateTaskEnd.setTextView()
@@ -128,7 +172,7 @@ class NewEventFragment() : Fragment() {
             newEvent = Event(
                 dateStart = calStart.timeInMillis,
                 dateEnd = calEnd.timeInMillis,
-                finished = false,
+                finished = cbCompleted.isChecked,
                 title = tfTitle.text.toString(),
                 description = etTitleda.text.toString(),
                 fixed = false,
@@ -139,10 +183,21 @@ class NewEventFragment() : Fragment() {
         GlobalScope.launch {
             if (!editMode)
                 daoEvent.insert(newEvent)
-            else
+            else {
                 newEvent.setId(idEvent)
                 daoEvent.update(newEvent)
+            }
         }
+        safeSave = true
+        activity?.onBackPressed()
+    }
+
+    private fun deleteEvent(){
+        val db = AppDB.getInstance(requireContext().applicationContext)
+        daoEvent = db.daoEvent()
+        GlobalScope.launch { daoEvent.delete(idEvent) }
+        Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
+        safeSave = true
         activity?.onBackPressed()
     }
 

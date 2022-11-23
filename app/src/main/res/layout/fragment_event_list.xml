@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
-                android:paddingHorizontal="10dp"/>
+                android:paddingHorizontal="5dp"/>
 
             <TextView
                 android:id="@+id/eventCompSep"
@@ -45,6 +45,7 @@
                 android:fontFamily="@font/kadwa_bold"
                 android:text="@string/completed_events"
                 android:textAlignment="center"
+                android:layout_marginHorizontal="5dp"
                 android:textColor="@color/white"
                 android:textSize="22dp" />
 
@@ -53,32 +54,91 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/event_element_bottom"
+                android:layout_marginHorizontal="5dp"
                 android:padding="10dp"
+                android:layout_marginBottom="50dp"
                 />
-
-            <TextView
-                android:id="@+id/notElements"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/event_element_bottom"
-                android:fontFamily="@font/kadwa_regular"
-                android:padding="5dp"
-                android:text="@string/non_elements"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="12dp" />
 
         </LinearLayout>
     </ScrollView>
 
-
-    <Button
-        android:id="@+id/btnAddEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="33dp"
+            android:src="@drawable/ic_icon_ears"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/ic_refresh"
+            android:translationZ="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnUpdate"
+            app:layout_constraintEnd_toEndOf="@+id/btnUpdate"
+            app:layout_constraintStart_toStartOf="@+id/btnUpdate"
+            app:layout_constraintTop_toTopOf="@+id/btnUpdate" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/circular_update_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="33dp"
+            android:src="@drawable/ic_icon_ears"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/ic_add"
+            android:translationZ="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnAddEvent"
+            app:layout_constraintEnd_toEndOf="@+id/btnAddEvent"
+            app:layout_constraintStart_toStartOf="@+id/btnAddEvent"
+            app:layout_constraintTop_toTopOf="@+id/btnAddEvent" />
+
+        <Button
+            android:id="@+id/btnAddEvent"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/circular_update_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

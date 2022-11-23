@@ -33,11 +33,18 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
 
     fun setTextView(){
         tv.text = "${cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)} " +
-                "${cal.get(Calendar.DAY_OF_MONTH)} of " +
+                "${cal.get(Calendar.DAY_OF_MONTH)} de " +
                 "${cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)}, " +
                 "${cal.get(Calendar.YEAR)} / " +
                 "${cal.get(Calendar.HOUR)}:${getMinute()}" +
                 cal.getDisplayName(Calendar.AM_PM, Calendar.LONG, Locale.US)
+    }
+
+    fun setTvNote(){
+        tv.text ="Modificado: ${cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)} " +
+                "${cal.get(Calendar.DAY_OF_MONTH)} de " +
+                "${cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)}, " +
+                "${cal.get(Calendar.YEAR)} "
     }
 
     private fun getMinute():String {
@@ -51,14 +58,13 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
     }
 
 
+
     companion object {
         fun getCalFrom(dateLong: Long): Calendar {
             var calType = Calendar.getInstance()
             calType.timeInMillis = dateLong
             return  calType
         }
-
-
 
         fun getEventDateTitle(long: Long): String {
             val timeLeft = long - Calendar.getInstance().timeInMillis
@@ -67,13 +73,13 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
             val inDays = TimeUnit.MILLISECONDS.toDays(timeLeft)
 
             return if(timeLeft <=0)
-                "Passed"
+                "Han pasado"
             else if (inMinute in 1..60)
-                "$inMinute minutes"
+                "$inMinute minutos"
             else if (inHour in 1..23)
-                "$inHour hours"
+                "$inHour horas"
             else
-                "$inDays days"
+                "$inDays dias"
         }
     }
 

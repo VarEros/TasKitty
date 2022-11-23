@@ -12,25 +12,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
-import androidx.core.content.pm.ShortcutXmlParser
-import androidx.core.content.res.TypedArrayUtils.getString
 import androidx.recyclerview.widget.RecyclerView
-import ni.edu.uca.taskitty.NoteViewDialog
+import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
-import ni.edu.uca.taskitty.databinding.NoteItemBinding
-import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
 
-class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var mode : Int):
+
+class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var mode : Int, private val onClickNote : (Note) -> Unit):
     RecyclerView.Adapter<NoteRecycler.NoteHolder>() {
 
-        inner class NoteHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-            lateinit var noteTitle : TextView
-            lateinit var noteDesc : Button
-            lateinit var noteDate : TextView
-            lateinit var noteColor : ConstraintLayout
-            lateinit var noteFix : ImageView
 
+
+    inner class NoteHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+             var noteTitle : TextView
+             var noteDesc : Button
+             var noteDate : TextView
+             var noteColor : ConstraintLayout
+             var noteFix : ImageView
 
             init {
                 noteTitle = itemView.findViewById(R.id.tvNoteTitle)
@@ -38,6 +36,7 @@ class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var m
                 noteDate = itemView.findViewById(R.id.tvNoteTime)
                 noteColor = itemView.findViewById(R.id.constNoteColor)
                 noteFix = itemView.findViewById(R.id.starFixNote)
+
 
                 when(mode){
                     1->{
@@ -50,21 +49,27 @@ class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var m
 
         }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
         var itemView =  LayoutInflater.from(context).inflate(R.layout.note_item, parent, false)
         return NoteHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
+
         var note = noteList[position]
+        val dateModified = DateTask(DateTask.getCalFrom(note.dateModified), context,holder.noteDate)
         holder.noteTitle.text = note.title
         holder.noteDesc.text = note.description
-        holder.noteDate.text = note.dateModified.time.toString()
-
+        dateModified.setTvNote()
 
         if(note.title == "" || note.title.isBlank()){
             holder.noteTitle.text = "Anotación sin título"
             holder.noteTitle.setTextColor(Color.parseColor("#6D000000"))
+        }
+
+        holder.noteDesc.setOnClickListener{
+            onClickNote(note)
         }
 
         if(!note.fixed)

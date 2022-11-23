@@ -71,8 +71,7 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
         holder.eventDate.text = DateTask.getEventDateTitle(event.dateStart)
         holder.eventComp.isChecked = event.finished
 
-        if(event.finished)
-            holder.eventComp.isEnabled = false
+        holder.eventComp.isEnabled = false
 
         holder.btnEnter.setOnClickListener {
             onClickEvent(event)
