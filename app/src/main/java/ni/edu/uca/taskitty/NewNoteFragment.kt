@@ -1,12 +1,10 @@
 package ni.edu.uca.taskitty
 
-import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
 import ni.edu.uca.taskitty.databinding.FragmentNewNoteBinding
 
 class NewNoteFragment : Fragment() {

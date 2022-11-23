@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -27,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolBar = findViewById<Toolbar>(R.id.toolBar)
-        setSupportActionBar(toolBar)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
@@ -42,13 +38,30 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
 
         val navView = findViewById<NavigationView>(R.id.nav_view)
+        navView.itemIconTintList = null
+
+        binding.included.imgMenu.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        binding.included.logotype.setOnClickListener {
+            navController.navigate(R.id.homeFragment)
+        }
+
         navView.setNavigationItemSelectedListener{
             when(it.itemId) {
-                R.id.itemCalendar -> Toast.makeText(binding.root.context.applicationContext, "IIS", Toast.LENGTH_SHORT).show()
+                R.id.itemCalendar -> navController.navigate(R.id.calendarFragment)
+                R.id.itemEvents -> navController.navigate(R.id.eventListFragment)
+                R.id.itemNotes -> navController.navigate(R.id.notesListFragment)
+                R.id.itemOng -> navController.navigate(R.id.charityListFragment)
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
+    }
+
+    fun accessTo() {
+
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {

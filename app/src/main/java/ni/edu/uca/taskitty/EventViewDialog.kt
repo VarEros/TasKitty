@@ -1,6 +1,5 @@
 package ni.edu.uca.taskitty
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -13,15 +12,10 @@ import androidx.navigation.fragment.findNavController
 import ni.edu.uca.taskitty.databinding.FragmentEventViewBinding
 import ni.edu.uca.taskitty.model.Event
 import java.lang.Exception
-import android.app.Fragment
-import androidx.navigation.NavDirections
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
-import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
-import java.text.SimpleDateFormat
-
 
 class EventViewDialog (private var event: Event): DialogFragment() {
 

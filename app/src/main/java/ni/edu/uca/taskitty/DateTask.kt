@@ -6,15 +6,8 @@ import android.content.Context
 import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.TimePicker
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
-import java.lang.Exception
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.time.Duration.Companion.days
-import kotlin.time.Duration.Companion.hours
-import kotlin.time.Duration.Companion.minutes
 
 class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextView): DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private var savedDay = 0
