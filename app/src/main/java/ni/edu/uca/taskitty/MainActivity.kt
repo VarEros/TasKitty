@@ -15,7 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.navigation.NavigationView
 import ni.edu.uca.taskitty.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
@@ -28,28 +28,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(binding.root)
 
         val toolBar = findViewById<Toolbar>(R.id.toolBar)
-        //setSupportActionBar(toolBar)
+        setSupportActionBar(toolBar)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
         drawerLayout = binding.mainActivity
         toogle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-
         drawerLayout.addDrawerListener(toogle)
+        toogle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
 
         val navView = findViewById<NavigationView>(R.id.nav_view)
-        navView.setNavigationItemSelectedListener(this)
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.itemCalendar -> Toast.makeText(binding.root.context, "IIS", Toast.LENGTH_SHORT).show()
+        navView.setNavigationItemSelectedListener{
+            when(it.itemId) {
+                R.id.itemCalendar -> Toast.makeText(binding.root.context.applicationContext, "IIS", Toast.LENGTH_SHORT).show()
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
         }
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
