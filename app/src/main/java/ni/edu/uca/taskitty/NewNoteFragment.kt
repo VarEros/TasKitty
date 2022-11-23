@@ -1,5 +1,6 @@
 package ni.edu.uca.taskitty
 
+import android.app.AlertDialog
 import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.data.AppDB
@@ -29,6 +31,53 @@ class NewNoteFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoNote = db.daoNote()
+    }
+
+    private fun showAlert(titleText : String, bodyText : String){
+        val eBuilder = AlertDialog.Builder(binding.root.context)
+        eBuilder.setTitle(titleText)
+        eBuilder.setIcon(R.drawable.ic_warning)
+        eBuilder.setMessage(bodyText)
+        eBuilder.setPositiveButton("Si"){
+                Dialog,which->
+            requireActivity().onBackPressed()
+        }
+        eBuilder.setNegativeButton("No"){
+                Dialog,which->
+        }
+        eBuilder.create().show()
+    }
+
+    private fun showAlertElim(titleText : String, bodyText : String){
+        val eBuilder = AlertDialog.Builder(binding.root.context)
+        eBuilder.setTitle(titleText)
+        eBuilder.setIcon(R.drawable.ic_warning)
+        eBuilder.setMessage(bodyText)
+        eBuilder.setPositiveButton("Si"){
+                Dialog,which->
+            requireActivity().onBackPressed()
+            deleteNote()
+        }
+        eBuilder.setNegativeButton("No"){
+                Dialog,which->
+        }
+        eBuilder.create().show()
+    }
+
+    private fun setupOnBackPressed(){
+        requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed(){
+                if(safeSave){
+                    isEnabled = false
+                    activity?.onBackPressed()
+                }
+
+                if(isEnabled){
+                    showAlert("Salir de crear evento","¿Deseas salir de eventos sin guardar cambios?")
+                    isEnabled = false
+                }
+            }
+        })
     }
 
     override fun onCreateView(
@@ -54,12 +103,15 @@ class NewNoteFragment : Fragment() {
         }
 
         binding.btnDiscard.setOnClickListener {
+            setupOnBackPressed()
             Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
         }
 
         binding.btnDelet.setOnClickListener {
-            deleteNote()
+
+            showAlertElim("Eliminar nota", "¿Deseas eliminar esta nota?")
+
         }
     }
 

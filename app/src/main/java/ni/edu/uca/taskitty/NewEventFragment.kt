@@ -54,6 +54,22 @@ class NewEventFragment() : Fragment() {
         eBuilder.create().show()
     }
 
+    private fun showAlertElim(titleText : String, bodyText : String){
+        val eBuilder = AlertDialog.Builder(binding.root.context)
+        eBuilder.setTitle(titleText)
+        eBuilder.setIcon(R.drawable.ic_warning)
+        eBuilder.setMessage(bodyText)
+        eBuilder.setPositiveButton("Si"){
+                Dialog,which->
+            requireActivity().onBackPressed()
+            deleteEvent()
+        }
+        eBuilder.setNegativeButton("No"){
+                Dialog,which->
+        }
+        eBuilder.create().show()
+    }
+
     private fun setupOnBackPressed(){
         requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true){
             override fun handleOnBackPressed(){
@@ -74,7 +90,6 @@ class NewEventFragment() : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setupOnBackPressed()
         binding = FragmentNewEventBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -105,12 +120,13 @@ class NewEventFragment() : Fragment() {
         }
 
         binding.btnDiscard.setOnClickListener {
+            setupOnBackPressed()
             Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
         }
 
         binding.btnDelet.setOnClickListener {
-            deleteEvent()
+            showAlertElim("Eliminar nota", "¿Deseas eliminar este evento?")
         }
     }
 

@@ -25,13 +25,19 @@
             app:exitAnim="@anim/exit_left_right" />
         <action
             android:id="@+id/action_homeFragment_to_charityListFragment"
-            app:destination="@id/charityListFragment" />
+            app:destination="@id/charityListFragment"
+            app:enterAnim="@anim/anim_left_right"
+            app:exitAnim="@anim/anim_right_left" />
         <action
             android:id="@+id/action_homeFragment_to_calendarFragment"
-            app:destination="@id/calendarFragment" />
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@anim/anim_right_left"
+            app:exitAnim="@anim/exit_left_right" />
         <action
             android:id="@+id/action_homeFragment_to_aboutUsFragment"
-            app:destination="@id/aboutUsFragment" />
+            app:destination="@id/aboutUsFragment"
+            app:enterAnim="@anim/anim_left_right"
+            app:exitAnim="@anim/exit_right_left" />
         app:destination="@id/charityListFragment"
             app:enterAnim="@anim/anim_left_right"
             app:exitAnim="@anim/exit_right_left" />

@@ -137,7 +137,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="13dp"
-                android:layout_marginHorizontal="2dp"/>
+                android:layout_marginHorizontal="2dp" />
 
         </LinearLayout>
 
