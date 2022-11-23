@@ -1,27 +1,19 @@
 package ni.edu.uca.taskitty
-import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import ni.edu.uca.taskitty.adapter.EventMinimalRecycler
 import ni.edu.uca.taskitty.adapter.EventRecycler
 import ni.edu.uca.taskitty.adapter.NoteRecycler
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
 import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
-import java.util.*
-import kotlin.math.round
+
 
 
 class HomeFragment : Fragment() {
@@ -76,7 +68,11 @@ class HomeFragment : Fragment() {
 
         recyclerNotes = binding.rcvNotes
         recyclerNotes.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNotes.adapter = NoteRecycler(binding.root.context,noteList,1)
+        recyclerNotes.adapter = NoteRecycler(binding.root.context,noteList,1, {note -> onClickNote(note)})
+
+    }
+
+    private fun onClickNote(note: Note) {
 
     }
 

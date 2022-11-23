@@ -38,25 +38,31 @@ class NotesListFragment : Fragment() {
     ): View? {
         binding = FragmentNotesListBinding.inflate(inflater, container, false)
         refreshDataBase()
+        establecerAdapter()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        establecerAdapter()
-
         binding.btnAddNote.setOnClickListener {
             findNavController().navigate(R.id.newNoteFragment, Bundle().apply {
                 putInt("idNote", 0)
             })
         }
+        refreshDataBase()
+        establecerAdapter()
     }
 
     private fun establecerAdapter(){
         recyclerNote = binding.rcvNotes
         recyclerNote.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNote.adapter = NoteRecycler(binding.root.context,noteList,0)
+        recyclerNote.adapter = NoteRecycler(binding.root.context,noteList,0,{note -> onClickNote(note)})
+    }
+
+    private fun onClickNote(note: Note) {
+        val dialog = NoteViewDialog(note)
+        dialog.show(parentFragmentManager,"custom")
     }
 
     fun refreshDataBase(){
