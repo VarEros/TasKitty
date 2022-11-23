@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemCalendar -> navController.navigate(R.id.calendarFragment)
                 R.id.itemEvents -> navController.navigate(R.id.eventListFragment)
                 R.id.itemNotes -> navController.navigate(R.id.notesListFragment)
-                R.id.itemOng -> navController.navigate(R.id.charityListFragment)
+                //R.id.itemOng -> navController.navigate(R.id.charityListFragment)
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true

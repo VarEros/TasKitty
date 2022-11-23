@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -61,33 +62,50 @@ class NewNoteFragment : Fragment() {
         binding.btnDelet.setOnClickListener {
             deleteNote()
         }
+
+        binding.rgGroup.setOnCheckedChangeListener { _, checkedId ->
+            val radio: RadioButton = binding.rgGroup.findViewById(checkedId)
+            when (radio) {
+                binding.radioRed -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_red)
+                }
+                binding.radioGreen -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_green)
+                }
+                binding.radioBlue -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_blue)
+                }
+                binding.radioYellow -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_yellow)
+                }
+                binding.radioPurple -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_purple)
+                }
+                binding.radioCyan -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_cyan)
+                }
+            }
+        }
     }
 
     fun switchToEditMode(){
+        val color = requireArguments().getInt("color")
+        val dateMod = DateTask(DateTask.getCalFrom(requireArguments().getLong("dateModified")), requireContext(), binding.tvLastEdit)
         
         editMode = true;
         binding.topTitle.text = getString(R.string.event_edit_mode)
         binding.tfTitle.setText(requireArguments().getString("title"))
         binding.etTitleda.setText(requireArguments().getString("description"))
+        dateMod.setTvNote()
         
-        
-
-        when(requireArguments().getInt("color")){
-            1-> binding.radioRed.isChecked = true;
-            2-> binding.radioGreen.isChecked = true;
-            3-> binding.radioBlue.isChecked = true;
-            4-> binding.radioYellow.isChecked = true;
-            5-> binding.radioPurple.isChecked = true;
-            6-> binding.radioCian.isChecked = true;
-        }
-
-        when(requireArguments().getInt("color")){
-            1-> binding.clTop.setBackgroundResource(R.color.red_schema)
-            2-> binding.clTop.setBackgroundResource(R.color.green_schema)
-            3-> binding.clTop.setBackgroundResource(R.color.blue_schema)
-            4-> binding.clTop.setBackgroundResource(R.color.yellow_schema)
-            5-> binding.clTop.setBackgroundResource(R.color.purple_schema)
-            6-> binding.clTop.setBackgroundResource(R.color.cian_schema)
+        ColorTask.setColorBack(color, binding.clTop)
+        when(color) {
+            1 -> binding.radioRed.isChecked = true
+            2 -> binding.radioGreen.isChecked = true
+            3 -> binding.radioBlue.isChecked = true
+            4 -> binding.radioYellow.isChecked = true
+            5 -> binding.radioPurple.isChecked = true
+            6 -> binding.radioCyan.isChecked = true
         }
     }
 
@@ -140,10 +158,11 @@ class NewNoteFragment : Fragment() {
                 4
             else if (radioPurple.isChecked)
                 5
-            else if (radioCian.isChecked)
+            else if (radioCyan.isChecked)
                 6
             else
                 0
         }
     }
+
 }

@@ -47,6 +47,7 @@ class NoteViewDialog (private var note: Note): DialogFragment() {
             try{
                 findNavController().navigate(R.id.newNoteFragment,Bundle().apply {
                     putInt("idNote",note.idNote)
+                    putLong("dateModified", note.dateModified)
                     putString("title", note.title)
                     putString("description", note.description)
                     putBoolean("fixed", note.fixed)

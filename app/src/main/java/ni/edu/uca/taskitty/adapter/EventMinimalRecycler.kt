@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.ColorTask
+import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 
@@ -33,16 +35,8 @@ class EventMinimalRecycler(var context : Context, var eventsList: MutableList<Ev
     override fun onBindViewHolder(holder: EventMinimalHolder, position: Int) {
         var event = eventsList[position]
         holder.eventTitle.text = event.title
-
-        when(event.color){
-            1-> holder.eventColor.setImageResource(R.drawable.circular_element_red)
-            2-> holder.eventColor.setImageResource(R.drawable.circular_element_green)
-            3-> holder.eventColor.setImageResource(R.drawable.circular_element_blue)
-            4-> holder.eventColor.setImageResource(R.drawable.circular_element_yellow)
-            5-> holder.eventColor.setImageResource(R.drawable.circular_element_purple)
-            6-> holder.eventColor.setImageResource(R.drawable.circular_element_cian)
-        }
-
+        ColorTask.setColorCircle(event.color, holder.eventColor)
+        holder.eventDate.text = DateTask.getEventShortDate(event.dateStart)
     }
 
     override fun getItemCount(): Int {

@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="10dp"
+        android:padding="13dp"
         android:layout_width="?actionBarSize"
         android:layout_height="match_parent"
         android:src="@drawable/menu_icon"
@@ -29,7 +29,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:src="@drawable/logotype_bar"
-        android:padding="3dp"
+        android:padding="5dp"
         />
 
 

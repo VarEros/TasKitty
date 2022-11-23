@@ -16,38 +16,36 @@
             android:layout_height="match_parent"
             android:background="@drawable/event_element_home" />
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
+                android:id="@+id/clHead"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:rotation="360"
+                android:layout_marginLeft="7dp"
+                android:orientation="horizontal"
                 android:layout_marginTop="10dp">
 
                     <CheckBox
                         android:id="@+id/eventComp"
                         android:layout_width="25dp"
                         android:layout_height="20dp"
-                        android:layout_marginLeft="6dp"
                         android:checked="false"
                         android:scaleX="0.8"
-                        android:scaleY="0.8"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        android:scaleY="0.8" />
 
                     <ImageView
                         android:id="@+id/eventColor"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:padding="3dp"
-                        android:src="@drawable/circular_element"
-                        app:layout_constraintStart_toEndOf="@id/eventComp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        android:src="@drawable/circular_element" />
 
                     <TextView
                         android:id="@+id/tvEventTitle"
@@ -56,16 +54,16 @@
                         android:fontFamily="@font/kadwa_bold"
                         android:text="@string/event_title"
                         android:textColor="@color/black"
-                        android:textSize="10dp"
-                        app:layout_constraintStart_toEndOf="@id/eventColor"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:textSize="10dp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvNoteDesc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clHead"
+                app:layout_constraintBottom_toTopOf="@id/tvNoteTime"
                 android:textAlignment="center"
                 android:layout_margin="5dp"
                 android:background="@drawable/event_mid_element"
@@ -80,6 +78,8 @@
                 android:id="@+id/tvNoteTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="7dp"
@@ -91,7 +91,7 @@
                 android:fontFamily="@font/kadwa_bold"
                 android:textColor="@color/white"
                 android:textSize="12dp" />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
