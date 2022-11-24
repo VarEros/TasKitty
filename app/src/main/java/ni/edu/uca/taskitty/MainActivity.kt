@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
-    private lateinit var toogle: ActionBarDrawerToggle
+    private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         drawerLayout = binding.mainActivity
-        toogle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(toogle)
-        toogle.syncState()
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
@@ -50,32 +50,48 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener{
             when(it.itemId) {
-                R.id.itemCalendar -> navController.navigate(R.id.calendarFragment)
-                R.id.itemEvents -> navController.navigate(R.id.eventListFragment)
-                R.id.itemNotes -> navController.navigate(R.id.notesListFragment)
-                //R.id.itemOng -> navController.navigate(R.id.charityListFragment)
+                R.id.itemCalendar -> {
+                    if (!viewIsRepeated(R.id.calendarFragment))
+                        navController.navigate(R.id.calendarFragment)
+                }
+                R.id.itemEvents -> {
+                    if (!viewIsRepeated(R.id.eventListFragment))
+                        navController.navigate(R.id.eventListFragment)
+                }
+                R.id.itemNotes -> {
+                    if (!viewIsRepeated(R.id.notesListFragment))
+                        navController.navigate(R.id.notesListFragment)
+                }
+                R.id.itemOng -> {
+                    if (!viewIsRepeated(R.id.charityListFragment))
+                        navController.navigate(R.id.charityListFragment)
+                }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
         }
-    }
-
-    fun accessTo() {
 
     }
+
+    private fun viewIsRepeated(fragment: Int): Boolean {
+        if(fragment == navController.currentDestination?.id)
+            return true
+        return false
+    }
+
 
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onPostCreate(savedInstanceState, persistentState)
-        toogle.syncState()
+        toggle.syncState()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        toogle.onConfigurationChanged(newConfig)
+        toggle.onConfigurationChanged(newConfig)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toogle.onOptionsItemSelected(item))
+        if(toggle.onOptionsItemSelected(item))
             return true
         return super.onOptionsItemSelected(item)
     }

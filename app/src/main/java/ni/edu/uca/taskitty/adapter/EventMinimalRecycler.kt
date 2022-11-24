@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -12,15 +13,17 @@ import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 
-class EventMinimalRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int):
+class EventMinimalRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
     RecyclerView.Adapter<EventMinimalRecycler.EventMinimalHolder>() {
 
         inner class EventMinimalHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
             var eventTitle : TextView
             var eventDate : TextView
-            lateinit var eventColor : ImageView
+            var eventColor : ImageView
+            var btnEnter: Button
 
             init {
+                btnEnter = itemView.findViewById(R.id.btnEnterEvent)
                 eventTitle = itemView.findViewById(R.id.tvEventTitle)
                 eventDate = itemView.findViewById(R.id.tvLeftTime)
                 eventColor = itemView.findViewById(R.id.eventColor)
@@ -37,6 +40,10 @@ class EventMinimalRecycler(var context : Context, var eventsList: MutableList<Ev
         holder.eventTitle.text = event.title
         ColorTask.setColorCircle(event.color, holder.eventColor)
         holder.eventDate.text = DateTask.getEventShortDate(event.dateStart)
+
+        holder.btnEnter.setOnClickListener {
+            onClickEvent(event)
+        }
     }
 
     override fun getItemCount(): Int {

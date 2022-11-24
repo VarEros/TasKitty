@@ -33,7 +33,6 @@ class EventListFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
-        refreshDataBase()
     }
 
     override fun onCreateView(
@@ -41,18 +40,19 @@ class EventListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentEventListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
         refreshDataBase()
         establecerEventAdapter()
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnAddEvent.setOnClickListener {
             findNavController().navigate(R.id.newEventFragment)
-        }
-        binding.btnUpdate.setOnClickListener {
-            establecerEventAdapter()
         }
         refreshDataBase()
         establecerEventAdapter()
@@ -90,13 +90,21 @@ class EventListFragment : Fragment() {
             else
                 eventN.add(event)
         }
-        if(eventC.isNotEmpty()){
+        eventListNormal = eventN
+        eventList = mutableListOf()
+
+        if(eventC.isEmpty()){
+            if (binding.eventCompSep.visibility == View.VISIBLE) {
+                binding.eventCompSep.visibility = View.INVISIBLE
+                binding.rcvEventsComp.visibility = View.INVISIBLE
+                return
+            }
+        }
+        if (binding.eventCompSep.visibility == View.INVISIBLE) {
             binding.eventCompSep.visibility = View.VISIBLE
             binding.rcvEventsComp.visibility = View.VISIBLE
         }
         eventListCompleted = eventC
-        eventListNormal = eventN
-        eventList = mutableListOf()
     }
 
     private fun onClickEvent(event : Event){

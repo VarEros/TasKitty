@@ -73,15 +73,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/ivEventFix"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_star"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.textfield.TextInputEditText
@@ -91,7 +82,7 @@
                 android:background="@drawable/event_title_element"
                 android:fontFamily="@font/kadwa_bold"
                 android:hint="Titulo del evento"
-                android:maxLines="@integer/material_motion_duration_short_1"
+                android:singleLine="true"
                 android:padding="6dp"
                 android:layout_marginTop="10dp"/>
 
@@ -113,6 +104,8 @@
                 android:fontFamily="@font/kadwa_bold"
                 android:hint="Descripción de ejemplo"
                 android:gravity="top"
+                android:maxLines="5"
+                android:maxLength="100"
                 android:padding="10dp"
                 android:textColor="@color/font_yellow_black"
                 android:textSize="12dp" />

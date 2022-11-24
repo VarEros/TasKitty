@@ -66,20 +66,23 @@
             layout="@layout/event_element"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:minHeight="100dp"
+            app:layout_constraintBottom_toBottomOf="@id/rcvEvents"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            app:layout_constraintTop_toTopOf="@+id/rcvEvents" />
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvEvents"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:minHeight="150dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/mainEvent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

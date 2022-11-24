@@ -124,24 +124,25 @@ class NewNoteFragment : Fragment() {
                 color = getColorId()
             )
         }
-        Toast.makeText(requireContext().applicationContext, "El evento se ha registrado con exito.", Toast.LENGTH_SHORT).show()
-        GlobalScope.launch {
-            if (!editMode)
+        if (!editMode) {
+            GlobalScope.launch {
                 daoNote.insert(newNote)
-            else {
+            }
+            Toast.makeText(context, "Nota Agregada", Toast.LENGTH_SHORT).show()
+        } else {
+            GlobalScope.launch {
                 newNote.setId(idNote)
                 daoNote.update(newNote)
             }
+            Toast.makeText(context, "Cambios Guardados", Toast.LENGTH_SHORT).show()
         }
         safeSave = true
         activity?.onBackPressed()
     }
 
     private fun deleteNote(){
-        val db = AppDB.getInstance(requireContext().applicationContext)
-        daoNote = db.daoNote()
         GlobalScope.launch { daoNote.delete(idNote) }
-        Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Eliminada", Toast.LENGTH_SHORT).show()
         safeSave = true
         activity?.onBackPressed()
     }

@@ -196,25 +196,25 @@ class NewEventFragment() : Fragment() {
                 color = getColorId()
             )
         }
-
-        Toast.makeText(requireContext().applicationContext, "El evento se ha registrado con exito.", Toast.LENGTH_SHORT).show()
-        GlobalScope.launch {
-            if (!editMode)
+        if (!editMode) {
+            GlobalScope.launch {
                 daoEvent.insert(newEvent)
-            else {
+            }
+            Toast.makeText(context, "Evento Agregado", Toast.LENGTH_SHORT).show()
+        } else {
+            GlobalScope.launch {
                 newEvent.setId(idEvent)
                 daoEvent.update(newEvent)
             }
+            Toast.makeText(context, "Cambios Guardados", Toast.LENGTH_SHORT).show()
         }
         safeSave = true
         activity?.onBackPressed()
     }
 
     private fun deleteEvent(){
-        val db = AppDB.getInstance(requireContext().applicationContext)
-        daoEvent = db.daoEvent()
         GlobalScope.launch { daoEvent.delete(idEvent) }
-        Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Evento eliminado", Toast.LENGTH_SHORT).show()
         safeSave = true
         activity?.onBackPressed()
     }
