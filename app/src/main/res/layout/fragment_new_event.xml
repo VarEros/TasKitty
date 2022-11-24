@@ -318,11 +318,11 @@
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <RadioButton
-                        android:id="@+id/radioCian"
+                        android:id="@+id/radioCyan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="3dp"
-                        android:background="@drawable/circular_element_cian"
+                        android:background="@drawable/circular_element_cyan"
                         android:text=""
                         android:buttonTint="@color/white"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />

@@ -28,7 +28,8 @@
             app:destination="@id/charityListFragment" />
         <action
             android:id="@+id/action_homeFragment_to_calendarFragment"
-            app:destination="@id/calendarFragment" />
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@anim/anim_right_left" />
         <action
             android:id="@+id/action_homeFragment_to_aboutUsFragment"
             app:destination="@id/aboutUsFragment" />

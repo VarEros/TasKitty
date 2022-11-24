@@ -52,4 +52,8 @@
     <!--placeholders-->
     <string name="charity_desc">Descripción para la caridad</string>
 
+    <!--Texts for nav-->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 </resources>

@@ -6,15 +6,8 @@ import android.content.Context
 import android.widget.DatePicker
 import android.widget.TextView
 import android.widget.TimePicker
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
-import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
-import java.lang.Exception
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.time.Duration.Companion.days
-import kotlin.time.Duration.Companion.hours
-import kotlin.time.Duration.Companion.minutes
 
 class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextView): DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private var savedDay = 0
@@ -39,19 +32,48 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
     }
 
     fun setTextView(){
-        tv.text = "${cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)} " +
+        tv.text = "${getDayOfWeek(cal.get(Calendar.DAY_OF_WEEK))} " +
                 "${cal.get(Calendar.DAY_OF_MONTH)} de " +
-                "${cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)}, " +
+                "${getMonth(cal.get(Calendar.MONTH))}, " +
                 "${cal.get(Calendar.YEAR)} / " +
                 "${cal.get(Calendar.HOUR)}:${getMinute()}" +
                 cal.getDisplayName(Calendar.AM_PM, Calendar.LONG, Locale.US)
     }
 
     fun setTvNote(){
-        tv.text ="Modificado: ${cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)} " +
+        tv.text ="Modificado: ${getDayOfWeek(cal.get(Calendar.DAY_OF_WEEK))}, " +
                 "${cal.get(Calendar.DAY_OF_MONTH)} de " +
-                "${cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US)}, " +
+                "${getMonth(cal.get(Calendar.MONTH))}, " +
                 "${cal.get(Calendar.YEAR)} "
+    }
+
+    private fun getDayOfWeek(day: Int): String {
+        return when(day) {
+            2 -> "Lunes"
+            3 -> "Martes"
+            4 -> "Miercoles"
+            5 -> "Jueves"
+            6 -> "Viernes"
+            7 -> "Sabado"
+            else -> "Domingo"
+        }
+    }
+
+    private fun getMonth(month: Int): String {
+        return when(month) {
+            0 -> "Enero"
+            1 -> "Febrero"
+            2 -> "Marzo"
+            3 -> "Abril"
+            4 -> "Mayo"
+            5 -> "Junio"
+            6 -> "Julio"
+            7 -> "Agosto"
+            8 -> "Septiembre"
+            9 -> "Octubre"
+            10 -> "Noviembre"
+            else -> "Diciembre"
+        }
     }
 
     private fun getMinute():String {
@@ -63,8 +85,6 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
     fun getCal(): Calendar {
         return cal
     }
-
-
 
     companion object {
         fun getCalFrom(dateLong: Long): Calendar {
@@ -80,9 +100,25 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
             val inDays = TimeUnit.MILLISECONDS.toDays(timeLeft)
 
             return if(timeLeft <=0)
-                "Han pasado"
+                "Ha pasado"
             else if (inMinute in 1..60)
                 "$inMinute minutos"
+            else if (inHour in 1..23)
+                "$inHour horas"
+            else
+                "$inDays dias"
+        }
+
+        fun getEventShortDate(long: Long): String {
+            val timeLeft = long - Calendar.getInstance().timeInMillis
+            val inMinute = TimeUnit.MILLISECONDS.toMinutes(timeLeft)
+            val inHour = TimeUnit.MILLISECONDS.toHours(timeLeft)
+            val inDays = TimeUnit.MILLISECONDS.toDays(timeLeft)
+
+            return if(timeLeft <=0)
+                "pas"
+            else if (inMinute in 1..60)
+                "$inMinute min"
             else if (inHour in 1..23)
                 "$inHour horas"
             else
