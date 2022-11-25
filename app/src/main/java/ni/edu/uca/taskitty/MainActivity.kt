@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
 
         val navView = findViewById<NavigationView>(R.id.nav_view)
+
         navView.itemIconTintList = null
 
         binding.included.imgMenu.setOnClickListener {
@@ -47,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         binding.included.logotype.setOnClickListener {
             navController.navigate(R.id.homeFragment)
         }
+
+
 
         navView.setNavigationItemSelectedListener{
             when(it.itemId) {
@@ -65,6 +68,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.itemOng -> {
                     if (!viewIsRepeated(R.id.charityListFragment))
                         navController.navigate(R.id.charityListFragment)
+                }
+                R.id.itemAbout -> {
+                    if (!viewIsRepeated(R.id.aboutUsFragment))
+                        navController.navigate(R.id.aboutUsFragment)
                 }
             }
             drawerLayout.closeDrawer(GravityCompat.START)

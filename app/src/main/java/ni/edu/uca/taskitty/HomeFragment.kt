@@ -19,6 +19,7 @@ import ni.edu.uca.taskitty.databinding.EventElementBinding
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
 import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
+import java.util.*
 
 
 class HomeFragment : Fragment() {
@@ -64,10 +65,10 @@ class HomeFragment : Fragment() {
         refreshDataBase()
         formData()
         binding.btnAllEvents.setOnClickListener {
-            findNavController().navigate(R.id.eventListFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_eventListFragment)
         }
         binding.btnAllNotes.setOnClickListener {
-            findNavController().navigate(R.id.notesListFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_notesListFragment)
         }
         binding.mainEvent.btnEnterEvent.setOnClickListener {
             onClickEvent(mainEvent)

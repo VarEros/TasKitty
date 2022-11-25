@@ -112,8 +112,8 @@ class NewNoteFragment : Fragment() {
     private fun makeNote() {
 
         with(binding) {
-            if (tfTitle.text.toString().isEmpty()) {
-                Toast.makeText(context, "El apartado de Titulo es requerido", Toast.LENGTH_SHORT).show()
+            if (etTitleda.text.toString().isEmpty()) {
+                Toast.makeText(context, "El apartado de Descripción es requerido", Toast.LENGTH_SHORT).show()
                 return
             }
             newNote = Note(

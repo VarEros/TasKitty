@@ -10,7 +10,7 @@ interface DaoEvent {
     @Query("SELECT * FROM tblEvent ORDER BY dateStart ASC")
     suspend fun getAll(): List<Event>
 
-    @Query("SELECT * FROM tblEvent WHERE (finished='0') ORDER BY dateStart ASC limit 4")
+    @Query("SELECT * FROM tblEvent WHERE finished='0' ORDER BY dateStart ASC LIMIT 4")
     suspend fun getAllForHome(): List<Event>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -61,7 +61,7 @@ class EventListFragment : Fragment() {
     private fun establecerEventAdapter(){
         recyclerNormal = binding.rcvEvents
         recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,1, {event -> onClickEvent(event)})
+        recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,2, {event -> onClickEvent(event)})
 
         recyclerCompleted = binding.rcvEventsComp
         recyclerCompleted.layoutManager = LinearLayoutManager(binding.root.context)

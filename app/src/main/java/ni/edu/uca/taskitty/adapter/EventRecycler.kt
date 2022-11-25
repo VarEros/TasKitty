@@ -43,7 +43,7 @@ class EventRecycler(var context : Context, var eventsList: MutableList<Event>, v
                     eventDesc.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
                     eventDesc.layoutParams.height = 150
                     eventDate.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
-                };
+                }
                 3->{
                     eventDate.visibility = View.GONE
                 }
