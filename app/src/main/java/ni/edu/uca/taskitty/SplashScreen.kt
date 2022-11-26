@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 class SplashScreen : AppCompatActivity (){
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        setTheme(R.style.Theme_TasKitty_Splash)
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
 
