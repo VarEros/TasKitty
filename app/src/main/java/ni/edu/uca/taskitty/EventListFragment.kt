@@ -22,9 +22,9 @@ class EventListFragment : Fragment() {
     private lateinit var binding: FragmentEventListBinding
     private  lateinit var daoEvent: DaoEvent
 
-    private var eventList : MutableList<Event> = mutableListOf()
-    private var eventListNormal : MutableList<Event> = mutableListOf()
-    private var eventListCompleted : MutableList<Event> = mutableListOf()
+    private var eventList : List<Event> = listOf()
+    private var eventListNormal : List<Event> = listOf()
+    private var eventListCompleted : List<Event> = listOf()
 
     private lateinit var recyclerNormal :  RecyclerView
     private lateinit var recyclerCompleted :  RecyclerView
@@ -42,6 +42,13 @@ class EventListFragment : Fragment() {
         binding = FragmentEventListBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onStart() {
+        refreshDataBase()
+        establecerEventAdapter()
+        super.onStart()
+    }
+
 
     override fun onResume() {
         super.onResume()
@@ -65,11 +72,6 @@ class EventListFragment : Fragment() {
 
         recyclerCompleted = binding.rcvEventsComp
         recyclerCompleted.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3,{event -> onClickEvent(event)})
-    }
-
-    private fun updateRecycler(){
-        recyclerNormal.adapter = EventRecycler(binding.root.context, eventListNormal,1, {event -> onClickEvent(event)})
         recyclerCompleted.adapter = EventRecycler(binding.root.context, eventListCompleted,3,{event -> onClickEvent(event)})
     }
 
@@ -97,8 +99,8 @@ class EventListFragment : Fragment() {
             if (binding.eventCompSep.visibility == View.VISIBLE) {
                 binding.eventCompSep.visibility = View.INVISIBLE
                 binding.rcvEventsComp.visibility = View.INVISIBLE
-                return
             }
+            return
         }
         if (binding.eventCompSep.visibility == View.INVISIBLE) {
             binding.eventCompSep.visibility = View.VISIBLE

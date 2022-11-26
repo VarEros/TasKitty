@@ -12,7 +12,7 @@ import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 
-class EventRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
+class EventRecycler(var context : Context, var eventsList: List<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
     RecyclerView.Adapter<EventRecycler.eventHolder>() {
 
 

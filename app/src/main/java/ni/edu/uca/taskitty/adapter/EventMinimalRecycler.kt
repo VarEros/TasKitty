@@ -13,7 +13,7 @@ import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 
-class EventMinimalRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
+class EventMinimalRecycler(var context : Context, var eventsList: List<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
     RecyclerView.Adapter<EventMinimalRecycler.EventMinimalHolder>() {
 
         inner class EventMinimalHolder (itemView: View) : RecyclerView.ViewHolder(itemView){

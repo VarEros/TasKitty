@@ -39,6 +39,12 @@ class NotesListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        refreshDataBase()
+        establecerAdapter()
+        super.onStart()
+    }
+
     override fun onResume() {
         refreshDataBase()
         establecerAdapter()
