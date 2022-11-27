@@ -1,4 +1,5 @@
 package ni.edu.uca.taskitty
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,6 @@ import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
 
 
-
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private var eventList : MutableList<Event> = mutableListOf()
@@ -23,6 +23,14 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerNormal : RecyclerView
     private lateinit var recyclerEvents : RecyclerView
     private lateinit var recyclerNotes : RecyclerView
+
+    private lateinit var  recyclerView: RecyclerView
+    private lateinit var infoArrayList: ArrayList<DYK>
+
+    lateinit var imageId : Array<Int>
+    lateinit var heading : Array<String>
+    lateinit var infoDYK : Array<String>
+    lateinit var btnDYK : Array<Int>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +48,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.includedInclude.cosntDYK.setOnClickListener{
+
+            showDYK()
+        }
+
         with(binding) {
             btnAllEvents.setOnClickListener {
 
@@ -55,6 +68,20 @@ class HomeFragment : Fragment() {
         }
 
         establecerEventAdapter()
+    }
+
+    private fun showDYK() {
+        if (binding.includedInclude.tvInfoDYK.visibility == View.VISIBLE){
+            binding.includedInclude.tvInfoDYK.visibility = View.GONE
+            binding.includedInclude.btnDYK.visibility = View.GONE
+
+            return
+        }
+
+        if (binding.includedInclude.tvInfoDYK.visibility == View.GONE){
+            binding.includedInclude.tvInfoDYK.visibility = View.VISIBLE
+            binding.includedInclude.btnDYK.visibility = View.VISIBLE
+        }
     }
 
     private fun establecerEventAdapter(){

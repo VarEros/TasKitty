@@ -8,11 +8,23 @@
     tools:context=".HomeFragment"
     android:background="@color/background_main">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/includedInclude"
+        android:layout_margin="10dp"
+        layout="@layout/list_dyk"
+        tools:ignore="MissingConstraints"/>
+
+
+
     <FrameLayout
         android:id="@+id/lfEvents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/includedInclude"
+        tools:ignore="MissingConstraints">
 
         <ImageButton
             android:id="@+id/btnAllEvents"
@@ -46,6 +58,7 @@
         android:id="@+id/constRecycles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/lfEvents"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.Guideline
