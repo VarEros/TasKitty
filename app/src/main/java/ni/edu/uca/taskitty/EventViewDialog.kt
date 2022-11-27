@@ -12,12 +12,6 @@ import androidx.navigation.fragment.findNavController
 import ni.edu.uca.taskitty.databinding.FragmentEventViewBinding
 import ni.edu.uca.taskitty.model.Event
 import java.lang.Exception
-import android.system.Os.remove
-import androidx.core.os.bundleOf
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.setFragmentResult
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
 
@@ -84,7 +78,7 @@ class EventViewDialog (private var event: Event): DialogFragment() {
                 3-> eventColor.setImageResource(R.drawable.circular_element_blue)
                 4-> eventColor.setImageResource(R.drawable.circular_element_yellow)
                 5-> eventColor.setImageResource(R.drawable.circular_element_purple)
-                6-> eventColor.setImageResource(R.drawable.circular_element_cian)
+                6-> eventColor.setImageResource(R.drawable.circular_element_cyan)
             }
         }
     }

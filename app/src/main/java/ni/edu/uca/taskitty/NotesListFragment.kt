@@ -29,7 +29,6 @@ class NotesListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        refreshDataBase()
     }
 
     override fun onCreateView(
@@ -37,9 +36,19 @@ class NotesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNotesListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onStart() {
         refreshDataBase()
         establecerAdapter()
-        return binding.root
+        super.onStart()
+    }
+
+    override fun onResume() {
+        refreshDataBase()
+        establecerAdapter()
+        super.onResume()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

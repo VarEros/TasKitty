@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.TasKitty.Splash" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+    <style name="Theme.TasKitty" parent="Theme.AppCompat.DayNight.NoActionBar" >
         <item name="colorPrimary">@color/mid_white</item>
         <item name="colorPrimaryVariant">@color/middle_white</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -8,22 +9,17 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/white</item>
+        <!-- Nose -->
         <!-- Status bar color. -->
         <!-- Customize your theme here. -->
         <item name="titleTextColor">@color/main_color</item>
     </style>
-
-    <style name="Theme.TasKitty" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/mid_white</item>
-        <item name="colorPrimaryVariant">@color/middle_white</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <!-- Status bar color. -->
-        <!-- Customize your theme here. -->
-        <item name="titleTextColor">@color/main_color</item>
+    <style name="Theme.TasKitty.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.TasKitty.popUpOverlay" parent="ThemeOverlay.AppCompat.Light">
+    </style>
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/kadwa_bold</item>
+        <item name="android:textSize">23sp</item>
     </style>
 
 </resources>

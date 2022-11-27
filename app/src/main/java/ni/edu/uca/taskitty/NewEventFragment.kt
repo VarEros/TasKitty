@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import kotlinx.coroutines.GlobalScope
@@ -112,7 +113,6 @@ class NewEventFragment() : Fragment() {
 
         binding.btnEstabEnd.setOnClickListener {
             dateTaskEnd.start()
-
         }
 
         binding.btnAccept.setOnClickListener {
@@ -128,11 +128,36 @@ class NewEventFragment() : Fragment() {
         binding.btnDelet.setOnClickListener {
             showAlertElim("Eliminar nota", "¿Deseas eliminar este evento?")
         }
+
+        binding.rgGroup.setOnCheckedChangeListener { _, checkedId ->
+            val radio: RadioButton = binding.rgGroup.findViewById(checkedId)
+            when (radio) {
+                binding.radioRed -> {
+                    binding.ivEventColor.setImageResource(R.drawable.circular_element_red)
+                }
+                binding.radioGreen -> {
+                    binding.ivEventColor.setImageResource(R.drawable.circular_element_green)
+                }
+                binding.radioBlue -> {
+                    binding.ivEventColor.setImageResource(R.drawable.circular_element_blue)
+                }
+                binding.radioYellow -> {
+                    binding.ivEventColor.setImageResource(R.drawable.circular_element_yellow)
+                }
+                binding.radioPurple -> {
+                    binding.ivEventColor.setImageResource(R.drawable.circular_element_purple)
+                }
+                binding.radioCyan -> {
+                    binding.ivEventColor.setImageResource(R.drawable.circular_element_cyan)
+                }
+            }
+        }
     }
 
     fun switchToEditMode(){
         dateTaskStart = DateTask(DateTask.getCalFrom(requireArguments().getLong("dateStart")), requireContext(), binding.tvStartPlace)
         dateTaskEnd = DateTask(DateTask.getCalFrom(requireArguments().getLong("dateEnd")), requireContext(), binding.tvEndPlace)
+        val color = requireArguments().getInt("color")
 
         editMode = true;
         binding.topTitle.text = getString(R.string.event_edit_mode)
@@ -141,23 +166,14 @@ class NewEventFragment() : Fragment() {
         binding.etTitleda.setText(requireArguments().getString("description"))
         dateTaskStart.setTextView()
         dateTaskEnd.setTextView()
-
-        when(requireArguments().getInt("color")){
-            1-> binding.radioRed.isChecked = true;
-            2-> binding.radioGreen.isChecked = true;
-            3-> binding.radioBlue.isChecked = true;
-            4-> binding.radioYellow.isChecked = true;
-            5-> binding.radioPurple.isChecked = true;
-            6-> binding.radioCian.isChecked = true;
-        }
-
-        when(requireArguments().getInt("color")){
-            1-> binding.ivEventColor.setImageResource(R.drawable.circular_element_red)
-            2-> binding.ivEventColor.setImageResource(R.drawable.circular_element_green)
-            3-> binding.ivEventColor.setImageResource(R.drawable.circular_element_blue)
-            4-> binding.ivEventColor.setImageResource(R.drawable.circular_element_yellow)
-            5-> binding.ivEventColor.setImageResource(R.drawable.circular_element_purple)
-            6-> binding.ivEventColor.setImageResource(R.drawable.circular_element_cian)
+        ColorTask.setColorCircle(color, binding.ivEventColor)
+        when(color) {
+            1 -> binding.radioRed.isChecked = true
+            2 -> binding.radioGreen.isChecked = true
+            3 -> binding.radioBlue.isChecked = true
+            4 -> binding.radioYellow.isChecked = true
+            5 -> binding.radioPurple.isChecked = true
+            6 -> binding.radioCyan.isChecked = true
         }
     }
 
@@ -196,24 +212,25 @@ class NewEventFragment() : Fragment() {
                 color = getColorId()
             )
         }
-        Toast.makeText(requireContext().applicationContext, "El evento se ha registrado con exito.", Toast.LENGTH_SHORT).show()
-        GlobalScope.launch {
-            if (!editMode)
+        if (!editMode) {
+            GlobalScope.launch {
                 daoEvent.insert(newEvent)
-            else {
+            }
+            Toast.makeText(context, "Evento Agregado", Toast.LENGTH_SHORT).show()
+        } else {
+            GlobalScope.launch {
                 newEvent.setId(idEvent)
                 daoEvent.update(newEvent)
             }
+            Toast.makeText(context, "Cambios Guardados", Toast.LENGTH_SHORT).show()
         }
         safeSave = true
         activity?.onBackPressed()
     }
 
     private fun deleteEvent(){
-        val db = AppDB.getInstance(requireContext().applicationContext)
-        daoEvent = db.daoEvent()
         GlobalScope.launch { daoEvent.delete(idEvent) }
-        Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Evento eliminado", Toast.LENGTH_SHORT).show()
         safeSave = true
         activity?.onBackPressed()
     }
@@ -230,7 +247,7 @@ class NewEventFragment() : Fragment() {
                 4
             else if (radioPurple.isChecked)
                 5
-            else if (radioCian.isChecked)
+            else if (radioCyan.isChecked)
                 6
             else
                 0

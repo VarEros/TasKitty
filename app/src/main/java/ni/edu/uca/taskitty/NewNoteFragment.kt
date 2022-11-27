@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import kotlinx.coroutines.GlobalScope
@@ -113,41 +114,58 @@ class NewNoteFragment : Fragment() {
             showAlertElim("Eliminar nota", "¿Deseas eliminar esta nota?")
 
         }
+
+        binding.rgGroup.setOnCheckedChangeListener { _, checkedId ->
+            val radio: RadioButton = binding.rgGroup.findViewById(checkedId)
+            when (radio) {
+                binding.radioRed -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_red)
+                }
+                binding.radioGreen -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_green)
+                }
+                binding.radioBlue -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_blue)
+                }
+                binding.radioYellow -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_yellow)
+                }
+                binding.radioPurple -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_purple)
+                }
+                binding.radioCyan -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_cyan)
+                }
+            }
+        }
     }
 
     fun switchToEditMode(){
+        val color = requireArguments().getInt("color")
+        val dateMod = DateTask(DateTask.getCalFrom(requireArguments().getLong("dateModified")), requireContext(), binding.tvLastEdit)
         
         editMode = true;
         binding.topTitle.text = getString(R.string.event_edit_mode)
         binding.tfTitle.setText(requireArguments().getString("title"))
         binding.etTitleda.setText(requireArguments().getString("description"))
+        dateMod.setTvNote()
         
-        
-
-        when(requireArguments().getInt("color")){
-            1-> binding.radioRed.isChecked = true;
-            2-> binding.radioGreen.isChecked = true;
-            3-> binding.radioBlue.isChecked = true;
-            4-> binding.radioYellow.isChecked = true;
-            5-> binding.radioPurple.isChecked = true;
-            6-> binding.radioCian.isChecked = true;
-        }
-
-        when(requireArguments().getInt("color")){
-            1-> binding.clTop.setBackgroundResource(R.color.red_schema)
-            2-> binding.clTop.setBackgroundResource(R.color.green_schema)
-            3-> binding.clTop.setBackgroundResource(R.color.blue_schema)
-            4-> binding.clTop.setBackgroundResource(R.color.yellow_schema)
-            5-> binding.clTop.setBackgroundResource(R.color.purple_schema)
-            6-> binding.clTop.setBackgroundResource(R.color.cian_schema)
+        ColorTask.setColorBack(color, binding.clTop)
+        when(color) {
+            1 -> binding.radioRed.isChecked = true
+            2 -> binding.radioGreen.isChecked = true
+            3 -> binding.radioBlue.isChecked = true
+            4 -> binding.radioYellow.isChecked = true
+            5 -> binding.radioPurple.isChecked = true
+            6 -> binding.radioCyan.isChecked = true
         }
     }
 
     private fun makeNote() {
 
         with(binding) {
-            if (tfTitle.text.toString().isEmpty()) {
-                Toast.makeText(context, "El apartado de Titulo es requerido", Toast.LENGTH_SHORT).show()
+            if (etTitleda.text.toString().isEmpty()) {
+                Toast.makeText(context, "El apartado de Descripción es requerido", Toast.LENGTH_SHORT).show()
                 return
             }
             newNote = Note(
@@ -158,24 +176,25 @@ class NewNoteFragment : Fragment() {
                 color = getColorId()
             )
         }
-        Toast.makeText(requireContext().applicationContext, "El evento se ha registrado con exito.", Toast.LENGTH_SHORT).show()
-        GlobalScope.launch {
-            if (!editMode)
+        if (!editMode) {
+            GlobalScope.launch {
                 daoNote.insert(newNote)
-            else {
+            }
+            Toast.makeText(context, "Nota Agregada", Toast.LENGTH_SHORT).show()
+        } else {
+            GlobalScope.launch {
                 newNote.setId(idNote)
                 daoNote.update(newNote)
             }
+            Toast.makeText(context, "Cambios Guardados", Toast.LENGTH_SHORT).show()
         }
         safeSave = true
         activity?.onBackPressed()
     }
 
     private fun deleteNote(){
-        val db = AppDB.getInstance(requireContext().applicationContext)
-        daoNote = db.daoNote()
         GlobalScope.launch { daoNote.delete(idNote) }
-        Toast.makeText(requireContext().applicationContext, "Se ha eliminado el evento", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Eliminada", Toast.LENGTH_SHORT).show()
         safeSave = true
         activity?.onBackPressed()
     }
@@ -192,10 +211,11 @@ class NewNoteFragment : Fragment() {
                 4
             else if (radioPurple.isChecked)
                 5
-            else if (radioCian.isChecked)
+            else if (radioCyan.isChecked)
                 6
             else
                 0
         }
     }
+
 }

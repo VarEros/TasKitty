@@ -4,21 +4,26 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.ColorTask
+import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 
-class EventMinimalRecycler(var context : Context, var eventsList: MutableList<Event>, var mode : Int):
+class EventMinimalRecycler(var context : Context, var eventsList: List<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
     RecyclerView.Adapter<EventMinimalRecycler.EventMinimalHolder>() {
 
         inner class EventMinimalHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
             var eventTitle : TextView
             var eventDate : TextView
-            lateinit var eventColor : ImageView
+            var eventColor : ImageView
+            var btnEnter: Button
 
             init {
+                btnEnter = itemView.findViewById(R.id.btnEnterEvent)
                 eventTitle = itemView.findViewById(R.id.tvEventTitle)
                 eventDate = itemView.findViewById(R.id.tvLeftTime)
                 eventColor = itemView.findViewById(R.id.eventColor)
@@ -33,16 +38,12 @@ class EventMinimalRecycler(var context : Context, var eventsList: MutableList<Ev
     override fun onBindViewHolder(holder: EventMinimalHolder, position: Int) {
         var event = eventsList[position]
         holder.eventTitle.text = event.title
+        ColorTask.setColorCircle(event.color, holder.eventColor)
+        holder.eventDate.text = DateTask.getEventShortDate(event.dateStart)
 
-        when(event.color){
-            1-> holder.eventColor.setImageResource(R.drawable.circular_element_red)
-            2-> holder.eventColor.setImageResource(R.drawable.circular_element_green)
-            3-> holder.eventColor.setImageResource(R.drawable.circular_element_blue)
-            4-> holder.eventColor.setImageResource(R.drawable.circular_element_yellow)
-            5-> holder.eventColor.setImageResource(R.drawable.circular_element_purple)
-            6-> holder.eventColor.setImageResource(R.drawable.circular_element_cian)
+        holder.btnEnter.setOnClickListener {
+            onClickEvent(event)
         }
-
     }
 
     override fun getItemCount(): Int {

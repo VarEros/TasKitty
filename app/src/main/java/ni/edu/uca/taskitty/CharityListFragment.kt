@@ -13,7 +13,6 @@ class CharityListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -23,5 +22,4 @@ class CharityListFragment : Fragment() {
         binding = FragmentCharityListBinding.inflate(inflater,container,false)
         return binding.root
     }
-
 }

@@ -7,8 +7,11 @@ import ni.edu.uca.taskitty.model.Event
 
 @Dao
 interface DaoEvent {
-    @Query("SELECT * FROM tblEvent ORDER BY dateStart")
+    @Query("SELECT * FROM tblEvent ORDER BY dateStart ASC")
     suspend fun getAll(): List<Event>
+
+    @Query("SELECT * FROM tblEvent WHERE finished='0' ORDER BY dateStart ASC LIMIT 4")
+    suspend fun getAllForHome(): List<Event>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(event: Event)
@@ -17,5 +20,5 @@ interface DaoEvent {
     suspend fun update(event: Event)
 
     @Query("DELETE FROM tblEvent WHERE idEvent =:id")
-    suspend fun delete(id:Int)
+    suspend fun delete(id: Int)
 }

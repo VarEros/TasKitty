@@ -60,7 +60,7 @@ class CalendarFragment : Fragment() {
     private fun establecerAdapter(){
         rcvComingEvent = binding.rvComingEvents
         rcvComingEvent.layoutManager = LinearLayoutManager(binding.root.context)
-        rcvComingEvent.adapter = EventMinimalRecycler(binding.root.context,eventList,1)
+        rcvComingEvent.adapter = EventMinimalRecycler(binding.root.context,eventList,0, {event -> onClickEvent(event)})
 
     }
 

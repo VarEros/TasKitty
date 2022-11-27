@@ -20,7 +20,6 @@
         </activity>
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/Theme.TasKitty.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

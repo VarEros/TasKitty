@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/itemCalendar"
-        android:title="Calendario"
-        />
-    <item android:id="@+id/itemEvents"
-        android:title="Eventos" />
-    <item android:id="@+id/itemNotes"
-        android:title="Notas" />
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/itemCalendar"
+            android:title="Calendario"
+            android:icon="@drawable/ic_calendar"/>
+        <item android:id="@+id/itemEvents"
+            android:title="Eventos"
+            android:icon="@drawable/ic_star"/>
+        <item android:id="@+id/itemNotes"
+            android:title="Notas"
+            android:icon="@drawable/ic_notes"/>
+        <item android:id="@+id/itemOng"
+            android:title="ONGs"
+            android:icon="@drawable/ic_organizations"/>
+    </group>
+    <item android:title="">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/itemAbout"
+                    android:title="Acerca de"
+                    android:icon="@drawable/ic_about"/>
+                <item android:id="@+id/itemNickname"
+                    android:title="Apodo"
+                    android:icon="@drawable/ic_nickname"/>
+            </group>
+        </menu>
+    </item>
 </menu>

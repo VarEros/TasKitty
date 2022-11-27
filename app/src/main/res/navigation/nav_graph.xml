@@ -13,34 +13,21 @@
         <action
             android:id="@+id/action_homeFragment_to_eventListFragment"
             app:destination="@id/eventListFragment"
-            app:enterAnim="@anim/anim_left_right"
-            app:exitAnim="@anim/exit_right_left"
+            app:enterAnim="@anim/exit_right_left"
+            app:exitAnim="@anim/anim_right_left"
             app:popEnterAnim="@anim/anim_left_right"
-            app:popExitAnim="@anim/anim_right_left"
-            app:launchSingleTop="false" />
+            app:popExitAnim="@anim/exit_left_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_homeFragment_to_notesListFragment"
             app:destination="@id/notesListFragment"
-            app:enterAnim="@anim/anim_right_left"
-            app:exitAnim="@anim/exit_left_right" />
-        <action
-            android:id="@+id/action_homeFragment_to_charityListFragment"
-            app:destination="@id/charityListFragment"
-            app:enterAnim="@anim/anim_left_right"
-            app:exitAnim="@anim/anim_right_left" />
-        <action
-            android:id="@+id/action_homeFragment_to_calendarFragment"
-            app:destination="@id/calendarFragment"
-            app:enterAnim="@anim/anim_right_left"
-            app:exitAnim="@anim/exit_left_right" />
-        <action
-            android:id="@+id/action_homeFragment_to_aboutUsFragment"
-            app:destination="@id/aboutUsFragment"
-            app:enterAnim="@anim/anim_left_right"
-            app:exitAnim="@anim/exit_right_left" />
-        app:destination="@id/charityListFragment"
-            app:enterAnim="@anim/anim_left_right"
-            app:exitAnim="@anim/exit_right_left" />
+            app:enterAnim="@anim/exit_right_left"
+            app:exitAnim="@anim/anim_right_left"
+            app:popEnterAnim="@anim/anim_left_right"
+            app:popExitAnim="@anim/exit_left_right"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/eventListFragment"
@@ -50,8 +37,12 @@
         <action
             android:id="@+id/action_eventListFragment_to_newEventFragment"
             app:destination="@id/newEventFragment"
-            app:enterAnim="@anim/anim_left_right"
-            app:exitAnim="@anim/exit_right_left" />
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/anim_left_right"
+            app:popExitAnim="@anim/exit_left_right"
+            app:popUpTo="@id/eventListFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/notesListFragment"
@@ -61,8 +52,12 @@
         <action
             android:id="@+id/action_notesListFragment_to_newNoteFragment"
             app:destination="@id/newNoteFragment"
-            app:enterAnim="@anim/anim_right_left"
-            app:exitAnim="@anim/anim_left_right" />
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/anim_left_right"
+            app:popExitAnim="@anim/exit_left_right"
+            app:popUpTo="@id/notesListFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/newEventFragment"
@@ -79,22 +74,25 @@
         android:label="fragment_new_note"
         tools:layout="@layout/fragment_new_note" />
     <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="ni.edu.uca.taskitty.AboutUsFragment"
+        android:label="fragment_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
         android:id="@+id/charityListFragment"
-        android:name="ni.edu.uca.taskitty.charityListFragment"
+        android:name="ni.edu.uca.taskitty.CharityListFragment"
         android:label="fragment_charity_list"
         tools:layout="@layout/fragment_charity_list" />
     <fragment
         android:id="@+id/calendarFragment"
         android:name="ni.edu.uca.taskitty.CalendarFragment"
         android:label="fragment_calendar"
-        tools:layout="@layout/fragment_calendar" />
-    <fragment
-        android:id="@+id/aboutUsFragment"
-        android:name="ni.edu.uca.taskitty.AboutUsFragment"
-        android:label="fragment_about_us"
-        tools:layout="@layout/fragment_about_us" />
+        tools:layout="@layout/fragment_calendar" /><![CDATA[
+
     android:id="@+id/aboutUsFragment"
         android:name="ni.edu.uca.taskitty.AboutUsFragment"
         android:label="fragment_about_us"
         tools:layout="@layout/fragment_about_us" />
+
+]]>
 </navigation>
