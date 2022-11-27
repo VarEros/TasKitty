@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ni.edu.uca.taskitty.adapter.EventMinimalRecycler
 import ni.edu.uca.taskitty.adapter.EventRecycler
 import ni.edu.uca.taskitty.adapter.NoteRecycler
+import ni.edu.uca.taskitty.data.DataSourceDYK
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
 import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
@@ -24,14 +25,9 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerEvents : RecyclerView
     private lateinit var recyclerNotes : RecyclerView
 
-    private lateinit var  recyclerView: RecyclerView
-    private lateinit var infoArrayList: ArrayList<DYK>
+    private lateinit var mainDYK: DYK
 
-    lateinit var imageId : Array<Int>
-    lateinit var heading : Array<String>
-    lateinit var infoDYK : Array<String>
-    lateinit var btnDYK : Array<Int>
-
+    val dykDS = DataSourceDYK()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +39,20 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onStart() {
+
+        mainDYK = dykDS.getRndsDYK()
+        loadDYK()
+        super.onStart()
+    }
+
+    private fun loadDYK() {
+        with(binding.includedInclude){
+            iconIDK.setImageResource(mainDYK.icon)
+            tvInfoDYK.text = mainDYK.descripcion
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,6 +81,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun showDYK() {
+
         if (binding.includedInclude.tvInfoDYK.visibility == View.VISIBLE){
             binding.includedInclude.tvInfoDYK.visibility = View.GONE
             binding.includedInclude.btnDYK.visibility = View.GONE
@@ -106,4 +117,6 @@ class HomeFragment : Fragment() {
     private fun onClickEvent(event: Event) {
 
     }
+
+
 }

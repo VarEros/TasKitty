@@ -39,4 +39,9 @@ class DataSourceDYK {
             R.drawable.ecosystem)
         )
     }
+
+    fun getRndsDYK(): DYK{
+        val listDYK = loadDYK()
+        return listDYK[(0..10).random()]
+    }
 }
