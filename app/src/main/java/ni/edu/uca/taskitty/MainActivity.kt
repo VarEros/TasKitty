@@ -8,8 +8,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -94,6 +92,8 @@ class MainActivity : AppCompatActivity() {
 
         inflater.inflate(R.menu.main_menu,menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
     private fun viewIsRepeated(fragment: Int): Boolean {
         if(fragment == navController.currentDestination?.id)
             return true

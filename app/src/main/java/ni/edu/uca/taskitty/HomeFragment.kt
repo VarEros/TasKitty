@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var mainDYK: DYK
 
-    val dykDS = DataSourceDYK()
     private lateinit var daoEvent: DaoEvent
     private lateinit var daoNote: DaoNote
 
@@ -59,9 +58,36 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
 
-        mainDYK = dykDS.getRndsDYK()
+        mainDYK = DataSourceDYK().getRndsDYK()
         loadDYK()
         super.onStart()
+    }
+
+    override fun onResume() {
+        refreshDataBase()
+        formData()
+        super.onResume()
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        refreshDataBase()
+        formData()
+        super.onViewCreated(view, savedInstanceState)
+
+        with(binding) {
+            includedInclude.cosntDYK.setOnClickListener{
+                showDYK()
+            }
+            btnAllEvents.setOnClickListener {
+                findNavController().navigate(R.id.eventListFragment)
+            }
+            btnAllNotes.setOnClickListener {
+                findNavController().navigate(R.id.notesListFragment)
+            }
+        }
+
+        establecerEventAdapter()
     }
 
     private fun loadDYK() {
@@ -69,31 +95,6 @@ class HomeFragment : Fragment() {
             iconIDK.setImageResource(mainDYK.icon)
             tvInfoDYK.text = mainDYK.descripcion
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.includedInclude.cosntDYK.setOnClickListener{
-
-            showDYK()
-        }
-
-        with(binding) {
-            btnAllEvents.setOnClickListener {
-
-                findNavController().navigate(R.id.eventListFragment)
-            }
-            btnAllNotes.setOnClickListener {
-
-                findNavController().navigate(R.id.notesListFragment)
-            }
-            btnCalendar.setOnClickListener{
-                findNavController().navigate(R.id.calendarFragment)
-            }
-        }
-
-        establecerEventAdapter()
     }
 
     private fun showDYK() {
@@ -206,6 +207,7 @@ class HomeFragment : Fragment() {
             noteList = daoNote.getAll().toMutableList()
         }
     }
+
 
 
 }
