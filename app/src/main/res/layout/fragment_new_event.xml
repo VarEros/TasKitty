@@ -82,6 +82,7 @@
                 android:background="@drawable/event_title_element"
                 android:fontFamily="@font/kadwa_bold"
                 android:hint="Titulo del evento"
+                android:maxLength="35"
                 android:singleLine="true"
                 android:padding="6dp"
                 android:layout_marginTop="10dp"/>

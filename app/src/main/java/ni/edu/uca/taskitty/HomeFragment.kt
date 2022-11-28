@@ -1,5 +1,6 @@
 package ni.edu.uca.taskitty
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -135,7 +136,7 @@ class HomeFragment : Fragment() {
         setMainEvent()
         recyclerEvents = binding.rcvEvents
         recyclerEvents.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerEvents.adapter = EventMinimalRecycler(binding.root.context,eventList.subList(1,eventList.size),0, {event -> onClickEvent(event)})
+        recyclerEvents.adapter = EventMinimalRecycler(binding.root.context,eventList.subList(1,eventList.size), 1, {event -> onClickEvent(event)})
     }
 
     private fun setVisible() {
@@ -154,11 +155,15 @@ class HomeFragment : Fragment() {
 
     private fun setMainEvent() {
         mainEvent = eventList[0]
-        binding.mainEvent.tvEventTitle.text = mainEvent.title
+        if(mainEvent.title.length > 24)
+            binding.mainEvent.tvEventTitle.text = mainEvent.title.substring(0,22) + "...";
+        else
+            binding.mainEvent.tvEventTitle.text = mainEvent.title
         binding.mainEvent.tvNoteDesc.text = mainEvent.description
-            ColorTask.setColorCircle(mainEvent.color, binding.mainEvent.eventColor)
+        ColorTask.setColorCircle(mainEvent.color, binding.mainEvent.eventColor)
         binding.mainEvent.tvNoteTime.text = DateTask.getEventDateTitle(mainEvent.dateStart)
         binding.mainEvent.eventComp.visibility = View.GONE
+        binding.mainEvent.tvNoteDesc.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
     }
 
     private fun onClickNote(note: Note) {
@@ -174,7 +179,7 @@ class HomeFragment : Fragment() {
     private fun refreshDataBase(){
         GlobalScope.launch {
             eventList = daoEvent.getAllForHome().toMutableList()
-            noteList = daoNote.getAll().toMutableList()
+            noteList = daoNote.getAllFixed().toMutableList()
         }
     }
 }

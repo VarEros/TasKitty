@@ -1,7 +1,6 @@
 package ni.edu.uca.taskitty
 
 import android.app.AlertDialog
-import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,15 +22,88 @@ class NewNoteFragment : Fragment() {
     private lateinit var binding : FragmentNewNoteBinding
     private lateinit var newNote: Note
     private lateinit var daoNote: DaoNote
-    private var safeSave = false
 
-    private var idNote = 0;
-    private var editMode = false;
+    private var safeSave = false
+    private var idNote = 0
+    private var editMode = false
+    private var isFixed = false
+
+    private val starUp = R.drawable.ic_star_up
+    private val starDown = R.drawable.ic_star_down
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoNote = db.daoNote()
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View {
+        binding = FragmentNewNoteBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        idNote = requireArguments().getInt("idNote")
+
+        if (idNote ==0) {
+            binding.btnDelet.visibility = View.GONE
+        }
+        else {
+            switchToEditMode()
+        }
+
+        binding.btnAccept.setOnClickListener {
+            makeNote()
+        }
+
+        binding.btnDiscard.setOnClickListener {
+            setupOnBackPressed()
+            Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
+            activity?.onBackPressed()
+        }
+
+        binding.btnDelet.setOnClickListener {
+            showAlertElim("Eliminar nota", "¿Deseas eliminar esta nota?")
+        }
+
+        binding.ivEventFix.setOnClickListener {
+            isFixed = !isFixed
+            setFixIcon()
+        }
+
+        binding.rgGroup.setOnCheckedChangeListener { _, checkedId ->
+            val radio: RadioButton = binding.rgGroup.findViewById(checkedId)
+            when (radio) {
+                binding.radioRed -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_red)
+                }
+                binding.radioGreen -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_green)
+                }
+                binding.radioBlue -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_blue)
+                }
+                binding.radioYellow -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_yellow)
+                }
+                binding.radioPurple -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_purple)
+                }
+                binding.radioCyan -> {
+                    binding.clTop.setBackgroundResource(R.drawable.note_internal_cyan)
+                }
+            }
+        }
+    }
+
+    private fun setFixIcon() {
+        if(isFixed)
+            binding.ivEventFix.setImageResource(starUp)
+        else
+            binding.ivEventFix.setImageResource(starDown)
     }
 
     private fun showAlert(titleText : String, bodyText : String){
@@ -81,70 +153,14 @@ class NewNoteFragment : Fragment() {
         })
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
-        binding = FragmentNewNoteBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        idNote = requireArguments().getInt("idNote")
-
-        if (idNote ==0) {
-            binding.btnDelet.visibility = View.GONE
-        }
-        else {
-            switchToEditMode()
-        }
-
-        binding.btnAccept.setOnClickListener {
-            makeNote()
-        }
-
-        binding.btnDiscard.setOnClickListener {
-            setupOnBackPressed()
-            Toast.makeText(binding.root.context, "Evento descartado", Toast.LENGTH_SHORT).show()
-            activity?.onBackPressed()
-        }
-
-        binding.btnDelet.setOnClickListener {
-
-            showAlertElim("Eliminar nota", "¿Deseas eliminar esta nota?")
-
-        }
-
-        binding.rgGroup.setOnCheckedChangeListener { _, checkedId ->
-            val radio: RadioButton = binding.rgGroup.findViewById(checkedId)
-            when (radio) {
-                binding.radioRed -> {
-                    binding.clTop.setBackgroundResource(R.drawable.note_internal_red)
-                }
-                binding.radioGreen -> {
-                    binding.clTop.setBackgroundResource(R.drawable.note_internal_green)
-                }
-                binding.radioBlue -> {
-                    binding.clTop.setBackgroundResource(R.drawable.note_internal_blue)
-                }
-                binding.radioYellow -> {
-                    binding.clTop.setBackgroundResource(R.drawable.note_internal_yellow)
-                }
-                binding.radioPurple -> {
-                    binding.clTop.setBackgroundResource(R.drawable.note_internal_purple)
-                }
-                binding.radioCyan -> {
-                    binding.clTop.setBackgroundResource(R.drawable.note_internal_cyan)
-                }
-            }
-        }
-    }
-
-    fun switchToEditMode(){
+    private fun switchToEditMode(){
         val color = requireArguments().getInt("color")
         val dateMod = DateTask(DateTask.getCalFrom(requireArguments().getLong("dateModified")), requireContext(), binding.tvLastEdit)
         
-        editMode = true;
+        editMode = true
+        isFixed = requireArguments().getBoolean("fixed")
+        if(isFixed)
+            binding.ivEventFix.setImageResource(starUp)
         binding.topTitle.text = getString(R.string.event_edit_mode)
         binding.tfTitle.setText(requireArguments().getString("title"))
         binding.etTitleda.setText(requireArguments().getString("description"))
@@ -172,7 +188,7 @@ class NewNoteFragment : Fragment() {
                 title = tfTitle.text.toString(),
                 description = etTitleda.text.toString(),
                 dateModified = Calendar.getInstance().timeInMillis,
-                fixed = false,
+                fixed = isFixed,
                 color = getColorId()
             )
         }

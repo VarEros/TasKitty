@@ -39,54 +39,6 @@ class NewEventFragment() : Fragment() {
         daoEvent = db.daoEvent()
     }
 
-
-    private fun showAlert(titleText : String, bodyText : String){
-        val eBuilder = AlertDialog.Builder(binding.root.context)
-        eBuilder.setTitle(titleText)
-        eBuilder.setIcon(R.drawable.ic_warning)
-        eBuilder.setMessage(bodyText)
-        eBuilder.setPositiveButton("Si"){
-                Dialog,which->
-                    requireActivity().onBackPressed()
-        }
-        eBuilder.setNegativeButton("No"){
-                Dialog,which->
-        }
-        eBuilder.create().show()
-    }
-
-    private fun showAlertElim(titleText : String, bodyText : String){
-        val eBuilder = AlertDialog.Builder(binding.root.context)
-        eBuilder.setTitle(titleText)
-        eBuilder.setIcon(R.drawable.ic_warning)
-        eBuilder.setMessage(bodyText)
-        eBuilder.setPositiveButton("Si"){
-                Dialog,which->
-            requireActivity().onBackPressed()
-            deleteEvent()
-        }
-        eBuilder.setNegativeButton("No"){
-                Dialog,which->
-        }
-        eBuilder.create().show()
-    }
-
-    private fun setupOnBackPressed(){
-        requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true){
-            override fun handleOnBackPressed(){
-                if(safeSave){
-                    isEnabled = false
-                    activity?.onBackPressed()
-                }
-
-                if(isEnabled){
-                    showAlert("Salir de crear evento","¿Deseas salir de eventos sin guardar cambios?")
-                    isEnabled = false
-                }
-            }
-        })
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -152,6 +104,54 @@ class NewEventFragment() : Fragment() {
                 }
             }
         }
+    }
+
+
+    private fun showAlert(titleText : String, bodyText : String){
+        val eBuilder = AlertDialog.Builder(binding.root.context)
+        eBuilder.setTitle(titleText)
+        eBuilder.setIcon(R.drawable.ic_warning)
+        eBuilder.setMessage(bodyText)
+        eBuilder.setPositiveButton("Si"){
+                Dialog,which->
+                    requireActivity().onBackPressed()
+        }
+        eBuilder.setNegativeButton("No"){
+                Dialog,which->
+        }
+        eBuilder.create().show()
+    }
+
+    private fun showAlertElim(titleText : String, bodyText : String){
+        val eBuilder = AlertDialog.Builder(binding.root.context)
+        eBuilder.setTitle(titleText)
+        eBuilder.setIcon(R.drawable.ic_warning)
+        eBuilder.setMessage(bodyText)
+        eBuilder.setPositiveButton("Si"){
+                Dialog,which->
+            requireActivity().onBackPressed()
+            deleteEvent()
+        }
+        eBuilder.setNegativeButton("No"){
+                Dialog,which->
+        }
+        eBuilder.create().show()
+    }
+
+    private fun setupOnBackPressed(){
+        requireActivity().onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed(){
+                if(safeSave){
+                    isEnabled = false
+                    activity?.onBackPressed()
+                }
+
+                if(isEnabled){
+                    showAlert("Salir de crear evento","¿Deseas salir de eventos sin guardar cambios?")
+                    isEnabled = false
+                }
+            }
+        })
     }
 
     fun switchToEditMode(){

@@ -37,10 +37,7 @@ class EventRecycler(var context : Context, var eventsList: List<Event>, var mode
                     eventComp.isEnabled = false
                 }
                 2 ->{
-                    eventTitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP,12f)
-                    eventDesc.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
                     eventDesc.layoutParams.height = 150
-                    eventDate.setTextSize(TypedValue.COMPLEX_UNIT_DIP,8f)
                 }
                 3->{
                     eventDate.visibility = View.GONE
@@ -57,11 +54,11 @@ class EventRecycler(var context : Context, var eventsList: List<Event>, var mode
     override fun onBindViewHolder(holder: eventHolder, position: Int) {
         var event = eventsList[position]
 
-        if(mode == 2 && event.title.length > 25){
-            event.title = event.title.substring(0,10) + "...";
-        }
+        if(mode == 2 && event.title.length > 30){
+            holder.eventTitle.text = event.title.substring(0,30) + "...";
+        }else
+            holder.eventTitle.text = event.title
 
-        holder.eventTitle.text = event.title
         holder.eventDesc.text = event.description
         ColorTask.setColorCircle(event.color, holder.eventColor)
         holder.eventDate.text = DateTask.getEventDateTitle(event.dateStart)

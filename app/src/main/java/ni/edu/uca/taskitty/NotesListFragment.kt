@@ -39,12 +39,6 @@ class NotesListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onStart() {
-        refreshDataBase()
-        establecerAdapter()
-        super.onStart()
-    }
-
     override fun onResume() {
         refreshDataBase()
         establecerAdapter()
@@ -78,7 +72,8 @@ class NotesListFragment : Fragment() {
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoNote = db.daoNote()
         GlobalScope.launch {
-            noteList = daoNote.getAll().toMutableList()
+            noteList = daoNote.getAllFixed().toMutableList()
+            noteList.addAll(daoNote.getAllUnfixed())
         }
     }
 

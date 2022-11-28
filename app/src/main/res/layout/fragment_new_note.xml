@@ -44,15 +44,14 @@
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/ivEventFix"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivEventFix"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_star"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_star_down"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,7 +75,7 @@
             android:background="@color/transparent"
             android:fontFamily="@font/kadwa_bold"
             android:gravity="top"
-            android:hint="Inserte texto"
+            android:hint="Inserte una nota"
             android:padding="10dp"
             android:textColor="@color/font_yellow_black"
             android:textSize="12dp"

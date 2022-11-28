@@ -57,9 +57,11 @@ class NoteRecycler(var context : Context, var noteList: MutableList<Note>, var m
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
         var note = noteList[position]
         val dateModified = DateTask(DateTask.getCalFrom(note.dateModified), context,holder.noteDate)
-
         holder.noteTitle.text = note.title
-        holder.noteDesc.text = note.description
+        if(note.description.length > 250)
+            holder.noteDesc.text = note.description.substring(0,250) + "..."
+        else
+            holder.noteDesc.text = note.description
         ColorTask.setColorBack(note.color, holder.noteColor)
         dateModified.setTvNote()
 

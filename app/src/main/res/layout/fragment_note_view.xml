@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearCont"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,30 +19,22 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constNoteColor"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="29dp"
+            android:paddingHorizontal="10dp"
             android:background="@drawable/note_internal_red">
 
             <TextView
                 android:id="@+id/tvNoteTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/kadwa_bold"
-                android:paddingLeft="10dp"
                 android:text="@string/notes_title"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteY="0dp" />
+                app:layout_constraintBottom_toBottomOf="parent" />
 
-            <ImageView
-                android:id="@+id/starFixNote"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/ic_star"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/tvNoteTitle"
-                app:layout_constraintTop_toTopOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -53,7 +45,7 @@
             <TextView
                 android:id="@+id/tvDesc"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/note_element_mid"
                 android:fontFamily="@font/kadwa_regular"
                 android:paddingHorizontal="10dp"

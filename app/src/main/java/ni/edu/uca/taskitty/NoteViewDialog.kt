@@ -67,17 +67,7 @@ class NoteViewDialog (private var note: Note): DialogFragment() {
             tvNoteTitle.text = note.title
             tvDesc.text = note.description
             dateModif.setTvNote()
-
-
-            when(note.color){
-
-                1-> constNoteColor.setBackgroundResource(R.color.red_schema)
-                2-> constNoteColor.setBackgroundResource(R.color.green_schema)
-                3-> constNoteColor.setBackgroundResource(R.color.blue_schema)
-                4-> constNoteColor.setBackgroundResource(R.color.yellow_schema)
-                5-> constNoteColor.setBackgroundResource(R.color.purple_schema)
-                6-> constNoteColor.setBackgroundResource(R.color.cian_schema)
-            }
+            ColorTask.setColorBack(note.color, constNoteColor)
         }
     }
 

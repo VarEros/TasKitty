@@ -16,26 +16,26 @@
             android:id="@+id/constNoteColor"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingHorizontal="10dp"
             android:background="@drawable/note_internal_red">
 
                 <TextView
                     android:id="@+id/tvNoteTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/kadwa_bold"
-                    android:paddingLeft="10dp"
                     android:text="@string/notes_title"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/starFixNote"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <ImageView
                     android:id="@+id/starFixNote"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:paddingRight="10dp"
-                    android:src="@drawable/ic_star"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_star_up"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"

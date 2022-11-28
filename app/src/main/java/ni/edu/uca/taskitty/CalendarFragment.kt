@@ -4,42 +4,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CalendarView
 import android.widget.CalendarView.OnDateChangeListener
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.adapter.EventMinimalRecycler
-import ni.edu.uca.taskitty.adapter.EventRecycler
 import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
 import ni.edu.uca.taskitty.databinding.FragmentCalendarBinding
-import ni.edu.uca.taskitty.databinding.FragmentNewEventBinding
 import ni.edu.uca.taskitty.model.Event
+import java.util.*
 
 
 class CalendarFragment : Fragment() {
 
     private lateinit var binding: FragmentCalendarBinding
-    private var eventList : MutableList<Event> = mutableListOf()
+    private lateinit var eventList : List<Event>
+    private var eventListDay: MutableList<Event> = mutableListOf()
     private lateinit var daoEvent: DaoEvent
     private lateinit var rcvComingEvent : RecyclerView
+    private var dateSelected =  Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val db = AppDB.getInstance(requireContext().applicationContext)
         daoEvent = db.daoEvent()
-        GlobalScope.launch {
-            eventList = daoEvent.getAll().toMutableList()
-        }
     }
 
     override fun onCreateView(
@@ -48,20 +39,38 @@ class CalendarFragment : Fragment() {
     ): View {
         binding = FragmentCalendarBinding.inflate(inflater, container, false)
         return binding.root
+    }
 
+    override fun onResume() {
+        refreshDatabase()
+        setEvents()
+        setTv()
+        setAdapter()
+        super.onResume()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpCalendar()
-        establecerAdapter()
+
+        binding.calendarView.setOnDateChangeListener(
+            OnDateChangeListener { view, year, month, dayOfMonth ->
+                dateSelected.set(year, month, dayOfMonth)
+                eventListDay.clear()
+                setEvents()
+                setTv()
+                setAdapter()
+            })
+        refreshDatabase()
     }
 
-    private fun establecerAdapter(){
+    private fun setTv() {
+        binding.tVDate.text = DateTask.getMidDate(dateSelected)
+    }
+
+    private fun setAdapter(){
         rcvComingEvent = binding.rvComingEvents
         rcvComingEvent.layoutManager = LinearLayoutManager(binding.root.context)
-        rcvComingEvent.adapter = EventMinimalRecycler(binding.root.context,eventList,0, {event -> onClickEvent(event)})
-
+        rcvComingEvent.adapter = EventMinimalRecycler(binding.root.context,eventListDay, 0, {event -> onClickEvent(event)})
     }
 
     private fun onClickEvent(event : Event){
@@ -69,13 +78,16 @@ class CalendarFragment : Fragment() {
         dialog.show(parentFragmentManager,"custom")
     }
 
-    private fun setUpCalendar() {
-        binding.calendarView.setOnDateChangeListener(
-                OnDateChangeListener { view, year, month, dayOfMonth ->
-                    val Date = (dayOfMonth.toString() + "-"
-                            + (month + 1) + "-" + year)
-                    binding.idTVDate.setText(Date)
-                    })
+    private fun setEvents() {
+        for(event in eventList){
+            if(DateTask.isThisDay(event.dateStart, dateSelected))
+                eventListDay.add(event)
+        }
+    }
 
+    private fun refreshDatabase() {
+        GlobalScope.launch {
+            eventList = daoEvent.getAll()
+        }
     }
 }

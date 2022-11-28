@@ -34,9 +34,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
                 android:text="¿Sabías Que?"
-                android:textColor="@color/light_green"
+                android:textColor="@color/white"
                 android:textSize="40sp"
                 android:gravity="center"
+                android:fontFamily="@font/kadwa_bold"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -69,7 +70,7 @@
                 android:id="@+id/tvInfoDYK"
                 android:justificationMode="inter_word"
                 android:text="@string/lorem"
-                android:textColor="@color/light_green"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"

@@ -59,23 +59,6 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
         }
     }
 
-    private fun getMonth(month: Int): String {
-        return when(month) {
-            0 -> "Enero"
-            1 -> "Febrero"
-            2 -> "Marzo"
-            3 -> "Abril"
-            4 -> "Mayo"
-            5 -> "Junio"
-            6 -> "Julio"
-            7 -> "Agosto"
-            8 -> "Septiembre"
-            9 -> "Octubre"
-            10 -> "Noviembre"
-            else -> "Diciembre"
-        }
-    }
-
     private fun getMinute():String {
         if (cal.get(Calendar.MINUTE)<10)
             return "0${cal.get(Calendar.MINUTE)}"
@@ -87,10 +70,28 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
     }
 
     companion object {
+
         fun getCalFrom(dateLong: Long): Calendar {
             var calType = Calendar.getInstance()
             calType.timeInMillis = dateLong
             return  calType
+        }
+
+        private fun getMonth(month: Int): String {
+            return when(month) {
+                0 -> "Enero"
+                1 -> "Febrero"
+                2 -> "Marzo"
+                3 -> "Abril"
+                4 -> "Mayo"
+                5 -> "Junio"
+                6 -> "Julio"
+                7 -> "Agosto"
+                8 -> "Septiembre"
+                9 -> "Octubre"
+                10 -> "Noviembre"
+                else -> "Diciembre"
+            }
         }
 
         fun getEventDateTitle(long: Long): String {
@@ -123,6 +124,21 @@ class DateTask(private val cal: Calendar, val mcontext: Context, var tv: TextVie
                 "$inHour horas"
             else
                 "$inDays dias"
+        }
+
+        fun isThisDay(long: Long, dateSelected: Calendar): Boolean {
+            val date = getCalFrom(long)
+            if(date.get(Calendar.YEAR) == dateSelected.get(Calendar.YEAR))
+                if (date.get(Calendar.MONTH) == dateSelected.get(Calendar.MONTH))
+                    if (date.get(Calendar.DAY_OF_MONTH) == dateSelected.get(Calendar.DAY_OF_MONTH))
+                        return true
+            return false
+        }
+
+        fun getMidDate(dateSelected: Calendar): String {
+            return "${dateSelected.get(Calendar.DAY_OF_MONTH)} - " +
+                    "${getMonth(dateSelected.get(Calendar.MONTH))} - " +
+                    "${dateSelected.get(Calendar.YEAR)} "
         }
     }
 

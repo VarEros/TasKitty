@@ -1,6 +1,7 @@
 package ni.edu.uca.taskitty.adapter
 
 import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ import ni.edu.uca.taskitty.DateTask
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.Event
 
-class EventMinimalRecycler(var context : Context, var eventsList: List<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
+class EventMinimalRecycler(var context : Context, var eventsList: List<Event>, var mode: Int, private val onClickEvent : (Event) -> Unit):
     RecyclerView.Adapter<EventMinimalRecycler.EventMinimalHolder>() {
 
         inner class EventMinimalHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -27,6 +28,7 @@ class EventMinimalRecycler(var context : Context, var eventsList: List<Event>, v
                 eventTitle = itemView.findViewById(R.id.tvEventTitle)
                 eventDate = itemView.findViewById(R.id.tvLeftTime)
                 eventColor = itemView.findViewById(R.id.eventColor)
+
             }
         }
 
@@ -37,7 +39,10 @@ class EventMinimalRecycler(var context : Context, var eventsList: List<Event>, v
 
     override fun onBindViewHolder(holder: EventMinimalHolder, position: Int) {
         var event = eventsList[position]
-        holder.eventTitle.text = event.title
+        if(event.title.length > 26 && mode == 1)
+            holder.eventTitle.text = event.title.substring(0,24) + "..."
+        else
+            holder.eventTitle.text = event.title
         ColorTask.setColorCircle(event.color, holder.eventColor)
         holder.eventDate.text = DateTask.getEventShortDate(event.dateStart)
 

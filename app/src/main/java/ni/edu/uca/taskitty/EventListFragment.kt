@@ -43,12 +43,6 @@ class EventListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onStart() {
-        refreshDataBase()
-        establecerEventAdapter()
-        super.onStart()
-    }
-
 
     override fun onResume() {
         super.onResume()
