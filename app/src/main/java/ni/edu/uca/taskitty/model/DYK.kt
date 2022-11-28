@@ -1,4 +1,4 @@
-package ni.edu.uca.taskitty
+package ni.edu.uca.taskitty.model
 
 import android.opengl.Visibility
 import android.widget.Button

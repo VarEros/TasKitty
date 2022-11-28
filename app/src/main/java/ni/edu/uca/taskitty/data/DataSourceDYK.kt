@@ -1,6 +1,6 @@
 package ni.edu.uca.taskitty.data
 
-import ni.edu.uca.taskitty.DYK
+import ni.edu.uca.taskitty.model.DYK
 import ni.edu.uca.taskitty.R
 
 class DataSourceDYK {
@@ -31,7 +31,7 @@ class DataSourceDYK {
         )
     }
 
-    fun getRndDYK(): DYK{
+    fun getRndDYK(): DYK {
         val listDYK = loadDYK()
         return listDYK[(0..6).random()]
     }

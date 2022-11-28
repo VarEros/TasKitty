@@ -64,8 +64,9 @@ class CalendarFragment : Fragment() {
 
     }
 
-    private fun onClickEvent(event: Event) {
-
+    private fun onClickEvent(event : Event){
+        val dialog = EventViewDialog(event)
+        dialog.show(parentFragmentManager,"custom")
     }
 
     private fun setUpCalendar() {

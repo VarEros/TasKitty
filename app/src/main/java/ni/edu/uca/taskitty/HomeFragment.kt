@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.adapter.EventMinimalRecycler
 import ni.edu.uca.taskitty.adapter.NoteRecycler
@@ -19,6 +18,7 @@ import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
 import ni.edu.uca.taskitty.data.DaoNote
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
+import ni.edu.uca.taskitty.model.DYK
 import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
 

@@ -42,6 +42,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:backgroundTint="@color/down_green"
+            android:visibility="gone"
             android:id="@+id/expandableDYK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
