@@ -1,15 +1,16 @@
 package ni.edu.uca.taskitty
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ni.edu.uca.taskitty.adapter.EventMinimalRecycler
 import ni.edu.uca.taskitty.adapter.NoteRecycler
@@ -17,11 +18,9 @@ import ni.edu.uca.taskitty.data.DataSourceDYK
 import ni.edu.uca.taskitty.data.AppDB
 import ni.edu.uca.taskitty.data.DaoEvent
 import ni.edu.uca.taskitty.data.DaoNote
-import ni.edu.uca.taskitty.databinding.EventElementBinding
 import ni.edu.uca.taskitty.databinding.FragmentHomeBinding
 import ni.edu.uca.taskitty.model.Event
 import ni.edu.uca.taskitty.model.Note
-import java.util.*
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -29,15 +28,14 @@ class HomeFragment : Fragment() {
     private var eventList : MutableList<Event> = mutableListOf()
     private var noteList : MutableList<Note> = mutableListOf()
 
-    private lateinit var recyclerEvents : RecyclerView
-    private lateinit var recyclerNotes : RecyclerView
+    private lateinit var recyclerEvents: RecyclerView
+    private lateinit var recyclerNotes: RecyclerView
 
     private lateinit var mainDYK: DYK
+    private lateinit var mainEvent: Event
 
     private lateinit var daoEvent: DaoEvent
     private lateinit var daoNote: DaoNote
-
-    private lateinit var mainEvent: Event
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,8 +55,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onStart() {
-
-        mainDYK = DataSourceDYK().getRndsDYK()
+        mainDYK = DataSourceDYK().getRndDYK()
         loadDYK()
         super.onStart()
     }
@@ -80,61 +77,34 @@ class HomeFragment : Fragment() {
                 showDYK()
             }
             btnAllEvents.setOnClickListener {
-                findNavController().navigate(R.id.eventListFragment)
+                findNavController().navigate(R.id.action_homeFragment_to_eventListFragment)
             }
             btnAllNotes.setOnClickListener {
-                findNavController().navigate(R.id.notesListFragment)
+                findNavController().navigate(R.id.action_homeFragment_to_notesListFragment)
             }
         }
-
-        establecerEventAdapter()
+        binding.mainEvent.btnEnterEvent.setOnClickListener {
+            onClickEvent(mainEvent)
+        }
     }
 
     private fun loadDYK() {
         with(binding.includedInclude){
             iconIDK.setImageResource(mainDYK.icon)
             tvInfoDYK.text = mainDYK.descripcion
+            bgDYK.setImageResource(mainDYK.background)
         }
     }
 
     private fun showDYK() {
-
-        if (binding.includedInclude.tvInfoDYK.visibility == View.VISIBLE){
-            binding.includedInclude.tvInfoDYK.visibility = View.GONE
-            binding.includedInclude.btnDYK.visibility = View.GONE
-
-            return
-        }
-
-        if (binding.includedInclude.tvInfoDYK.visibility == View.GONE){
-            binding.includedInclude.tvInfoDYK.visibility = View.VISIBLE
-            binding.includedInclude.btnDYK.visibility = View.VISIBLE
-        }
-    }
-
-    private fun establecerEventAdapter(){
-        recyclerNormal = binding.rcvEventFix
-        recyclerNormal.layoutManager = LinearLayoutManager(binding.root.context)
-        recyclerNormal.adapter = EventRecycler(binding.root.context, eventList,2,{event -> onClickEvent(event)})
-
-    override fun onResume() {
-        refreshDataBase()
-        formData()
-        super.onResume()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        refreshDataBase()
-        formData()
-        binding.btnAllEvents.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_eventListFragment)
-        }
-        binding.btnAllNotes.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_notesListFragment)
-        }
-        binding.mainEvent.btnEnterEvent.setOnClickListener {
-            onClickEvent(mainEvent)
+        with(binding.includedInclude) {
+            expandableDYK.visibility = if (expandableDYK.visibility == View.VISIBLE) {
+                TransitionManager.beginDelayedTransition(cosntDYK, AutoTransition())
+                View.GONE
+            } else {
+                TransitionManager.beginDelayedTransition(cosntDYK, AutoTransition())
+                View.VISIBLE
+            }
         }
     }
 
@@ -157,12 +127,12 @@ class HomeFragment : Fragment() {
             }
             1 -> {
                 setVisible()
-                establecerMainEvent()
+                setMainEvent()
                 return
             }
         }
         setVisible()
-        establecerMainEvent()
+        setMainEvent()
         recyclerEvents = binding.rcvEvents
         recyclerEvents.layoutManager = LinearLayoutManager(binding.root.context)
         recyclerEvents.adapter = EventMinimalRecycler(binding.root.context,eventList.subList(1,eventList.size),0, {event -> onClickEvent(event)})
@@ -182,7 +152,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun establecerMainEvent() {
+    private fun setMainEvent() {
         mainEvent = eventList[0]
         binding.mainEvent.tvEventTitle.text = mainEvent.title
         binding.mainEvent.tvNoteDesc.text = mainEvent.description
@@ -201,13 +171,10 @@ class HomeFragment : Fragment() {
         dialog.show(parentFragmentManager,"custom")
     }
 
-    fun refreshDataBase(){
+    private fun refreshDataBase(){
         GlobalScope.launch {
             eventList = daoEvent.getAllForHome().toMutableList()
             noteList = daoNote.getAll().toMutableList()
         }
     }
-
-
-
 }

@@ -1,89 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="8dp"
-    android:id="@+id/cosntDYK"
-    android:paddingTop="10dp"
-    android:background="@drawable/selva">
+    android:id="@+id/cosntDYK">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:id="@+id/icon_IDK"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/flower_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@drawable/flower_icon"/>
-
-    <TextView
-        android:id="@+id/tvSabiasQue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/light_green"
-        android:text="Sabías Que?"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/expandableDidYouKnow"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="6dp"
-        app:flow_horizontalBias="0.5"
-        app:layout_constraintBottom_toBottomOf="@id/underline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icon_IDK">
+        android:layout_height="match_parent">
 
-        <TextView
+        <LinearLayout
+            android:background="@drawable/header_page_title"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tvInfoDYK"
-            android:text="@string/lorem"
-            android:textColor="@color/light_green"
+            android:padding="16dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/icon_IDK"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/flower_icon"
+                app:shapeAppearanceOverlay="@drawable/flower_icon" />
+
+            <TextView
+                android:id="@+id/tvSabiasQue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:text="¿Sabías Que?"
+                android:textColor="@color/light_green"
+                android:textSize="40sp"
+                android:gravity="center"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:backgroundTint="@color/down_green"
+            android:id="@+id/expandableDYK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:flow_horizontalBias="0.5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"
-            />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/btnDYK"
-            android:layout_width="84dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/button_about"
-            android:drawableLeft="@drawable/art_open_external"
-            android:fontFamily="@font/kadwa_bold"
-            android:paddingLeft="10dp"
-            android:text="@string/read_more"
-            android:textAlignment="textStart"
-            android:textAllCaps="false"
-            android:textColor="@color/down_green"
-            android:textSize="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInfoDYK"
-            android:visibility="gone"/>
+            <ImageView
+                android:id="@+id/bg_DYK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_jungle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvInfoDYK"
+                android:justificationMode="inter_word"
+                android:text="@string/lorem"
+                android:textColor="@color/light_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="12dp"
+                />
+
+            <Button
+                android:id="@+id/btnDYK"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_about"
+                android:drawableLeft="@drawable/art_open_external"
+                android:fontFamily="@font/kadwa_bold"
+                android:padding="10dp"
+                android:text="@string/read_more"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/down_green"
+                android:textSize="11sp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvInfoDYK" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:id="@+id/underline"
-        android:background="@color/light_green"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

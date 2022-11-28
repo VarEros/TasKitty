@@ -7,41 +7,32 @@ class DataSourceDYK {
 
     fun loadDYK() : List <DYK>{
         return listOf(
-            DYK(R.drawable.ant,
-            "Las hormigas son insectos curiosos. Hacen guerras, pueden capturar a esclavos, siempre viven en comunidad y se organizan de una forma pasmosa para conseguir su comida y construir sus hogares. Sin duda, son imparables. Toda esta actividad quizá se explica porque son seres incapaces de dormir ni un solo segundo.",
-            R.drawable.meadow),
-            DYK(R.drawable.elefant,
-            "Según varios descubrimientos científicos relativamente recientes, los elefantes son capaces de producir ruidos infrasónicos para comunicarse con otros de su especie. Estos sonidos resultan imperceptibles para el oído humano. Algo similar ocurre con los lobos. El jefe de una manada puede llamar a otros lobos que estén situados a más de 20 kilómetros y hacerse oír.",
-            R.drawable.selva),
-            DYK(R.drawable.hipocampo,
+            DYK(R.drawable.img_ani_zebra,
+            "Las cebras se comunican con los de su propia especie a través de expresiones faciales y sonidos. Sus labios son bastante flexibles, lo que les permite formar expresiones faciales complejas. Sus modos visuales de comunicación también incluyen la posición de las orejas, la cabeza y la cola.",
+            R.drawable.bg_jungle),
+            DYK(R.drawable.img_ani_elephant,
+            "Según varios descubrimientos científicos relativamente recientes, los elefantes son capaces de producir ruidos infrasónicos para comunicarse con otros de su especie. Estos sonidos resultan imperceptibles para el oído humano.",
+            R.drawable.bg_jungle),
+            DYK(R.drawable.img_ani_hippopotamus,
             "También llamados hipocampos, esta especie cuenta con la particularidad de que son los machos quienes traen las crías al mundo. Es la hembra quien deposita los huevos en una bolsa en el interior del macho, así, él genera una especie de placenta y después alimenta a sus hijos.",
-            R.drawable.ocean_background),
-            DYK(R.drawable.abejas,
-            "Las abejas son insectos himenópteros, que además de proporcionarnos la miel, son los polinizadores más importantes del planeta, por delante de pájaros y murciélagos. Una cuarta parte de las especies vegetales que florecen dependen de ellas.",
-            R.drawable.meadow),
-            DYK(R.drawable.productos_ecologicos,
-            "Los productos ecológicos generan menos contaminación ambiental ya que no se utilizan fertilizantes. Te recomendamos realizar un huerto en casa, de esta manera disfrutarás alimentos frescos y llenos de nutrientes. ",
-            R.drawable.meadow),
-            DYK(R.drawable.arboles,
-            "Los árboles son esenciales para el mundo, producen oxígeno, reducen el dióxido de carbono, absorben gases contaminantes, regulan la temperatura, entre otros beneficios. Así que ya sabes, planta un árbol y contribuye al cuidado del medio ambiente. ",
-            R.drawable.selva),
-            DYK(R.drawable.agua,
-            "El agua es un recurso imprescindible y escaso que debemos usar con responsabilidad. Cerrar el grifo mientras te lavas los dientes, bañarte en 5 minutos, juntar el agua de la regadera mientras te bañas, son pequeñas acciones que ayudan a ahorrarla.",
-            R.drawable.ocean_background),
-            DYK(R.drawable.murcielago,
-            "Los murciélagos de las áreas urbanas pueden consumir casi 14.000 kilos de insectos en una sola noche. De esta manera nos ayudan a librarnos de innumerables plagas nocivas. Además, en sus desplazamientos llevan consigo todo tipo de semillas.",
-            R.drawable.cave),
-            DYK(R.drawable.primate,
-            "La importancia de los primates no reside únicamente en el parentesco, dado que compartimos el 90 % de nuestros genes. Dependemos de su hábitat porque los bosques son importantes sumideros de carbono que liberan oxígeno a través de la fotosíntesis, y por su función de evapotranspiración que influye en las precipitaciones.",
-            R.drawable.selva),
-            DYK(R.drawable.animales_salvajes,
-            "Los animales carroñeros mantienen el ecosistema limpio de toda materia en descomposición. Eliminan restos orgánicos, evitando la superpoblación de microorganismos perjudiciales para el entorno. Los restos dejados por los carroñeros son después usados por los descomponedores. Los animales carroñeros más conocidos son los buitres y las hienas.",
-            R.drawable.ecosystem)
+            R.drawable.bg_ocean),
+            DYK(R.drawable.img_ani_tiger,
+            "Los tigres pueden parecer versiones gigantes de nuestros gatos domésticos pero, a diferencia de la mayoría de los gatos domésticos, aman el agua y disfrutan nadar. Incluso cazan en el agua y pueden nadar muy lejos. ¡Mamá tigres dan clases de natación a sus cachorros!",
+            R.drawable.bg_jungle),
+            DYK(R.drawable.img_ani_giraffe,
+            "Si bien pueden comer mucho, las jirafas no beben mucha agua. Esto se debe a que obtienen la mayor parte del agua de sus comidas con hojas y solo necesitan beber una vez cada pocos días.",
+            R.drawable.bg_jungle),
+            DYK(R.drawable.img_ani_bear,
+            "Los osos son animales extraordinariamente inteligentes. Tienen habilidades de navegación muy superiores a las de los humanos, excelente memoria, gran proporción cerebro-cuerpo y usan herramientas en varios contextos, desde el juego hasta la caza.",
+            R.drawable.bg_forest),
+            DYK(R.drawable.img_ani_racoon,
+            "Los mapaches son conocidos por sus máscaras faciales oscuras parecidas a las de los bandidos. Una teoría es que las marcas oscuras distintivas ayudan a desviar el resplandor del sol y también pueden mejorar la visión nocturna.",
+            R.drawable.bg_forest),
         )
     }
 
-    fun getRndsDYK(): DYK{
+    fun getRndDYK(): DYK{
         val listDYK = loadDYK()
-        return listDYK[(0..10).random()]
+        return listDYK[(0..6).random()]
     }
 }
