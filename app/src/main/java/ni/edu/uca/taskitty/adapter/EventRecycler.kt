@@ -15,7 +15,6 @@ import ni.edu.uca.taskitty.model.Event
 class EventRecycler(var context : Context, var eventsList: List<Event>, var mode : Int, private val onClickEvent : (Event) -> Unit):
     RecyclerView.Adapter<EventRecycler.eventHolder>() {
 
-
     inner class eventHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         lateinit var event : Event
         var eventTitle : TextView
@@ -33,7 +32,6 @@ class EventRecycler(var context : Context, var eventsList: List<Event>, var mode
             eventComp = itemView.findViewById(R.id.eventComp)
             btnEnter = itemView.findViewById(R.id.btnEnterEvent)
 
-
             when(mode){
                 1->{
                     eventComp.isEnabled = false
@@ -48,7 +46,6 @@ class EventRecycler(var context : Context, var eventsList: List<Event>, var mode
                     eventDate.visibility = View.GONE
                 }
             }
-
         }
     }
 
@@ -60,7 +57,7 @@ class EventRecycler(var context : Context, var eventsList: List<Event>, var mode
     override fun onBindViewHolder(holder: eventHolder, position: Int) {
         var event = eventsList[position]
 
-        if(mode == 2 && event.title.length > 11){
+        if(mode == 2 && event.title.length > 25){
             event.title = event.title.substring(0,10) + "...";
         }
 
@@ -80,13 +77,3 @@ class EventRecycler(var context : Context, var eventsList: List<Event>, var mode
         return eventsList.size
     }
 }
-
-
-/*
-    rojo -> 1
-    verde -> 2
-    azul -> 3
-    amarillo -> 4
-    morado -> 5
-    cian -> 6
-* */
