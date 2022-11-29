@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import ni.edu.uca.taskitty.adapter.EventMinimalRecycler
 import ni.edu.uca.taskitty.adapter.OngAdapter
@@ -15,6 +16,10 @@ import ni.edu.uca.taskitty.model.ONG
 class CharityListFragment : Fragment() {
 
     private lateinit var binding : FragmentCharityListBinding
+
+    companion object{
+        const val SEARCH_PREFIX = "https://virtualpregrado.uca.edu.ni/"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

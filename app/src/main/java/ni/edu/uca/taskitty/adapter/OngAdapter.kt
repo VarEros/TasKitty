@@ -1,6 +1,8 @@
 package ni.edu.uca.taskitty.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ni.edu.uca.taskitty.CharityListFragment
 import ni.edu.uca.taskitty.R
 import ni.edu.uca.taskitty.model.ONG
 
@@ -44,6 +47,12 @@ class OngAdapter(var context : Context, var ongList: List<ONG>,private val onCli
 
         holder.btnAbout.setOnClickListener {
             onClickOngLink(ong)
+        }
+        holder.btnAbout.setOnClickListener{
+            val context = holder.itemView.context
+            val queryUrl: Uri = Uri.parse("${CharityListFragment.SEARCH_PREFIX}")
+            val intent = Intent(Intent.ACTION_VIEW, queryUrl)
+            context.startActivity(intent)
         }
     }
 
