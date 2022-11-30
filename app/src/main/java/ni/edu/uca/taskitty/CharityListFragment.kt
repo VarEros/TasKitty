@@ -18,7 +18,7 @@ class CharityListFragment : Fragment() {
     private lateinit var binding : FragmentCharityListBinding
 
     companion object{
-        const val SEARCH_PREFIX = "https://virtualpregrado.uca.edu.ni/"
+        const val SEARCH_PREFIX = "https://poncka.github.io/tasKitty-web.github.io/ONG/basic.html/"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
