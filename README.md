@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./assets/icons/taskittywebicon.svg" width="128px">
+    <img src="./taskittywebicon.svg" width="128px">
     <h1>TasKitty - Web</h1>
     Web utilizada para el proyecto de móviles TasKitty
 </div>
